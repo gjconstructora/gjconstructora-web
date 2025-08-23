@@ -91,10 +91,10 @@ a {
   align-items: center;
 }
 
-/* Tamaño del logo agrandado un 20% */
+/* Tamaño del logo achicado un 30% (9.37125rem * 0.7 = 6.559875rem) */
 #header .logo .symbol {
-  width: 11.2455rem;
-  height: 11.2455rem;
+  width: 9.37125rem;
+  height: 9.37125rem;
   margin-right: 1rem;
   display: block;
 }
@@ -104,7 +104,7 @@ a {
   height: auto;
 }
 
-/* Título de la constructora agrandado un 20% */
+/* Título de la constructora agrandado un 20% (0.7203rem * 1.2 = 0.86436rem) */
 #header .logo .title {
   color: #000000;
   font-weight: 700;
@@ -175,7 +175,6 @@ a {
 .tiles article a {
   display: block;
   position: relative;
-  height: 100%;
 }
 
 .tiles article a .image {
@@ -233,10 +232,10 @@ a {
 /* Estilo para las fotos de la galería (sin título) */
 .gallery img {
     transition: transform 0.3s, box-shadow 0.3s;
-    object-fit: cover; /* Ajuste para que las fotos completen el marco */
     width: 100%;
-    height: 100%;
-    object-position: center; /* Centra la imagen en el marco */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 }
 
 .gallery img:hover {
@@ -388,13 +387,4 @@ a {
     text-align: center;
     margin-bottom: 2rem;
     color: #030041;
-}
-
-.gallery img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
-  object-position: center;
 }
