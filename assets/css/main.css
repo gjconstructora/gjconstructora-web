@@ -91,10 +91,10 @@ a {
   align-items: center;
 }
 
-/* Tamaño del logo agrandado en un 20% */
+/* Tamaño del logo agrandado en un 70% (5rem * 1.7 = 8.5rem) */
 #header .logo .symbol {
-  width: 6rem; /* Original 5rem * 1.2 = 6rem */
-  height: 6rem;
+  width: 8.5rem;
+  height: 8.5rem;
   margin-right: 1rem;
   display: block;
 }
@@ -104,11 +104,11 @@ a {
   height: auto;
 }
 
-/* Título de la constructora reducido en un 20% y en color negro */
+/* Título de la constructora reducido en un 30% (1.75rem * 0.7 = 1.225rem) */
 #header .logo .title {
   color: #000000;
   font-weight: 700;
-  font-size: 1.4rem; /* Original 1.75rem * 0.8 = 1.4rem */
+  font-size: 1.225rem;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
 }
@@ -174,6 +174,13 @@ a {
   width: 100%;
   height: auto;
   transition: transform 0.5s;
+}
+
+/* Ajuste de la foto de enlace de la galeria 5 */
+.tiles article.style5 .image img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .tiles article:hover .image img {
