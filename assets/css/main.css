@@ -77,7 +77,7 @@ a {
 #header {
   background: #c2c2c2;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-}
+}.
 
 #header .inner {
   display: flex;
@@ -190,7 +190,7 @@ a {
     z-index: 2; /* Para que el contenido esté por encima de la imagen */
     padding: 1.5rem;
     background: rgba(0, 0, 0, 0.7);
-    color: #fff;
+    color: #c2c2c2;
     transition: background 0.3s;
     display: flex;
     flex-direction: column;
@@ -221,7 +221,7 @@ a {
   z-index: 2;
   padding: 1.5rem;
   background: rgba(0, 0, 0, 0.7);
-  color: #fff;
+  color: #c2c2c2;
   transition: background 0.3s;
   display: flex;
   flex-direction: column;
@@ -232,7 +232,7 @@ a {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #fdffbb;
+  color: #c2c2c2;
 }
 
 .tiles article .content p {
