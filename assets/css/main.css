@@ -91,10 +91,10 @@ a {
   align-items: center;
 }
 
-/* Tamaño del logo agrandado un 50% */
+/* Tamaño del logo achicado un 30% (19.125rem * 0.7 = 13.3875rem) */
 #header .logo .symbol {
-  width: 19.125rem; /* 12.75rem * 1.5 = 19.125rem */
-  height: 19.125rem;
+  width: 13.3875rem;
+  height: 13.3875rem;
   margin-right: 1rem;
   display: block;
 }
@@ -104,11 +104,11 @@ a {
   height: auto;
 }
 
-/* Título de la constructora reducido un 30% */
+/* Título de la constructora agrandado un 20% (0.60025rem * 1.2 = 0.7203rem) */
 #header .logo .title {
   color: #000000;
   font-weight: 700;
-  font-size: 0.60025rem; /* 0.8575rem * 0.7 = 0.60025rem */
+  font-size: 0.7203rem;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
 }
@@ -174,12 +174,15 @@ a {
 
 .tiles article .image {
   display: block;
+  position: relative;
+  height: 100%;
 }
 
 .tiles article .image img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.5s;
 }
 
@@ -190,10 +193,8 @@ a {
     width: 100%;
 }
 
-/* Modificación para que el área del contenido sea también parte del enlace */
 .tiles article .content {
     position: absolute;
-    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -207,18 +208,23 @@ a {
     justify-content: flex-end; /* Alinea el contenido en la parte inferior */
 }
 
-.tiles article:hover .content {
-  background: rgba(0, 0, 0, 0.85);
+.tiles article:hover .image img {
+  transform: scale(1.05);
 }
 
-.tiles article a.full-link {
+/* Modificación para que toda el área del artículo sea el enlace */
+.tiles article a {
     display: block;
     position: absolute;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    z-index: 1; /* Para que el enlace no esté sobre el contenido */
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.tiles article .content {
+    z-index: 2; /* Asegura que el texto esté visible sobre la imagen */
 }
 
 .tiles article .content h2 {
