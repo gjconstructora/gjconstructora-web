@@ -91,7 +91,7 @@ a {
   align-items: center;
 }
 
-/* Tamaño del logo achicado un 30% (9.37125rem * 0.7 = 6.559875rem) */
+/* Tamaño del logo agrandado un 20% */
 #header .logo .symbol {
   width: 11.2455rem;
   height: 11.2455rem;
@@ -104,7 +104,7 @@ a {
   height: auto;
 }
 
-/* Título de la constructora agrandado un 20% (0.7203rem * 1.2 = 0.86436rem) */
+/* Título de la constructora agrandado un 20% */
 #header .logo .title {
   color: #000000;
   font-weight: 700;
@@ -175,6 +175,7 @@ a {
 .tiles article a {
   display: block;
   position: relative;
+  height: 100%;
 }
 
 .tiles article a .image {
