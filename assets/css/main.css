@@ -91,10 +91,10 @@ a {
   align-items: center;
 }
 
-/* Tamaño del logo achicado un 30% (19.125rem * 0.7 = 13.3875rem) */
+/* Tamaño del logo achicado un 30% (13.3875rem * 0.7 = 9.37125rem) */
 #header .logo .symbol {
-  width: 13.3875rem;
-  height: 13.3875rem;
+  width: 9.37125rem;
+  height: 9.37125rem;
   margin-right: 1rem;
   display: block;
 }
@@ -212,20 +212,22 @@ a {
   transform: scale(1.05);
 }
 
-/* Modificación para que toda el área del artículo sea el enlace */
+/* Modificación para que el área del contenido sea también parte del enlace */
 .tiles article a {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
+    position: relative;
 }
 
-.tiles article .content {
-    z-index: 2; /* Asegura que el texto esté visible sobre la imagen */
+/* Restaura la visibilidad de la imagen */
+.tiles article a .image {
+    position: relative;
+    z-index: 1;
 }
+
+.tiles article a .content {
+    z-index: 2;
+}
+
 
 .tiles article .content h2 {
   font-size: 1.5rem;
