@@ -91,10 +91,10 @@ a {
   align-items: center;
 }
 
-/* Tamaño del logo agrandado en un 70% (5rem * 1.7 = 8.5rem) */
+/* Tamaño del logo agrandado un 50% */
 #header .logo .symbol {
-  width: 8.5rem;
-  height: 8.5rem;
+  width: 19.125rem; /* 12.75rem * 1.5 = 19.125rem */
+  height: 19.125rem;
   margin-right: 1rem;
   display: block;
 }
@@ -104,11 +104,11 @@ a {
   height: auto;
 }
 
-/* Título de la constructora reducido en un 30% (1.75rem * 0.7 = 1.225rem) */
+/* Título de la constructora reducido un 30% */
 #header .logo .title {
   color: #000000;
   font-weight: 700;
-  font-size: 1.225rem;
+  font-size: 0.60025rem; /* 0.8575rem * 0.7 = 0.60025rem */
   letter-spacing: 0.05rem;
   text-transform: uppercase;
 }
@@ -116,6 +116,13 @@ a {
 /* Botón del menú en color negro */
 #header nav ul li a {
     color: #000000;
+}
+
+/* Estilo para el menú desplegable */
+#menu {
+  background-color: #c2c2c2;
+  color: #030041;
+  font-family: 'Sk-Modernist-Regular', sans-serif !important;
 }
 
 /* Main */
@@ -183,26 +190,37 @@ a {
     width: 100%;
 }
 
-.tiles article:hover .image img {
-  transform: scale(1.05);
-}
-
+/* Modificación para que el área del contenido sea también parte del enlace */
 .tiles article .content {
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  color: #fff;
-  transition: background 0.3s;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2; /* Para que el contenido esté por encima de la imagen */
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Alinea el contenido en la parte inferior */
 }
 
 .tiles article:hover .content {
   background: rgba(0, 0, 0, 0.85);
 }
 
-/* Títulos de las fotos de enlace en color #fdffbb */
+.tiles article a.full-link {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; /* Para que el enlace no esté sobre el contenido */
+}
+
 .tiles article .content h2 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -303,11 +321,16 @@ a {
   margin: 0 0.75rem;
 }
 
-/* Color de los enlaces de las redes sociales al azul del texto */
+/* Estilo para los iconos de redes sociales */
 #footer .icons a {
   color: #030041;
   font-size: 1.75rem;
   transition: color 0.2s;
+}
+
+#footer .icons a img {
+    width: 2rem; /* Tamaño del icono */
+    height: auto;
 }
 
 #footer .icons a:hover {
@@ -337,7 +360,7 @@ a {
 }
 
 .gallery h2 {
-    font-size: 2.8rem; /* Agrandado un 40% (2rem * 1.4 = 2.8rem) */
+    font-size: 2.8rem;
     text-align: center;
     margin-bottom: 2rem;
     color: #030041;
