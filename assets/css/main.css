@@ -60,7 +60,7 @@ body {
 }
 
 /* Estilo para los elementos con la nueva tipografía */
-h1, h2, #header .logo .title, .tiles article .content h2, #footer h2, #menu h2, #footer form input[type="submit"], #menu li a, #footer .icons a span.label {
+h1, h2, #header .logo .title, .tiles article .content h2, #footer h2, #menu h2, #footer form input[type="submit"], #menu li a, .gallery-nav a {
     font-family: 'Sk-Modernist-Regular', sans-serif !important;
 }
 
@@ -91,10 +91,10 @@ a {
   align-items: center;
 }
 
-/* Tamaño del logo achicado un 30% (13.3875rem * 0.7 = 9.37125rem) */
+/* Tamaño del logo achicado un 30% (9.37125rem * 0.7 = 6.559875rem) */
 #header .logo .symbol {
-  width: 9.37125rem;
-  height: 9.37125rem;
+  width: 11.2455rem; /* 9.37125rem * 1.2 = 11.2455rem */
+  height: 11.2455rem;
   margin-right: 1rem;
   display: block;
 }
@@ -104,11 +104,11 @@ a {
   height: auto;
 }
 
-/* Título de la constructora agrandado un 20% (0.60025rem * 1.2 = 0.7203rem) */
+/* Título de la constructora agrandado un 20% (0.7203rem * 1.2 = 0.86436rem) */
 #header .logo .title {
   color: #000000;
   font-weight: 700;
-  font-size: 0.7203rem;
+  font-size: 0.86436rem; /* 0.7203rem * 1.2 = 0.86436rem */
   letter-spacing: 0.05rem;
   text-transform: uppercase;
 }
@@ -172,13 +172,18 @@ a {
   box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
 }
 
-.tiles article .image {
+.tiles article a {
+  display: block;
+  position: relative;
+}
+
+.tiles article a .image {
   display: block;
   position: relative;
   height: 100%;
 }
 
-.tiles article .image img {
+.tiles article a .image img {
   display: block;
   width: 100%;
   height: 100%;
@@ -193,7 +198,7 @@ a {
     width: 100%;
 }
 
-.tiles article .content {
+.tiles article a .content {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -212,23 +217,6 @@ a {
   transform: scale(1.05);
 }
 
-/* Modificación para que el área del contenido sea también parte del enlace */
-.tiles article a {
-    display: block;
-    position: relative;
-}
-
-/* Restaura la visibilidad de la imagen */
-.tiles article a .image {
-    position: relative;
-    z-index: 1;
-}
-
-.tiles article a .content {
-    z-index: 2;
-}
-
-
 .tiles article .content h2 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -244,11 +232,37 @@ a {
 /* Estilo para las fotos de la galería (sin título) */
 .gallery img {
     transition: transform 0.3s, box-shadow 0.3s;
+    object-fit: cover; /* Ajuste para que las fotos completen el marco */
+    width: 100%;
+    height: 100%;
 }
 
 .gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+
+/* Botones de navegación en galerías */
+.gallery-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+.gallery-nav a {
+    font-family: 'Sk-Modernist-Regular', sans-serif !important;
+    background-color: #030041;
+    color: #F0F0F0;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background-color 0.2s;
+}
+
+.gallery-nav a:hover {
+    background-color: #121245;
 }
 
 /* Footer */
