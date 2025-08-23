@@ -93,7 +93,7 @@ a {
 
 /* Tamaño del logo achicado un 30% (9.37125rem * 0.7 = 6.559875rem) */
 #header .logo .symbol {
-  width: 11.2455rem; /* 9.37125rem * 1.2 = 11.2455rem */
+  width: 11.2455rem;
   height: 11.2455rem;
   margin-right: 1rem;
   display: block;
@@ -108,7 +108,7 @@ a {
 #header .logo .title {
   color: #000000;
   font-weight: 700;
-  font-size: 0.86436rem; /* 0.7203rem * 1.2 = 0.86436rem */
+  font-size: 0.86436rem;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
 }
