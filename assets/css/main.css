@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+/* Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -webkit-text-size-adjust: none;
+}
+
+/* Box Model */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Tipografía y fuentes */
+html {
+  font-size: 16pt;
+}
+
+body {
+  background-color: #c2c2c2;
+  line-height: 1.5;
+  font-family: 'Lato', sans-serif;
+  color: #030041;
+  font-size: 16px;
+}
+
+/* Estilo para los elementos con la nueva tipografía */
+h1, h2, #header .logo .title, .tiles article .content h2, #footer h2, #menu h2, #footer form input[type="submit"], #menu li a, #footer .icons a span.label {
+    font-family: 'Sk-Modernist-Regular', sans-serif !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Wrappers */
+#wrapper {
+  background-color: #c2c2c2;
+}
+
+/* Header */
+#header {
+  background: #c2c2c2;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+#header .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+}
+
+#header .logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Tamaño del logo agrandado en un 20% */
+#header .logo .symbol {
+  width: 6rem; /* Original 5rem * 1.2 = 6rem */
+  height: 6rem;
+  margin-right: 1rem;
+  display: block;
+}
+
+#header .logo .symbol img {
+  width: 100%;
+  height: auto;
+}
+
+/* Título de la constructora reducido en un 20% y en color negro */
+#header .logo .title {
+  color: #000000;
+  font-weight: 700;
+  font-size: 1.4rem; /* Original 1.75rem * 0.8 = 1.4rem */
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+/* Botón del menú en color negro */
+#header nav ul li a {
+    color: #000000;
+}
+
+/* Main */
+#main {
+  padding: 4rem 2rem;
+  background: #c2c2c2;
+  color: #030041;
+}
+
+#main header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Título principal con tamaño ajustado */
+#main header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #030041;
+  line-height: 1.2;
+}
+
+#main header p {
+  font-size: 1.5rem;
+  color: #C0C0C0;
+}
+
+/* Tiles */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+
+.tiles article {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.tiles article:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+
+.tiles article .image {
+  display: block;
+}
+
+.tiles article .image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s;
+}
+
+.tiles article:hover .image img {
+  transform: scale(1.05);
+}
+
+.tiles article .content {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.tiles article:hover .content {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* Títulos de las fotos de enlace en color #fdffbb */
+.tiles article .content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fdffbb;
+}
+
+.tiles article .content p {
+  font-size: 1rem;
+  color: #F0F0F0;
+}
+
+/* Estilo para las fotos de la galería (sin título) */
+.gallery img {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+
+/* Footer */
+#footer {
+  background: #c2c2c2;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #030041;
+}
+
+#footer h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #030041;
+}
+
+#footer form {
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+
+#footer form .fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#footer form .field {
+  width: 48%;
+  margin-bottom: 1rem;
+}
+
+#footer form input[type="text"],
+#footer form input[type="email"],
+#footer form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #555;
+  background: #333;
+  color: #F0F0F0;
+  border-radius: 4px;
+}
+
+#footer form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+#footer .actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Botón de enviar en azul */
+#footer .actions input[type="submit"] {
+  background: #030041;
+  color: #F0F0F0;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: 700;
+}
+
+#footer .actions input[type="submit"]:hover {
+  background-color: #030041;
+}
+
+#footer .icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+#footer .icons li {
+  margin: 0 0.75rem;
+}
+
+/* Color de los enlaces de las redes sociales al azul del texto */
+#footer .icons a {
+  color: #030041;
+  font-size: 1.75rem;
+  transition: color 0.2s;
+}
+
+#footer .icons a:hover {
+  color: #FFFFFF;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #C0C0C0;
+}
+
+.copyright li {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+/* Nuevos estilos para las galerías */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gallery .project-section {
+    margin-bottom: 3rem;
+}
+
+.gallery h2 {
+    font-size: 2.8rem; /* Agrandado un 40% (2rem * 1.4 = 2.8rem) */
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #030041;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
