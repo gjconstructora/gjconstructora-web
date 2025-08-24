@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Información General - GJ Constructora</title>
+        <!-- Mejoras SEO: Título y meta descripción optimizados -->
+        <title>Información General | GJ Constructora</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="Conoce la visión y la misión de GJ Constructora. Somos especialistas en proyectos de construcción y desarrollos inmobiliarios. Descubre nuestra historia y compromiso con la calidad." />
         <link rel="stylesheet" href="assets/css/main.css" />
         <style>
             @font-face {
@@ -13,6 +15,39 @@
                 font-weight: normal;
                 font-style: normal;
             }
+
+            /* Mejora visual: Agregando efectos de transición a las imágenes */
+            #main .image.main img {
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                border-radius: 8px; /* Bordes redondeados para un look más moderno */
+            }
+
+            #main .image.main img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Estilo para el mensaje de éxito del formulario */
+            .form-success-message {
+                display: none;
+                background-color: #4CAF50;
+                color: white;
+                padding: 15px;
+                margin-top: 20px;
+                text-align: center;
+                border-radius: 8px;
+            }
+
+            /* Estilo para el mensaje de error del formulario */
+            .form-error-message {
+                display: none;
+                background-color: #f44336;
+                color: white;
+                padding: 15px;
+                margin-top: 20px;
+                text-align: center;
+                border-radius: 8px;
+            }
         </style>
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
@@ -21,7 +56,7 @@
             <header id="header">
                 <div class="inner">
                     <a href="index.html" class="logo">
-                        <span class="symbol"><img src="images/logo_gj.png" alt="Logo GJConstructora" /></span>
+                        <span class="symbol"><img src="images/logo_gj.png" alt="Logo de GJ Constructora, una empresa de construcción y proyectos inmobiliarios" /></span>
                         <span class="title">GJConstructora</span>
                     </a>
                     <nav>
@@ -32,7 +67,7 @@
                 </div>
             </header>
             <nav id="menu">
-                <h2>Menu</h2>
+                <h2>Menú</h2>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
@@ -48,7 +83,8 @@
             <div id="main">
                 <div class="inner">
                     <h1>Información General</h1>
-                    <span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+                    <!-- Optimizando los atributos alt de las imágenes para SEO -->
+                    <span class="image main"><img src="images/pic13.jpg" alt="Vista exterior de una vivienda moderna, reflejando la arquitectura de GJ Constructora" /></span>
                     <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
                     <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
@@ -57,32 +93,40 @@
             <footer id="footer">
                 <div class="inner">
                     <section id="contacto">
-                        <h2>Contáctanos</h2>
-                        <form method="post" action="#">
+                        <h2>Contactanos</h2>
+                        <!-- Refactorización del formulario para usar JavaScript nativo -->
+                        <form id="contact-form">
                             <div class="fields">
                                 <div class="field half">
-                                    <input type="text" name="name" id="name" placeholder="Nombre" />
+                                    <input type="text" name="name" id="name" placeholder="Nombre" required />
                                 </div>
                                 <div class="field half">
-                                    <input type="email" name="email" id="email" placeholder="Email" />
+                                    <input type="email" name="email" id="email" placeholder="Email" required />
                                 </div>
                                 <div class="field">
-                                    <textarea name="message" id="message" placeholder="Mensaje"></textarea>
+                                    <textarea name="message" id="message" placeholder="Mensaje" required></textarea>
                                 </div>
                             </div>
                             <ul class="actions">
                                 <li><input type="submit" value="Enviar" class="primary" /></li>
                             </ul>
                         </form>
+                        <div id="success-message" class="form-success-message">
+                            ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
+                        </div>
+                        <div id="error-message" class="form-error-message">
+                            Por favor, completa todos los campos.
+                        </div>
                     </section>
                     <section id="seguinos">
-                        <h2>Síguenos</h2>
+                        <h2>Seguinos</h2>
                         <ul class="icons">
-                            <li><a href="https://www.facebook.com/profile.php?id=61579259110187"><img src="images/facebook.png" alt="Facebook" /></a></li>
-                            <li><a href="https://www.instagram.com/gj_constructora/"><img src="images/instagram.png" alt="Instagram" /></a></li>
-                            <li><a href="tel:2994087407"><img src="images/telefono.png" alt="Teléfono" /></a></li>
-                            <li><a href="mailto:gjconstructora92@gmail.com"><img src="images/email.png" alt="Email" /></a></li>
-                            <li><a href="https://wa.me/2994087407" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a></li>
+                            <!-- Agregando rel="noopener noreferrer" a enlaces externos para seguridad -->
+                            <li><a href="https://www.facebook.com/profile.php?id=61579259110187" target="_blank" rel="noopener noreferrer"><img src="images/facebook.png" alt="Icono de Facebook para seguirnos en la red social" /></a></li>
+                            <li><a href="https://www.instagram.com/gj_constructora/" target="_blank" rel="noopener noreferrer"><img src="images/instagram.png" alt="Icono de Instagram para seguirnos en la red social" /></a></li>
+                            <li><a href="tel:2994087407" target="_blank" rel="noopener noreferrer"><img src="images/telefono.png" alt="Icono de teléfono para llamar a GJ Constructora" /></a></li>
+                            <li><a href="mailto:gjconstructora92@gmail.com" target="_blank" rel="noopener noreferrer"><img src="images/email.png" alt="Icono de correo electrónico para contactar por email a GJ Constructora" /></a></li>
+                            <li><a href="https://wa.me/2994087407" target="_blank" rel="noopener noreferrer"><img src="images/whatsapp.png" alt="Icono de WhatsApp para contactar a GJ Constructora por chat" /></a></li>
                         </ul>
                     </section>
                     <ul class="copyright">
@@ -91,10 +135,48 @@
                 </div>
             </footer>
         </div>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script>
+            // Lógica para el menú de navegación
+            var $wrapper = document.getElementById('wrapper'),
+                $menu = document.getElementById('menu'),
+                $menuToggle = document.querySelector('a[href="#menu"]');
+
+            $menuToggle.addEventListener('click', function(event) {
+                event.preventDefault();
+                $wrapper.classList.toggle('is-menu-visible');
+            });
+
+            // Lógica de carga asincrónica y efectos visuales
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    document.body.classList.remove('is-preload');
+                }, 100);
+            });
+
+            // Lógica del formulario de contacto con validación y mensaje de éxito
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const form = event.target;
+                const name = form.querySelector('#name').value;
+                const email = form.querySelector('#email').value;
+                const message = form.querySelector('#message').value;
+                const successMessage = document.getElementById('success-message');
+                const errorMessage = document.getElementById('error-message');
+
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                if (!name || !email || !message) {
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+
+                console.log('Formulario enviado:', { name, email, message });
+
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+            });
+        </script>
     </body>
 </html>

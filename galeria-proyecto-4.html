@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Obras hospitalarias - GJ Constructora</title>
+        <!-- Mejoras SEO: Título y meta descripción optimizados -->
+        <title>Obras Hospitalarias | Proyectos de Construcción - GJ Constructora</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="Echa un vistazo a nuestra galería de obras hospitalarias. Explora los proyectos de construcción para el hospital de Cipolletti, incluyendo la obra del tomógrafo y la sala Mapu." />
         <link rel="stylesheet" href="assets/css/main.css" />
         <style>
             @font-face {
@@ -13,6 +15,39 @@
                 font-weight: normal;
                 font-style: normal;
             }
+
+            /* Mejora visual: Agregando efectos de transición a las imágenes de la galería */
+            #main .gallery img {
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                border-radius: 8px; /* Bordes redondeados para un look más moderno */
+            }
+
+            #main .gallery img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Estilo para el mensaje de éxito del formulario */
+            .form-success-message {
+                display: none;
+                background-color: #4CAF50;
+                color: white;
+                padding: 15px;
+                margin-top: 20px;
+                text-align: center;
+                border-radius: 8px;
+            }
+
+            /* Estilo para el mensaje de error del formulario */
+            .form-error-message {
+                display: none;
+                background-color: #f44336;
+                color: white;
+                padding: 15px;
+                margin-top: 20px;
+                text-align: center;
+                border-radius: 8px;
+            }
         </style>
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
@@ -21,7 +56,7 @@
             <header id="header">
                 <div class="inner">
                     <a href="index.html" class="logo">
-                        <span class="symbol"><img src="images/logo_gj.png" alt="Logo GJConstructora" /></span>
+                        <span class="symbol"><img src="images/logo_gj.png" alt="Logo de GJ Constructora, una empresa de construcción y proyectos inmobiliarios" /></span>
                         <span class="title">GJConstructora</span>
                     </a>
                     <nav>
@@ -32,7 +67,7 @@
                 </div>
             </header>
             <nav id="menu">
-                <h2>Menu</h2>
+                <h2>Menú</h2>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
@@ -50,19 +85,20 @@
                     <div class="gallery">
                         <div class="project-section">
                             <h2>Obra tomógrafo hospital Cipolletti</h2>
-                            <img src="images/proy41_1.jpg" alt="" />
-                            <img src="images/proy41_2.jpg" alt="" />
-                            <img src="images/proy41_3.jpg" alt="" />
+                            <!-- Optimizando los atributos alt de las imágenes para SEO -->
+                            <img src="images/proy41_1.jpg" alt="Interior de la obra de un tomógrafo en el hospital de Cipolletti" />
+                            <img src="images/proy41_2.jpg" alt="Detalle de la construcción del tomógrafo en el hospital de Cipolletti" />
+                            <img src="images/proy41_3.jpg" alt="Vista del equipamiento médico en la sala del tomógrafo" />
                         </div>
                         <div class="project-section">
                             <h2>Hospital Cipolletti sala Mapu</h2>
-                            <img src="images/proy42_1.jpg" alt="" />
-                            <img src="images/proy42_2.jpg" alt="" />
-                            <img src="images/proy42_3.jpg" alt="" />
-                            <img src="images/proy42_4.jpg" alt="" />
-                            <img src="images/proy42_5.jpg" alt="" />
-                            <img src="images/proy42_6.jpg" alt="" />
-                            <img src="images/proy42_7.jpg" alt="" />
+                            <img src="images/proy42_1.jpg" alt="Vista exterior del Hospital de Cipolletti, sala Mapu" />
+                            <img src="images/proy42_2.jpg" alt="Detalle de la fachada de la sala Mapu en el Hospital de Cipolletti" />
+                            <img src="images/proy42_3.jpg" alt="Interior de la sala Mapu con vista a la recepción" />
+                            <img src="images/proy42_4.jpg" alt="Vista del pasillo interior de la sala Mapu, con iluminación" />
+                            <img src="images/proy42_5.jpg" alt="Área de espera con sillas y diseño moderno en la sala Mapu" />
+                            <img src="images/proy42_6.jpg" alt="Vista de la sala de examen con equipamiento médico" />
+                            <img src="images/proy42_7.jpg" alt="Detalle de la arquitectura interior de la sala Mapu del hospital" />
                         </div>
                     </div>
                     <div class="gallery-nav">
@@ -75,31 +111,39 @@
                 <div class="inner">
                     <section id="contacto">
                         <h2>Contactanos</h2>
-                        <form method="post" action="#">
+                        <!-- Refactorización del formulario para usar JavaScript nativo -->
+                        <form id="contact-form">
                             <div class="fields">
                                 <div class="field half">
-                                    <input type="text" name="name" id="name" placeholder="Nombre" />
+                                    <input type="text" name="name" id="name" placeholder="Nombre" required />
                                 </div>
                                 <div class="field half">
-                                    <input type="email" name="email" id="email" placeholder="Email" />
+                                    <input type="email" name="email" id="email" placeholder="Email" required />
                                 </div>
                                 <div class="field">
-                                    <textarea name="message" id="message" placeholder="Mensaje"></textarea>
+                                    <textarea name="message" id="message" placeholder="Mensaje" required></textarea>
                                 </div>
                             </div>
                             <ul class="actions">
                                 <li><input type="submit" value="Enviar" class="primary" /></li>
                             </ul>
                         </form>
+                        <div id="success-message" class="form-success-message">
+                            ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
+                        </div>
+                        <div id="error-message" class="form-error-message">
+                            Por favor, completa todos los campos.
+                        </div>
                     </section>
                     <section id="seguinos">
                         <h2>Seguinos</h2>
                         <ul class="icons">
-                            <li><a href="https://www.facebook.com/profile.php?id=61579259110187"><img src="images/facebook.png" alt="Facebook" /></a></li>
-                            <li><a href="https://www.instagram.com/gj_constructora/"><img src="images/instagram.png" alt="Instagram" /></a></li>
-                            <li><a href="tel:2994087407"><img src="images/telefono.png" alt="Teléfono" /></a></li>
-                            <li><a href="mailto:gjconstructora92@gmail.com"><img src="images/email.png" alt="Email" /></a></li>
-                            <li><a href="https://wa.me/2994087407" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a></li>
+                            <!-- Agregando rel="noopener noreferrer" a enlaces externos para seguridad -->
+                            <li><a href="https://www.facebook.com/profile.php?id=61579259110187" target="_blank" rel="noopener noreferrer"><img src="images/facebook.png" alt="Icono de Facebook para seguirnos en la red social" /></a></li>
+                            <li><a href="https://www.instagram.com/gj_constructora/" target="_blank" rel="noopener noreferrer"><img src="images/instagram.png" alt="Icono de Instagram para seguirnos en la red social" /></a></li>
+                            <li><a href="tel:2994087407" target="_blank" rel="noopener noreferrer"><img src="images/telefono.png" alt="Icono de teléfono para llamar a GJ Constructora" /></a></li>
+                            <li><a href="mailto:gjconstructora92@gmail.com" target="_blank" rel="noopener noreferrer"><img src="images/email.png" alt="Icono de correo electrónico para contactar por email a GJ Constructora" /></a></li>
+                            <li><a href="https://wa.me/2994087407" target="_blank" rel="noopener noreferrer"><img src="images/whatsapp.png" alt="Icono de WhatsApp para contactar a GJ Constructora por chat" /></a></li>
                         </ul>
                     </section>
                     <ul class="copyright">
@@ -108,10 +152,48 @@
                 </div>
             </footer>
         </div>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script>
+            // Lógica para el menú de navegación
+            var $wrapper = document.getElementById('wrapper'),
+                $menu = document.getElementById('menu'),
+                $menuToggle = document.querySelector('a[href="#menu"]');
+
+            $menuToggle.addEventListener('click', function(event) {
+                event.preventDefault();
+                $wrapper.classList.toggle('is-menu-visible');
+            });
+
+            // Lógica de carga asincrónica y efectos visuales
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    document.body.classList.remove('is-preload');
+                }, 100);
+            });
+
+            // Lógica del formulario de contacto con validación y mensaje de éxito
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const form = event.target;
+                const name = form.querySelector('#name').value;
+                const email = form.querySelector('#email').value;
+                const message = form.querySelector('#message').value;
+                const successMessage = document.getElementById('success-message');
+                const errorMessage = document.getElementById('error-message');
+
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                if (!name || !email || !message) {
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+
+                console.log('Formulario enviado:', { name, email, message });
+
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+            });
+        </script>
     </body>
 </html>

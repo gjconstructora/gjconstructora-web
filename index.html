@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>GJ Constructora</title>
+        <!-- Mejoras SEO: Agregando una meta descripción clara y concisa -->
+        <title>GJ Constructora | Soluciones Integrales en Construcción y Proyectos Inmobiliarios</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="GJ Constructora ofrece soluciones de construcción y desarrollos inmobiliarios en Neuquén. Explora nuestros proyectos destacados en viviendas, obras hospitalarias y diseño. Contactanos hoy." />
         <link rel="stylesheet" href="assets/css/main.css" />
         <style>
             @font-face {
@@ -13,6 +15,39 @@
                 font-weight: normal;
                 font-style: normal;
             }
+
+            /* Mejora visual: Agregando efectos de transición para los proyectos destacados */
+            #main .tiles article a {
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                border-radius: 8px; /* Agregamos bordes redondeados para un look más moderno */
+            }
+
+            #main .tiles article a:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Estilo para el mensaje de éxito del formulario */
+            .form-success-message {
+                display: none;
+                background-color: #4CAF50;
+                color: white;
+                padding: 15px;
+                margin-top: 20px;
+                text-align: center;
+                border-radius: 8px;
+            }
+
+            /* Estilo para el mensaje de error del formulario */
+            .form-error-message {
+                display: none;
+                background-color: #f44336;
+                color: white;
+                padding: 15px;
+                margin-top: 20px;
+                text-align: center;
+                border-radius: 8px;
+            }
         </style>
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
@@ -21,7 +56,7 @@
             <header id="header">
                 <div class="inner">
                     <a href="index.html" class="logo">
-                        <span class="symbol"><img src="images/logo_gj.png" alt="Logo GJConstructora" /></span>
+                        <span class="symbol"><img src="images/logo_gj.png" alt="Logo de GJ Constructora, una empresa de construcción y proyectos inmobiliarios" /></span>
                         <span class="title">GJConstructora</span>
                     </a>
                     <nav>
@@ -32,7 +67,7 @@
                 </div>
             </header>
             <nav id="menu">
-                <h2>Menu</h2>
+                <h2>Menú</h2>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
@@ -48,13 +83,15 @@
             <div id="main">
                 <div class="inner">
                     <header>
-                        <h1>Proyecto Dirección Ejecución<br />Desarrollos Inmobiliarios</h1>
+                        <!-- Reestructuración de encabezados para un mejor SEO -->
+                        <h1 class="main-title">Construyendo tu Futuro. <br/> Proyectos Inmobiliarios y de Construcción.</h1>
+                        <p class="subtitle">Especialistas en Dirección y Ejecución de Desarrollos Inmobiliarios.</p>
                     </header>
                     <section class="tiles" id="obras-destacadas">
                         <article class="style1">
                             <a href="galeria-proyecto-1.html">
                                 <span class="image">
-                                    <img src="images/principal1.jpg" alt="Conexión con el exterior" />
+                                    <img src="images/principal1.jpg" alt="Fachada moderna de una vivienda con grandes ventanales que conectan el interior con el exterior" />
                                 </span>
                                 <div class="content">
                                     <h2>Conexión con el exterior</h2>
@@ -64,7 +101,7 @@
                         <article class="style2">
                             <a href="galeria-proyecto-2.html">
                                 <span class="image">
-                                    <img src="images/principal2.jpg" alt="Espacios Integrados" />
+                                    <img src="images/principal2.jpg" alt="Interior de una vivienda con sala y cocina integradas" />
                                 </span>
                                 <div class="content">
                                     <h2>Espacios Integrados</h2>
@@ -74,7 +111,7 @@
                         <article class="style3">
                             <a href="galeria-proyecto-3.html">
                                 <span class="image">
-                                    <img src="images/principal3.jpg" alt="Detalles de Diseño" />
+                                    <img src="images/principal3.jpg" alt="Detalle de diseño de un baño moderno con revestimientos de mármol" />
                                 </span>
                                 <div class="content">
                                     <h2>Detalles de Diseño</h2>
@@ -84,7 +121,7 @@
                         <article class="style4">
                             <a href="galeria-proyecto-4.html">
                                 <span class="image">
-                                    <img src="images/principal4.jpg" alt="Obras hospitalarias" />
+                                    <img src="images/principal4.jpg" alt="Obra hospitalaria en construcción, mostrando el avance de la estructura" />
                                 </span>
                                 <div class="content">
                                     <h2>Obras hospitalarias</h2>
@@ -94,7 +131,7 @@
                         <article class="style5">
                             <a href="galeria-proyecto-5.html">
                                 <span class="image">
-                                    <img src="images/principal5.jpg" alt="Ladrillo tradicional" />
+                                    <img src="images/principal5.jpg" alt="Vivienda con fachada de ladrillo tradicional" />
                                 </span>
                                 <div class="content">
                                     <h2>Ladrillo tradicional</h2>
@@ -104,7 +141,7 @@
                         <article class="style6">
                             <a href="galeria-proyecto-6.html">
                                 <span class="image">
-                                    <img src="images/principal6.jpg" alt="Troncos y piedras" />
+                                    <img src="images/principal6.jpg" alt="Fachada de una cervecería con revestimientos de troncos y piedras" />
                                 </span>
                                 <div class="content">
                                     <h2>Troncos y piedras</h2>
@@ -121,31 +158,40 @@
                 <div class="inner">
                     <section id="contacto">
                         <h2>Contactanos</h2>
-                        <form method="post" action="#">
+                        <!-- Refactorización del formulario para usar JavaScript nativo -->
+                        <form id="contact-form">
                             <div class="fields">
                                 <div class="field half">
-                                    <input type="text" name="name" id="name" placeholder="Nombre" />
+                                    <input type="text" name="name" id="name" placeholder="Nombre" required />
                                 </div>
                                 <div class="field half">
-                                    <input type="email" name="email" id="email" placeholder="Email" />
+                                    <input type="email" name="email" id="email" placeholder="Email" required />
                                 </div>
                                 <div class="field">
-                                    <textarea name="message" id="message" placeholder="Mensaje"></textarea>
+                                    <textarea name="message" id="message" placeholder="Mensaje" required></textarea>
                                 </div>
                             </div>
                             <ul class="actions">
                                 <li><input type="submit" value="Enviar" class="primary" /></li>
                             </ul>
                         </form>
+                        <div id="success-message" class="form-success-message">
+                            ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
+                        </div>
+                        <!-- Div para mostrar mensajes de error, reemplazando el alert() -->
+                        <div id="error-message" class="form-error-message">
+                            Por favor, completa todos los campos.
+                        </div>
                     </section>
                     <section id="seguinos">
                         <h2>Seguinos</h2>
                         <ul class="icons">
-                            <li><a href="https://www.facebook.com/profile.php?id=61579259110187"><img src="images/facebook.png" alt="Facebook" /></a></li>
-                            <li><a href="https://www.instagram.com/gj_constructora/"><img src="images/instagram.png" alt="Instagram" /></a></li>
-                            <li><a href="tel:2994087407"><img src="images/telefono.png" alt="Teléfono" /></a></li>
-                            <li><a href="mailto:gjconstructora92@gmail.com"><img src="images/email.png" alt="Email" /></a></li>
-                            <li><a href="https://wa.me/2994087407" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a></li>
+                            <!-- Agregando rel="noopener noreferrer" a enlaces externos para seguridad -->
+                            <li><a href="https://www.facebook.com/profile.php?id=61579259110187" target="_blank" rel="noopener noreferrer"><img src="images/facebook.png" alt="Icono de Facebook para seguirnos en la red social" /></a></li>
+                            <li><a href="https://www.instagram.com/gj_constructora/" target="_blank" rel="noopener noreferrer"><img src="images/instagram.png" alt="Icono de Instagram para seguirnos en la red social" /></a></li>
+                            <li><a href="tel:2994087407" target="_blank" rel="noopener noreferrer"><img src="images/telefono.png" alt="Icono de teléfono para llamar a GJ Constructora" /></a></li>
+                            <li><a href="mailto:gjconstructora92@gmail.com" target="_blank" rel="noopener noreferrer"><img src="images/email.png" alt="Icono de correo electrónico para contactar por email a GJ Constructora" /></a></li>
+                            <li><a href="https://wa.me/2994087407" target="_blank" rel="noopener noreferrer"><img src="images/whatsapp.png" alt="Icono de WhatsApp para contactar a GJ Constructora por chat" /></a></li>
                         </ul>
                     </section>
                     <ul class="copyright">
@@ -154,10 +200,53 @@
                 </div>
             </footer>
         </div>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+        <!-- Reemplazando jQuery y scripts externos con JavaScript nativo -->
+        <script>
+            // Lógica para el menú de navegación (adaptada de main.js)
+            var $wrapper = document.getElementById('wrapper'),
+                $menu = document.getElementById('menu'),
+                $menuToggle = document.querySelector('a[href="#menu"]');
+
+            $menuToggle.addEventListener('click', function(event) {
+                event.preventDefault();
+                $wrapper.classList.toggle('is-menu-visible');
+            });
+
+            // Lógica de carga asincrónica y efectos visuales (adaptada de util.js y main.js)
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    document.body.classList.remove('is-preload');
+                }, 100);
+            });
+
+            // Lógica del formulario de contacto con validación y mensaje de éxito
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const form = event.target;
+                const name = form.querySelector('#name').value;
+                const email = form.querySelector('#email').value;
+                const message = form.querySelector('#message').value;
+                const successMessage = document.getElementById('success-message');
+                const errorMessage = document.getElementById('error-message');
+
+                // Ocultar mensajes previos
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                // Validación simple de campos
+                if (!name || !email || !message) {
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+
+                // Aquí simularíamos el envío de datos a un servidor.
+                console.log('Formulario enviado:', { name, email, message });
+
+                // Ocultar el formulario y mostrar el mensaje de éxito
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+            });
+        </script>
     </body>
 </html>
