@@ -193,6 +193,10 @@ a {
   object-position: center;
 }
 
+.tiles article:hover .image img {
+  transform: scale(1.05);
+}
+
 .tiles article a .content {
     position: absolute;
     bottom: 0;
@@ -208,15 +212,12 @@ a {
     justify-content: flex-end; /* Alinea el contenido en la parte inferior */
 }
 
-.tiles article:hover .image img {
-  transform: scale(1.05);
-}
-
+/* Color de los títulos de las fotos de enlace cambiados a #c2c2c2 */
 .tiles article .content h2 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #fdffbb;
+  color: #c2c2c2;
 }
 
 .tiles article .content p {
@@ -259,6 +260,29 @@ a {
 
 .gallery-nav a:hover {
     background-color: #121245;
+}
+
+/* Nuevo estilo para el botón de "Conoce nuestra historia" */
+.large-button {
+    font-family: 'Sk-Modernist-Regular', sans-serif;
+    background-color: #030041;
+    color: #F0F0F0;
+    padding: 1.2rem 3rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background-color 0.2s;
+    font-size: 1.25rem;
+    display: inline-block;
+}
+
+.large-button:hover {
+    background-color: #121245;
+}
+
+/* Nuevo estilo para centrar títulos en la página "Nosotros" */
+.centered-title {
+    text-align: center;
 }
 
 /* Footer */
