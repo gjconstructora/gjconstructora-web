@@ -1,11 +1,9 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <!-- Mejoras SEO: Título y meta descripción optimizados -->
-        <title>Espacios Integrados | Proyectos de Viviendas - GJ Constructora</title>
+        <title>Espacios Integrados - GJ Constructora</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name="description" content="Explora nuestra galería de proyectos de viviendas con espacios integrados. Descubre el diseño de un dúplex en Cipolletti y una vivienda en Fernández Oro." />
         <link rel="stylesheet" href="assets/css/main.css" />
         <style>
             @font-face {
@@ -15,39 +13,6 @@
                 font-weight: normal;
                 font-style: normal;
             }
-
-            /* Mejora visual: Agregando efectos de transición a las imágenes de la galería */
-            #main .gallery img {
-                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-                border-radius: 8px; /* Bordes redondeados para un look más moderno */
-            }
-
-            #main .gallery img:hover {
-                transform: scale(1.05);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            }
-
-            /* Estilo para el mensaje de éxito del formulario */
-            .form-success-message {
-                display: none;
-                background-color: #4CAF50;
-                color: white;
-                padding: 15px;
-                margin-top: 20px;
-                text-align: center;
-                border-radius: 8px;
-            }
-
-            /* Estilo para el mensaje de error del formulario */
-            .form-error-message {
-                display: none;
-                background-color: #f44336;
-                color: white;
-                padding: 15px;
-                margin-top: 20px;
-                text-align: center;
-                border-radius: 8px;
-            }
         </style>
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
@@ -56,7 +21,7 @@
             <header id="header">
                 <div class="inner">
                     <a href="index.html" class="logo">
-                        <span class="symbol"><img src="images/logo_gj.png" alt="Logo de GJ Constructora, una empresa de construcción y proyectos inmobiliarios" /></span>
+                        <span class="symbol"><img src="images/logo_gj.png" alt="Logo GJConstructora" /></span>
                         <span class="title">GJConstructora</span>
                     </a>
                     <nav>
@@ -67,7 +32,7 @@
                 </div>
             </header>
             <nav id="menu">
-                <h2>Menú</h2>
+                <h2>Menu</h2>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
@@ -85,16 +50,15 @@
                     <div class="gallery">
                         <div class="project-section">
                             <h2>Proyecto dúplex Cipolletti</h2>
-                            <!-- Optimizando los atributos alt de las imágenes para SEO -->
-                            <img src="images/proy21_1.jpg" alt="Interior de un dúplex con espacios integrados, sala y cocina abiertas" />
-                            <img src="images/proy21_2.jpg" alt="Cocina moderna con isla en el dúplex de Cipolletti" />
-                            <img src="images/proy21_3.jpg" alt="Detalle del comedor integrado con la sala en el dúplex" />
-                            <img src="images/proy21_4.jpg" alt="Vista de la escalera interior que conecta los niveles del dúplex" />
+                            <img src="images/proy21_1.jpg" alt="" />
+                            <img src="images/proy21_2.jpg" alt="" />
+                            <img src="images/proy21_3.jpg" alt="" />
+                            <img src="images/proy21_4.jpg" alt="" />
                         </div>
                         <div class="project-section">
                             <h2>Proyecto vivienda Fernández Oro</h2>
-                            <img src="images/proy22_1.jpg" alt="Espacio interior de una vivienda en Fernández Oro con un diseño de planta abierta" />
-                            <img src="images/proy22_2.jpg" alt="Vista detallada de la cocina y el área social en la vivienda de Fernández Oro" />
+                            <img src="images/proy22_1.jpg" alt="" />
+                            <img src="images/proy22_2.jpg" alt="" />
                         </div>
                     </div>
                     <div class="gallery-nav">
@@ -107,39 +71,31 @@
                 <div class="inner">
                     <section id="contacto">
                         <h2>Contactanos</h2>
-                        <!-- Refactorización del formulario para usar JavaScript nativo -->
-                        <form id="contact-form">
+                        <form method="post" action="#">
                             <div class="fields">
                                 <div class="field half">
-                                    <input type="text" name="name" id="name" placeholder="Nombre" required />
+                                    <input type="text" name="name" id="name" placeholder="Nombre" />
                                 </div>
                                 <div class="field half">
-                                    <input type="email" name="email" id="email" placeholder="Email" required />
+                                    <input type="email" name="email" id="email" placeholder="Email" />
                                 </div>
                                 <div class="field">
-                                    <textarea name="message" id="message" placeholder="Mensaje" required></textarea>
+                                    <textarea name="message" id="message" placeholder="Mensaje"></textarea>
                                 </div>
                             </div>
                             <ul class="actions">
                                 <li><input type="submit" value="Enviar" class="primary" /></li>
                             </ul>
                         </form>
-                        <div id="success-message" class="form-success-message">
-                            ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
-                        </div>
-                        <div id="error-message" class="form-error-message">
-                            Por favor, completa todos los campos.
-                        </div>
                     </section>
                     <section id="seguinos">
                         <h2>Seguinos</h2>
                         <ul class="icons">
-                            <!-- Agregando rel="noopener noreferrer" a enlaces externos para seguridad -->
-                            <li><a href="https://www.facebook.com/profile.php?id=61579259110187" target="_blank" rel="noopener noreferrer"><img src="images/facebook.png" alt="Icono de Facebook para seguirnos en la red social" /></a></li>
-                            <li><a href="https://www.instagram.com/gj_constructora/" target="_blank" rel="noopener noreferrer"><img src="images/instagram.png" alt="Icono de Instagram para seguirnos en la red social" /></a></li>
-                            <li><a href="tel:2994087407" target="_blank" rel="noopener noreferrer"><img src="images/telefono.png" alt="Icono de teléfono para llamar a GJ Constructora" /></a></li>
-                            <li><a href="mailto:gjconstructora92@gmail.com" target="_blank" rel="noopener noreferrer"><img src="images/email.png" alt="Icono de correo electrónico para contactar por email a GJ Constructora" /></a></li>
-                            <li><a href="https://wa.me/2994087407" target="_blank" rel="noopener noreferrer"><img src="images/whatsapp.png" alt="Icono de WhatsApp para contactar a GJ Constructora por chat" /></a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61579259110187"><img src="images/facebook.png" alt="Facebook" /></a></li>
+                            <li><a href="https://www.instagram.com/gj_constructora/"><img src="images/instagram.png" alt="Instagram" /></a></li>
+                            <li><a href="tel:2994087407"><img src="images/telefono.png" alt="Teléfono" /></a></li>
+                            <li><a href="mailto:gjconstructora92@gmail.com"><img src="images/email.png" alt="Email" /></a></li>
+                            <li><a href="https://wa.me/2994087407" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a></li>
                         </ul>
                     </section>
                     <ul class="copyright">
@@ -148,48 +104,10 @@
                 </div>
             </footer>
         </div>
-        <script>
-            // Lógica para el menú de navegación
-            var $wrapper = document.getElementById('wrapper'),
-                $menu = document.getElementById('menu'),
-                $menuToggle = document.querySelector('a[href="#menu"]');
-
-            $menuToggle.addEventListener('click', function(event) {
-                event.preventDefault();
-                $wrapper.classList.toggle('is-menu-visible');
-            });
-
-            // Lógica de carga asincrónica y efectos visuales
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    document.body.classList.remove('is-preload');
-                }, 100);
-            });
-
-            // Lógica del formulario de contacto con validación y mensaje de éxito
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                
-                const form = event.target;
-                const name = form.querySelector('#name').value;
-                const email = form.querySelector('#email').value;
-                const message = form.querySelector('#message').value;
-                const successMessage = document.getElementById('success-message');
-                const errorMessage = document.getElementById('error-message');
-
-                successMessage.style.display = 'none';
-                errorMessage.style.display = 'none';
-
-                if (!name || !email || !message) {
-                    errorMessage.style.display = 'block';
-                    return;
-                }
-
-                console.log('Formulario enviado:', { name, email, message });
-
-                form.style.display = 'none';
-                successMessage.style.display = 'block';
-            });
-        </script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
     </body>
 </html>
