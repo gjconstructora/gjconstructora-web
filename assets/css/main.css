@@ -208,6 +208,7 @@ a {
     justify-content: flex-end; /* Alinea el contenido en la parte inferior */
 }
 
+
 .tiles article:hover .image img {
   transform: scale(1.05);
 }
