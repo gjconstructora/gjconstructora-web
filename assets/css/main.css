@@ -91,10 +91,10 @@ a {
   align-items: center;
 }
 
-/* Tamaño del logo achicado un 30% (9.37125rem * 0.7 = 6.559875rem) */
+/* Tamaño del logo agrandado un 20% (9.37125rem * 1.2 = 11.2455rem) */
 #header .logo .symbol {
-  width: 9.37125rem;
-  height: 9.37125rem;
+  width: 11.2455rem;
+  height: 11.2455rem;
   margin-right: 1rem;
   display: block;
 }
@@ -175,6 +175,7 @@ a {
 .tiles article a {
   display: block;
   position: relative;
+  height: 100%;
 }
 
 .tiles article a .image {
@@ -183,7 +184,6 @@ a {
   height: 100%;
 }
 
-/* Ajuste de las 6 fotos de enlace para que se adapten al recuadro */
 .tiles article a .image img {
   display: block;
   width: 100%;
@@ -191,10 +191,6 @@ a {
   object-fit: cover;
   transition: transform 0.5s;
   object-position: center;
-}
-
-.tiles article:hover .image img {
-  transform: scale(1.05);
 }
 
 .tiles article a .content {
@@ -205,19 +201,23 @@ a {
     z-index: 2; /* Para que el contenido esté por encima de la imagen */
     padding: 1.5rem;
     background: rgba(0, 0, 0, 0.7);
-    color: #fff;
+    color: #c2c2c2; /* Color de los títulos de enlace cambiado */
     transition: background 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* Alinea el contenido en la parte inferior */
 }
 
-/* Color de los títulos de las fotos de enlace cambiados a #c2c2c2 */
+
+.tiles article:hover .image img {
+  transform: scale(1.05);
+}
+
 .tiles article .content h2 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #c2c2c2;
+  color: #c2c2c2; /* Color del texto del título cambiado */
 }
 
 .tiles article .content p {
@@ -250,7 +250,7 @@ a {
 .gallery-nav a {
     font-family: 'Sk-Modernist-Regular', sans-serif !important;
     background-color: #030041;
-    color: #F0F0F0;
+    color: #c2c2c2;
     padding: 0.75rem 2rem;
     border-radius: 4px;
     text-transform: uppercase;
@@ -260,29 +260,6 @@ a {
 
 .gallery-nav a:hover {
     background-color: #121245;
-}
-
-/* Nuevo estilo para el botón de "Conoce nuestra historia" */
-.large-button {
-    font-family: 'Sk-Modernist-Regular', sans-serif;
-    background-color: #030041;
-    color: #F0F0F0;
-    padding: 1.2rem 3rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: background-color 0.2s;
-    font-size: 1.25rem;
-    display: inline-block;
-}
-
-.large-button:hover {
-    background-color: #121245;
-}
-
-/* Nuevo estilo para centrar títulos en la página "Nosotros" */
-.centered-title {
-    text-align: center;
 }
 
 /* Footer */
