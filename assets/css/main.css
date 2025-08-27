@@ -142,11 +142,15 @@ a {
   line-height: 1.2;
 }
 
+/* --- ESTILOS MODIFICADOS Y NUEVOS --- */
+
+/* Párrafos en "Nosotros" más grandes */
 #main .inner p {
     font-size: 1.1rem;
     line-height: 1.6;
 }
 
+/* Títulos H1 y H2 en "Nosotros" */
 #main .inner > h1.centered-title {
     font-size: 2.8rem;
     margin-bottom: 1em;
@@ -156,6 +160,7 @@ a {
     margin-bottom: 1.5em;
 }
 
+/* Imagen con zoom sin sombra */
 .image-zoom-no-shadow img {
     transition: transform 0.3s ease;
     border-radius: 8px;
@@ -164,15 +169,19 @@ a {
     transform: scale(1.05);
 }
 
+/* Títulos de valores más gruesos */
 .valores-section p > strong {
     font-weight: 900;
 }
 
-/* Featured Story Link */
+/* Enlace destacado a "Nuestra Historia" */
 .featured-story {
     margin-bottom: 3rem;
+    padding: 0 1rem; /* Pequeño padding para que no toque los bordes en móvil */
 }
 .featured-story article {
+    max-width: 900px; /* Ancho máximo del bloque horizontal */
+    margin: 0 auto; /* Centrado en la página */
     position: relative;
     border-radius: 8px;
     overflow: hidden;
@@ -191,7 +200,7 @@ a {
 .featured-story article .image {
     display: block;
     position: relative;
-    height: 400px;
+    height: 350px; /* Altura fija para el formato horizontal */
     width: 100%;
 }
 .featured-story article .image img {
@@ -200,7 +209,7 @@ a {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
-    object-position: center;
+    object-position: center; /* Centra la imagen dentro del contenedor */
 }
 .featured-story article:hover .image img {
     transform: scale(1.05);
@@ -211,23 +220,22 @@ a {
     left: 0;
     right: 0;
     z-index: 2;
-    padding: 1.5rem;
+    padding: 2rem;
     background: rgba(0, 0, 0, 0.7);
     color: #c2c2c2;
-    transition: background 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    text-align: center;
 }
 .featured-story article .content h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin: 0;
     color: #c2c2c2;
 }
 
+/* --- FIN DE ESTILOS MODIFICADOS --- */
 
-/* Tiles */
+
+/* Grilla de Galerías */
 .tiles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -240,6 +248,7 @@ a {
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  min-height: 300px; /* Altura mínima para las tarjetas de galería */
 }
 .tiles article:hover {
   transform: translateY(-10px);
@@ -272,7 +281,6 @@ a {
     padding: 1.5rem;
     background: rgba(0, 0, 0, 0.7);
     color: #c2c2c2;
-    transition: background 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -286,13 +294,8 @@ a {
   margin-bottom: 0.5rem;
   color: #c2c2c2;
 }
-.tiles article .content p {
-  font-size: 1rem;
-  color: #F0F0F0;
-}
 
-
-/* Gallery */
+/* Estilos de Galería Interna */
 .gallery img {
     transition: transform 0.3s, box-shadow 0.3s;
     width: 100%;
