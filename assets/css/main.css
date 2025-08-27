@@ -174,10 +174,17 @@ a {
     font-weight: 900;
 }
 
+/* Alineación de imágenes en página "Nosotros" */
+.nosotros-page .image.main {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /* Enlace destacado a "Nuestra Historia" */
 .featured-story {
     margin-bottom: 3rem;
-    padding: 0 1rem; /* Pequeño padding para que no toque los bordes en móvil */
 }
 .featured-story article {
     max-width: 900px; /* Ancho máximo del bloque horizontal */
@@ -238,7 +245,7 @@ a {
 /* Grilla de Galerías */
 .tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); /* Ancho mínimo aumentado para forzar 3 columnas */
   grid-gap: 2rem;
 }
 .tiles article {
