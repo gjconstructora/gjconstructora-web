@@ -91,7 +91,6 @@ a {
   align-items: center;
 }
 
-/* Tamaño del logo agrandado un 20% (9.37125rem * 1.2 = 11.2455rem) */
 #header .logo .symbol {
   width: 11.2455rem;
   height: 11.2455rem;
@@ -104,7 +103,6 @@ a {
   height: auto;
 }
 
-/* Título de la constructora agrandado un 20% (0.7203rem * 1.2 = 0.86436rem) */
 #header .logo .title {
   color: #000000;
   font-weight: 700;
@@ -113,12 +111,11 @@ a {
   text-transform: uppercase;
 }
 
-/* Botón del menú en color negro */
 #header nav ul li a {
     color: #000000;
 }
 
-/* Estilo para el menú desplegable */
+/* Menu */
 #menu {
   background-color: #c2c2c2;
   color: #030041;
@@ -137,7 +134,6 @@ a {
   margin-bottom: 3rem;
 }
 
-/* Título principal con tamaño ajustado */
 #main header h1 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -146,13 +142,11 @@ a {
   line-height: 1.2;
 }
 
-#main header p {
-  font-size: 1.5rem;
-  color: #C0C0C0;
+#main .inner p {
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
-/* --- NUEVOS ESTILOS --- */
-/* Aumento de tamaño para títulos en páginas internas como "Nosotros" */
 #main .inner > h1.centered-title {
     font-size: 2.8rem;
     margin-bottom: 1em;
@@ -161,7 +155,7 @@ a {
     font-size: 2.3rem;
     margin-bottom: 1.5em;
 }
-/* Estilo para imagen con zoom pero sin sombra en hover */
+
 .image-zoom-no-shadow img {
     transition: transform 0.3s ease;
     border-radius: 8px;
@@ -169,7 +163,68 @@ a {
 .image-zoom-no-shadow:hover img {
     transform: scale(1.05);
 }
-/* --- FIN NUEVOS ESTILOS --- */
+
+.valores-section p > strong {
+    font-weight: 900;
+}
+
+/* Featured Story Link */
+.featured-story {
+    margin-bottom: 3rem;
+}
+.featured-story article {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.featured-story article:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+.featured-story article a {
+    display: block;
+    position: relative;
+}
+.featured-story article .image {
+    display: block;
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+.featured-story article .image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+    object-position: center;
+}
+.featured-story article:hover .image img {
+    transform: scale(1.05);
+}
+.featured-story article .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: #c2c2c2;
+    transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.featured-story article .content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #c2c2c2;
+}
 
 
 /* Tiles */
@@ -178,7 +233,6 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 2rem;
 }
-
 .tiles article {
   position: relative;
   border-radius: 8px;
@@ -187,24 +241,20 @@ a {
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
-
 .tiles article:hover {
   transform: translateY(-10px);
   box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
 }
-
 .tiles article a {
   display: block;
   position: relative;
   height: 100%;
 }
-
 .tiles article a .image {
   display: block;
   position: relative;
   height: 100%;
 }
-
 .tiles article a .image img {
   display: block;
   width: 100%;
@@ -213,40 +263,36 @@ a {
   transition: transform 0.5s;
   object-position: center;
 }
-
 .tiles article a .content {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 2; /* Para que el contenido esté por encima de la imagen */
+    z-index: 2;
     padding: 1.5rem;
     background: rgba(0, 0, 0, 0.7);
-    color: #c2c2c2; /* Color de los títulos de enlace cambiado */
+    color: #c2c2c2;
     transition: background 0.3s;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Alinea el contenido en la parte inferior */
+    justify-content: flex-end;
 }
-
-
 .tiles article:hover .image img {
   transform: scale(1.05);
 }
-
 .tiles article .content h2 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #c2c2c2; /* Color del texto del título cambiado */
+  color: #c2c2c2;
 }
-
 .tiles article .content p {
   font-size: 1rem;
   color: #F0F0F0;
 }
 
-/* Estilo para las fotos de la galería (sin título) */
+
+/* Gallery */
 .gallery img {
     transition: transform 0.3s, box-shadow 0.3s;
     width: 100%;
@@ -254,20 +300,17 @@ a {
     border-radius: 8px;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 }
-
 .gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
 }
 
-/* Botones de navegación en galerías */
 .gallery-nav {
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
     align-items: center;
 }
-
 .gallery-nav a {
     font-family: 'Sk-Modernist-Regular', sans-serif !important;
     background-color: #030041;
@@ -278,7 +321,6 @@ a {
     font-weight: 700;
     transition: background-color 0.2s;
 }
-
 .gallery-nav a:hover {
     background-color: #121245;
 }
@@ -301,18 +343,15 @@ a {
   max-width: 500px;
   margin: 0 auto 3rem;
 }
-
 #footer form .fields {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 #footer form .field {
   width: 48%;
   margin-bottom: 1rem;
 }
-
 #footer form input[type="text"],
 #footer form input[type="email"],
 #footer form textarea {
@@ -323,19 +362,15 @@ a {
   color: #F0F0F0;
   border-radius: 4px;
 }
-
 #footer form textarea {
   resize: vertical;
   height: 100px;
 }
-
 #footer .actions {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
 }
-
-/* Botón de enviar en azul */
 #footer .actions input[type="submit"] {
   background: #030041;
   color: #F0F0F0;
@@ -346,7 +381,6 @@ a {
   transition: background-color 0.2s;
   font-weight: 700;
 }
-
 #footer .actions input[type="submit"]:hover {
   background-color: #030041;
 }
@@ -356,23 +390,18 @@ a {
   justify-content: center;
   margin-bottom: 2rem;
 }
-
 #footer .icons li {
   margin: 0 0.75rem;
 }
-
-/* Estilo para los iconos de redes sociales */
 #footer .icons a {
   color: #030041;
   font-size: 1.75rem;
   transition: color 0.2s;
 }
-
 #footer .icons a img {
-    width: 2rem; /* Tamaño del icono */
+    width: 2rem;
     height: auto;
 }
-
 #footer .icons a:hover {
   color: #FFFFFF;
 }
@@ -381,24 +410,20 @@ a {
   font-size: 0.9rem;
   color: #C0C0C0;
 }
-
 .copyright li {
   display: inline-block;
   margin: 0 0.5rem;
 }
 
-/* Nuevos estilos para las galerías */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
-
 .gallery .project-section {
     margin-bottom: 3rem;
 }
-
 .gallery h2 {
     font-size: 2.8rem;
     text-align: center;
