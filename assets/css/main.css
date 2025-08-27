@@ -59,8 +59,7 @@ body {
   font-size: 16px;
 }
 
-/* Estilo para los elementos con la nueva tipografía */
-h1, h2, #header .logo .title, .tiles article .content h2, #footer h2, #menu h2, #footer form input[type="submit"], #menu li a, .gallery-nav a {
+h1, h2, #footer h2, #menu h2, #footer form input[type="submit"], .gallery-nav a {
     font-family: 'Sk-Modernist-Regular', sans-serif !important;
 }
 
@@ -77,13 +76,16 @@ a {
 #header {
   background: #c2c2c2;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 #header .inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
 }
 
 #header .logo {
@@ -92,8 +94,8 @@ a {
 }
 
 #header .logo .symbol {
-  width: 11.2455rem;
-  height: 11.2455rem;
+  width: 5rem; /* Logo más pequeño */
+  height: auto;
   margin-right: 1rem;
   display: block;
 }
@@ -105,22 +107,71 @@ a {
 
 #header .logo .title {
   color: #000000;
-  font-weight: 700;
-  font-size: 0.86436rem;
+  font-family: 'Oswald', sans-serif !important;
+  font-weight: 400;
+  font-size: 1.5rem; /* Tamaño de fuente ajustado */
   letter-spacing: 0.05rem;
-  text-transform: uppercase;
+  text-transform: none; /* Quitamos el uppercase */
 }
 
-#header nav ul li a {
-    color: #000000;
+/* --- NUEVOS ESTILOS DE NAVEGACIÓN --- */
+
+/* Menú de navegación superior derecho */
+#header .top-nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* Menu */
+#header .top-nav ul li {
+    margin-left: 1.5rem;
+}
+
+#header .top-nav ul li a {
+    color: #030041;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.2s ease-in-out;
+}
+
+#header .top-nav ul li a:hover {
+    color: #555;
+}
+
+/* Menú hamburguesa (oculto en escritorio) */
+#header nav a[href="#menu"] {
+    display: none;
+}
+
+/* Ocultar el menú lateral que se veía mal */
 #menu {
-  background-color: #c2c2c2;
-  color: #030041;
-  font-family: 'Sk-Modernist-Regular', sans-serif !important;
+    display: none !important;
 }
+
+/* Adaptación para móviles */
+@media screen and (max-width: 980px) {
+    #header .top-nav {
+        display: none; /* Oculta el menú de escritorio */
+    }
+    #header nav a[href="#menu"] {
+        display: block; /* Muestra el botón de menú hamburguesa */
+        color: #000;
+        text-decoration: none;
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+    }
+    #menu {
+        display: block !important; /* Permite que el JS lo muestre */
+    }
+}
+
+
+/* --- FIN ESTILOS DE NAVEGACIÓN --- */
 
 /* Main */
 #main {
@@ -142,15 +193,12 @@ a {
   line-height: 1.2;
 }
 
-/* --- ESTILOS MODIFICADOS Y NUEVOS --- */
 
-/* Párrafos en "Nosotros" más grandes */
+/* Estilos "Nosotros" */
 #main .inner p {
     font-size: 1.1rem;
     line-height: 1.6;
 }
-
-/* Títulos H1 y H2 en "Nosotros" */
 #main .inner > h1.centered-title {
     font-size: 2.8rem;
     margin-bottom: 1em;
@@ -159,8 +207,6 @@ a {
     font-size: 2.3rem;
     margin-bottom: 1.5em;
 }
-
-/* Imagen con zoom sin sombra */
 .image-zoom-no-shadow img {
     transition: transform 0.3s ease;
     border-radius: 8px;
@@ -168,27 +214,22 @@ a {
 .image-zoom-no-shadow:hover img {
     transform: scale(1.05);
 }
-
-/* Títulos de valores más gruesos */
 .valores-section p > strong {
     font-weight: 900;
 }
-
-/* Alineación de imágenes en página "Nosotros" */
 .nosotros-page .image.main {
-    max-width: 80%;
+    max-width: 75ch; /* Limita el ancho de la imagen a ~75 caracteres, similar a un párrafo */
     margin-left: auto;
     margin-right: auto;
 }
-
 
 /* Enlace destacado a "Nuestra Historia" */
 .featured-story {
     margin-bottom: 3rem;
 }
 .featured-story article {
-    max-width: 900px; /* Ancho máximo del bloque horizontal */
-    margin: 0 auto; /* Centrado en la página */
+    max-width: 900px;
+    margin: 0 auto;
     position: relative;
     border-radius: 8px;
     overflow: hidden;
@@ -207,7 +248,7 @@ a {
 .featured-story article .image {
     display: block;
     position: relative;
-    height: 350px; /* Altura fija para el formato horizontal */
+    height: 350px;
     width: 100%;
 }
 .featured-story article .image img {
@@ -216,7 +257,7 @@ a {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
-    object-position: center; /* Centra la imagen dentro del contenedor */
+    object-position: center;
 }
 .featured-story article:hover .image img {
     transform: scale(1.05);
@@ -239,24 +280,17 @@ a {
     color: #c2c2c2;
 }
 
-/* --- FIN DE ESTILOS MODIFICADOS --- */
-
-
-/* Grilla de Galerías */
+/* Grilla de Galerías Principal */
 .tiles {
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: 1fr; /* Por defecto 1 columna para móviles */
+  grid-template-columns: 1fr;
 }
-
-/* Media Query para forzar 3 columnas solo en la grilla principal de la home */
 @media screen and (min-width: 737px) {
     #obras-destacadas.tiles {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
-
 .tiles article {
   position: relative;
   border-radius: 8px;
@@ -264,7 +298,7 @@ a {
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
-  min-height: 300px; /* Altura mínima para las tarjetas de galería */
+  min-height: 300px;
 }
 .tiles article:hover {
   transform: translateY(-10px);
@@ -329,7 +363,6 @@ a {
     transform: scale(1.05);
     box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
 }
-
 .gallery-nav {
     display: flex;
     justify-content: space-between;
@@ -357,13 +390,11 @@ a {
   text-align: center;
   color: #030041;
 }
-
 #footer h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #030041;
 }
-
 #footer form {
   max-width: 500px;
   margin: 0 auto 3rem;
@@ -409,7 +440,6 @@ a {
 #footer .actions input[type="submit"]:hover {
   background-color: #030041;
 }
-
 #footer .icons {
   display: flex;
   justify-content: center;
@@ -430,7 +460,6 @@ a {
 #footer .icons a:hover {
   color: #FFFFFF;
 }
-
 .copyright {
   font-size: 0.9rem;
   color: #C0C0C0;
@@ -439,7 +468,6 @@ a {
   display: inline-block;
   margin: 0 0.5rem;
 }
-
 .gallery .project-section {
     margin-bottom: 3rem;
 }
