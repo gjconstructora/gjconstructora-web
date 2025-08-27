@@ -85,7 +85,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 2rem; /* Altura del header reducida */
+  padding: 0.75rem 2rem 0.3rem 2rem; /* <-- AJUSTE FINAL DE ALTURA */
 }
 
 #header .logo {
@@ -94,7 +94,7 @@ a {
 }
 
 #header .logo .symbol {
-  width: 7.5rem; /* Logo ajustado a la nueva altura */
+  width: 7.5rem;
   height: auto;
   margin-right: 1rem;
   display: block;
