@@ -151,10 +151,31 @@ a {
   color: #C0C0C0;
 }
 
+/* --- NUEVOS ESTILOS --- */
+/* Aumento de tamaño para títulos en páginas internas como "Nosotros" */
+#main .inner > h1.centered-title {
+    font-size: 2.8rem;
+    margin-bottom: 1em;
+}
+#main .inner > h2.centered-title {
+    font-size: 2.3rem;
+    margin-bottom: 1.5em;
+}
+/* Estilo para imagen con zoom pero sin sombra en hover */
+.image-zoom-no-shadow img {
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+.image-zoom-no-shadow:hover img {
+    transform: scale(1.05);
+}
+/* --- FIN NUEVOS ESTILOS --- */
+
+
 /* Tiles */
 .tiles {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 2rem;
 }
 
