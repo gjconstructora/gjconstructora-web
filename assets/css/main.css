@@ -85,7 +85,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.75rem 2rem; /* Altura del header reducida */
 }
 
 #header .logo {
@@ -94,7 +94,7 @@ a {
 }
 
 #header .logo .symbol {
-  width: 8.5rem; /* Logo Agrandado Definitivo */
+  width: 7.5rem; /* Logo ajustado a la nueva altura */
   height: auto;
   margin-right: 1rem;
   display: block;
@@ -187,16 +187,20 @@ a {
 
 /* Estilos "Nosotros" */
 .content-column {
-    max-width: 800px; /* Ancho máximo para todo el contenido central */
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 .content-column p {
     font-size: 1.1rem;
     line-height: 1.6;
+    display: block;
+    margin: 0 auto 1em auto;
+    max-width: 75ch;
 }
 .content-column .image.main {
-    width: 100%; /* La imagen ocupa el 100% del nuevo contenedor */
+    width: 100%;
     max-width: 100%;
 }
 #main .inner > h1.centered-title {
@@ -348,6 +352,9 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+  max-width: 1400px; /* Ancho máximo para la galería */
+  margin-left: auto;
+  margin-right: auto;
 }
 .gallery img {
     transition: transform 0.3s, box-shadow 0.3s;
