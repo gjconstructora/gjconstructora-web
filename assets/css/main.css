@@ -94,7 +94,7 @@ a {
 }
 
 #header .logo .symbol {
-  width: 6.5rem; /* Logo agrandado */
+  width: 7rem; /* Logo Agrandado */
   height: auto;
   margin-right: 1rem;
   display: block;
@@ -116,7 +116,6 @@ a {
 
 /* --- ESTILOS DE NAVEGACIÓN --- */
 
-/* Menú de navegación superior derecho */
 #header .top-nav ul {
     display: flex;
     align-items: center;
@@ -124,11 +123,9 @@ a {
     margin: 0;
     padding: 0;
 }
-
 #header .top-nav ul li {
     margin-left: 1.5rem;
 }
-
 #header .top-nav ul li a {
     color: #030041;
     text-decoration: none;
@@ -138,22 +135,16 @@ a {
     letter-spacing: 1px;
     transition: color 0.2s ease-in-out;
 }
-
 #header .top-nav ul li a:hover {
     color: #555;
 }
-
-/* Menú hamburguesa (oculto en escritorio) */
 #header nav a[href="#menu"] {
     display: none;
 }
-
-/* Ocultar el menú lateral que se veía mal por defecto */
 #menu {
     display: none !important;
 }
 
-/* Adaptación para móviles */
 @media screen and (max-width: 980px) {
     #header .top-nav {
         display: none;
@@ -197,11 +188,10 @@ a {
 /* Estilos "Nosotros" */
 .nosotros-page #main .inner p,
 .nosotros-page #main .inner .valores-section {
-    max-width: 75ch; /* Limita el ancho del texto y los valores a 75 caracteres */
+    max-width: 75ch;
     margin-left: auto;
     margin-right: auto;
 }
-
 .nosotros-page #main .inner p {
     font-size: 1.1rem;
     line-height: 1.6;
@@ -225,9 +215,10 @@ a {
     font-weight: 900;
 }
 .nosotros-page .image.main {
-    max-width: 75ch; /* Limita el ancho de la imagen para que coincida con el texto */
+    max-width: 75ch;
     margin-left: auto;
     margin-right: auto;
+    text-align: center; /* CENTRA LA IMAGEN DENTRO DEL MARCO */
 }
 
 
