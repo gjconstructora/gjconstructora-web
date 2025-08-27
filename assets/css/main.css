@@ -94,7 +94,7 @@ a {
 }
 
 #header .logo .symbol {
-  width: 7rem; /* Logo Agrandado */
+  width: 8.5rem; /* Logo Agrandado Definitivo */
   height: auto;
   margin-right: 1rem;
   display: block;
@@ -186,15 +186,18 @@ a {
 
 
 /* Estilos "Nosotros" */
-.nosotros-page #main .inner p,
-.nosotros-page #main .inner .valores-section {
-    max-width: 75ch;
+.content-column {
+    max-width: 800px; /* Ancho máximo para todo el contenido central */
     margin-left: auto;
     margin-right: auto;
 }
-.nosotros-page #main .inner p {
+.content-column p {
     font-size: 1.1rem;
     line-height: 1.6;
+}
+.content-column .image.main {
+    width: 100%; /* La imagen ocupa el 100% del nuevo contenedor */
+    max-width: 100%;
 }
 #main .inner > h1.centered-title {
     font-size: 2.8rem;
@@ -213,12 +216,6 @@ a {
 }
 .valores-section p > strong {
     font-weight: 900;
-}
-.nosotros-page .image.main {
-    max-width: 75ch;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center; /* CENTRA LA IMAGEN DENTRO DEL MARCO */
 }
 
 
