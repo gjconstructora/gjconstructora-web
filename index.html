@@ -116,34 +116,37 @@
         min-width: 0 !important;
     }
 
+    /* Desactivamos el filtro oscuro total para que se vea la franja base */
     .featured-ventas-container article::after {
-        content: '';
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.4) !important;
-        z-index: 2;
-        pointer-events: none;
+        display: none !important;
     }
 
+    /* Modificación Estructural: Anclaje al pie con franja oscura */
     .featured-ventas-container article .content {
         position: absolute !important;
         z-index: 10 !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
+        bottom: 0 !important; 
+        left: 0 !important;
+        top: auto !important; /* Anula el centrado previo */
+        transform: none !important; /* Anula el centrado previo */
+        width: 100% !important;
+        padding: 1.5em 1em !important;
         text-align: center !important;
-        width: 90% !important;
-        padding: 0 !important;
+        background-color: rgba(25, 25, 25, 0.95) !important; /* Franja base oscura */
     }
 
     /* --- CORRECCIÓN DEFINITIVA DE COLOR EN TARJETAS --- */
     #main .featured-ventas-container article .content h2,
     #main .featured-ventas-container article .content p {
         color: #d3d3d3 !important; 
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.9) !important;
+        text-shadow: none !important; /* Sombra eliminada por redundancia sobre fondo negro */
         margin: 0 !important;
         position: relative !important;
+    }
+
+    #main .featured-ventas-container article .content h2 {
+        font-size: 1.25em !important;
+        margin-bottom: 0.25em !important;
     }
 
     #main .tiles article .content h2 {
@@ -202,13 +205,9 @@
                 <nav class="top-nav">
                     <ul>
                             <li><a href="index.html">Inicio</a></li>
-
                             <li><a href="nosotros.html">Nosotros</a></li>
-
                             <li><a href="index.html#obras-destacadas">Obras</a></li>
-
                             <li><a href="ventas.html">Próximamente</a></li>
-
                             <li><a href="index.html#seguinos">Contactá con nosotros</a></li>
                     </ul>
                 </nav>
@@ -225,7 +224,7 @@
             <h2>Menu</h2>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a hr|ef="nosotros.html">Nosotros</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="ventas.html">Próximamente</a></li>
                 <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
                 <li><a href="galeria-proyecto-2.html">Espacios Integrados</a></li>
