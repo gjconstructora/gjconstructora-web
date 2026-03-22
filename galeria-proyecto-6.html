@@ -67,6 +67,84 @@
     h1, h2, #main h1, #main h2 {
         color: #030041!important;
     }
+    /* 1. Bloqueo del Desbordamiento Horizontal (Fondo blanco lateral) */
+html, body {
+    overflow-x: hidden !important; 
+    width: 100% !important;
+    max-width: 100vw !important;
+}
+
+/* 2. Contención de Imágenes (Para que no rompan la pantalla en celulares) */
+img, .image, .image.main, .image-zoom-gallery img {
+    max-width: 100% !important;
+    height: auto !important; /* Mantiene la proporción sin deformar la foto */
+    box-sizing: border-box !important;
+}
+
+/* 3. Fractura de Textos Largos (Fuerza a que "proyecto|..." baje de renglón si no cabe) */
+p, h1, h2, h3, h4, h5, h6, span, a, div {
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    box-sizing: border-box !important;
+}
+/* 1. Unificación Tipográfica: Pie de página y Menú */
+#footer h2, 
+#footer p, 
+#footer .copyright li, 
+#menu ul li a[href*="seguinos"] {
+    color: #030041 !important;
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5); /* Sombra sutil para legibilidad sobre el cemento */
+}
+
+/* 2. Unificación: Párrafos en Próximamente (ventas.html) */
+.ventas-content p {
+    color: #030041 !important;
+    font-weight: normal !important; /* Restaura el grosor y tamaño original */
+}
+.gallery-nav {
+    display: flex !important;
+    flex-direction: row !important; 
+    justify-content: center !important; /* Centra el grupo de botones */
+    align-items: stretch !important;    /* ESTA ES LA CLAVE: Estira ambos a la misma altura */
+    gap: 15px !important;              /* Espacio entre botones */
+    margin: 2em auto !important;
+    width: 100% !important;
+}
+
+.gallery-nav a {
+    /* Flex interno para centrar el texto verticalmente */
+    display: flex !important;
+    align-items: center !important; 
+    justify-content: center !important;
+    text-align: center !important;
+    
+    /* Ancho variable según el texto */
+    width: auto !important; 
+    flex: 0 1 auto !important; /* No los obliga a ocupar todo el ancho */
+    
+    /* Estética visual */
+    background-color: #030041 !important; 
+    color: #ffffff !important; 
+    padding: 1em 2em !important; /* El padding vertical asegura una altura base cómoda */
+    border-radius: 6px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    font-size: 0.85em !important;
+    text-transform: uppercase !important;
+}
+
+/* Ajuste para celular: se ponen uno arriba del otro para no apretarse */
+@media screen and (max-width: 480px) {
+    .gallery-nav {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .gallery-nav a {
+        width: 100% !important; /* En el celu sí conviene que ocupen todo el ancho */
+        max-width: 280px !important;
+    }
+    }
 </style>
     </head>
     <body class="is-preload">
@@ -103,6 +181,7 @@
                 <h2>Menu</h2>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ventas.html">Próximamente</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
                     <li><a href="galeria-proyecto-2.html">Espacios Integrados</a></li>
@@ -110,8 +189,6 @@
                     <li><a href="galeria-proyecto-4.html">Obras hospitalarias</a></li>
                     <li><a href="galeria-proyecto-5.html">Ladrillo tradicional</a></li>
                     <li><a href="galeria-proyecto-6.html">Troncos y piedras</a></li>
-                    <li><a href="ventas.html">Próximamente</a></li>
-                    <li><a href="index.html#contacto">Contactanos</a></li>
                     <li><a href="index.html#seguinos">Contactá con nosotros</a></li>
                 </ul>
             </nav>

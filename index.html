@@ -71,6 +71,61 @@
      h2, #main h2 {
         color: #bebebe !important;
     }
+    /* 1. Bloqueo del Desbordamiento Horizontal (Fondo blanco lateral) */
+html, body {
+    overflow-x: hidden !important; 
+    width: 100% !important;
+    max-width: 100vw !important;
+}
+
+/* 2. Contención de Imágenes (Para que no rompan la pantalla en celulares) */
+img, .image, .image.main, .image-zoom-gallery img {
+    max-width: 100% !important;
+    height: auto !important; /* Mantiene la proporción sin deformar la foto */
+    box-sizing: border-box !important;
+}
+
+/* 3. Fractura de Textos Largos (Fuerza a que "proyecto|..." baje de renglón si no cabe) */
+p, h1, h2, h3, h4, h5, h6, span, a, div {
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    box-sizing: border-box !important;
+}
+/* 1. Comportamiento Base (Computadoras) */
+.salto-movil {
+    display: none !important; /* Oculta los saltos de renglón en PC */
+}
+
+/* 2. Comportamiento Condicional (Celulares - Pantallas menores a 768px) */
+@media screen and (max-width: 768px){
+    .salto-movil {
+        display: block !important; /* Activa los saltos de renglón */
+    }
+    
+    .barra-desktop {
+        display: none !important; /* Oculta las barras '|' para que quede más limpio */
+    }
+
+    /* Reducción estructural del tamaño de fuente en celulares para mejor legibilidad */
+    #main h1, .inner h1 {
+        font-size: 2.2em !important; 
+        line-height: 1.3 !important;
+    }
+    }
+/* 1. Unificación Tipográfica: Pie de página y Menú */
+#footer h2, 
+#footer p, 
+#footer .copyright li, 
+#menu ul li a[href*="seguinos"] {
+    color: #030041 !important;
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5); /* Sombra sutil para legibilidad sobre el cemento */
+}
+/* 2. Unificación: Párrafos en Próximamente (ventas.html) */
+.ventas-content p {
+    color: #030041 !important;
+    font-weight: normal !important; /* Restaura el grosor y tamaño original */
+}
 </style>
 </head>
 
@@ -109,28 +164,31 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="ventas.html">Próximamente</a></li>
                 <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
                 <li><a href="galeria-proyecto-2.html">Espacios Integrados</a></li>
                 <li><a href="galeria-proyecto-3.html">Detalles de Diseño</a></li>
                 <li><a href="galeria-proyecto-4.html">Obras hospitalarias</a></li>
                 <li><a href="galeria-proyecto-5.html">Ladrillo tradicional</a></li>
                 <li><a href="galeria-proyecto-6.html">Troncos y piedras</a></li>
-                <li><a href="ventas.html">Próximamente</a></li>
                 <li><a href="index.html#seguinos">Contactá con nosotros</a></li>
             </ul>
         </nav>
         <div id="main">
             <div class="inner">
                 <header>
-                    <h1>Proyecto|Dirección|Ejecución<br />Desarrollos Inmobiliarios</h1>
-                </header>
+               <h1>
+    |Proyecto|Dirección| <br class="salto-movil">
+    |Ejecución| <br class="salto-movil">
+</h1>
+                </header>  
 
                 <div class="featured-ventas-container">
                     <section class="featured-story">
                         <article class="style1">
                             <a href="nosotros.html">
                                 <span class="image">
-                                    <img src="images/cerveceria_villa_la_angostura_1.jpg" alt="Nuestra Historia" />
+                                    <img src="images/portadanosotros.jpg" alt="Nuestra Historia" />
                                 </span>
                                 <div class="content">
                                     <h2>Nuestra Historia</h2>
@@ -143,7 +201,7 @@
                         <article class="style1">
                             <a href="ventas.html">
                                 <span class="image">
-                                    <img src="images/1.jpg" alt="Gran oportunidad en Cipolletti" />
+                                    <img src="images/portadaventas.jpg" alt="Gran oportunidad en Cipolletti" />
                                 </span>
                                 <div class="content">
                                     <h2>Gran oportunidad en Cipolletti</h2>
