@@ -39,10 +39,18 @@
                 background-repeat: no-repeat !important;
             }
             
-            /* Regulación de opacidad para garantizar lectura */
-            #wrapper {
-                background-color: rgba(63, 63, 63, 0.6) !important; /* Fondo blanco al 85% de opacidad */
-            }
+/* 3. Ajuste de seguridad para que el encabezado no tape el título */
+#wrapper {
+    /* Subimos de 110px a 160px para que el título baje y se vea completo */
+    padding-top: 160px !important; 
+    background-color: transparent !important;
+}
+
+/* De paso, aseguremos que el título sea legible */
+#main h1, #main h2 {
+    color: #030041 !important; /* El azul de tu marca para los títulos */
+    margin-top: 0 !important;
+}
         </style>
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
@@ -71,14 +79,14 @@
 
     /* 2. Imagen de fondo de la obra */
     body, body.is-preload {
-        background-image: url('images/Fondo.jpg') !important;
+        background-image: url('images/fondo.jpg') !important;
         background-size: cover !important;
         background-position: center center !important;
         background-attachment: fixed !important;
         background-repeat: no-repeat !important;
     }
 
-    /* 3. Ajuste para que el encabezado fijo no tape las fotos */
+    /* 3. Ajuste para que el encabezado fijo no tape las fotos */zz
     #wrapper {
         padding-top: 100px !important;
         background-color: transparent !important;
