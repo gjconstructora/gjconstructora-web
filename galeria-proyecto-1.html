@@ -5,65 +5,65 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css?v=3.3" />
-        <style>
-            @font-face {
-                font-family: 'Sk-Modernist-Regular';
-                src: url('Sk-Modernist-Regular.woff2') format('woff2'),
-                     url('Sk-Modernist-Regular.woff') format('woff');
-                font-weight: normal;
-                font-style: normal;
-            }
-            /* Nueva inyección de precisión: Cabezal pequeño, Letras grandes */
-            #header {
-                padding: 0.2em 0 !important; /* Reduce espacio superior/inferior del contenedor */
-                height: auto !important; /* Permite que la altura la defina el contenido */
-            }
-            #header .inner {
-                padding: 0.1rem 0.5rem !important; /* Padding mínimo */
-            }
-            #header .logo {
-                font-size: 0.9em !important; /* Tamaño normal */
-                line-height: 1 !important; /* Alineación vertical perfecta */
-            }
-        </style>
-<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 <style>
-    /* 1. Encabezado con efecto vidrio y margen lateral del 5% */
+    @font-face {
+        font-family: 'Sk-Modernist-Regular';
+        src: url('Sk-Modernist-Regular.woff2') format('woff2'),
+             url('Sk-Modernist-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* 1. Encabezado "Charcoal-Glass" (Fijo y Elegante) */
     #header {
-        background-color: rgba(63, 63, 63, 0.6) !important;
-        backdrop-filter: blur(12px) !important;
+        background-color: rgba(63, 63, 63, 0.7) !important; 
+        backdrop-filter: blur(12px) !important; 
         -webkit-backdrop-filter: blur(12px) !important;
         position: fixed !important;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 10000 !important;
-        border-bottom: 1px solid rgba(63, 63, 63, 0.6) !important;
+        top: 0; left: 0; width: 100%; z-index: 10000 !important;
+        padding: 0.6em 0 !important;
+        height: auto !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
     #header .inner {
-        /* El 5% empuja el menú hacia la izquierda y despega el logo del borde */
         padding: 0 5% !important; 
     }
 
+    /* Menú en BLANCO para resaltar sobre el gris */
+    #header .logo, #header .logo .title, #header .navPanelToggle, #header nav ul li a {
+        color: #ffffff !important;
+    }
+
     #header .logo {
-        font-size: 2.2em !important;
+        font-size: 2em !important;
         line-height: 1 !important;
     }
 
-    /* 2. Imagen de fondo de la obra */
+    /* 2. Fondo de Cemento Unificado */
     body, body.is-preload {
-        background-image: url('images/Fondo.jpg') !important;
+        background-image: url('images/fondo.jpg') !important;
         background-size: cover !important;
         background-position: center center !important;
         background-attachment: fixed !important;
         background-repeat: no-repeat !important;
+        background-color: #333 !important;
     }
 
-    /* 3. Ajuste para que el encabezado fijo no tape las fotos */
-    #wrapper {
-        padding-top: 100px !important;
+    /* 3. Transparencias para ver el fondo en todas las secciones */
+    #wrapper, #main, #main > .inner, .thumbnails > article {
+        background: transparent !important;
         background-color: transparent !important;
+    }
+
+    /* 4. Espacio de seguridad (Para que el menú no tape el título) */
+    #wrapper {
+        padding-top: 150px !important; 
+    }
+
+    /* Color de los títulos (Azul Constructora) */
+    h1, h2, #main h1, #main h2 {
+        color: #030041 !important;
     }
 </style>
     </head>
