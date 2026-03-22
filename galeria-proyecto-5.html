@@ -144,6 +144,15 @@ p, h1, h2, h3, h4, h5, h6, span, a, div {
         max-width: 280px !important;
     }
     }
+    /* --- CORRECCIÓN CELULAR: FONDO DE CEMENTO MUY GRANDE Y DESENFOCADO --- */
+/* Agrega esto al FINAL de la etiqueta <style> en TODAS tus páginas HTML */
+@media screen and (max-width: 736px) {
+    body, body.is-preload {
+        background-attachment: scroll !important; /* Cambiamos de 'fixed' a 'scroll' para mobile */
+        background-size: cover !important; /* 'cover' funciona mejor con 'scroll' en mobile */
+        background-position: center !important;
+    }
+}
 </style>
     </head>
     <body class="is-preload">
