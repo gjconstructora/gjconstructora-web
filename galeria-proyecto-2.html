@@ -145,14 +145,35 @@ p, h1, h2, h3, h4, h5, h6, span, a, div {
         max-width: 280px !important;
     }
     }
-    /* --- CORRECCIÓN CELULAR: FONDO DE CEMENTO MUY GRANDE Y DESENFOCADO --- */
-/* Agrega esto al FINAL de la etiqueta <style> en TODAS tus páginas HTML */
-@media screen and (max-width: 736px) {
-    body, body.is-preload {
-        background-attachment: scroll !important; /* Cambiamos de 'fixed' a 'scroll' para mobile */
-        background-size: cover !important; /* 'cover' funciona mejor con 'scroll' en mobile */
-        background-position: center !important;
+/* --- FONDO CELULAR NÍTIDO (Pantalla Virtual Unificada) --- */
+@media screen and (max-width: 768px) {
+    #main h1, .inner h1 { font-size: 2.2em !important; }
+    
+    /* A. Apagamos el fondo estirado y hacemos el body transparente */
+    body, body.is-preload { 
+        background-image: none !important; 
+        background-color: transparent !important; 
     }
+    
+    /* B. Pantalla virtual fija (Alta definición) */
+    body::after {
+        content: '' !important;
+        position: fixed !important;
+        top: 0 !important; 
+        left: 0 !important;
+        width: 100vw !important; 
+        height: 100vh !important;
+        background-image: url('images/fondo.jpg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        z-index: -1 !important; 
+        pointer-events: none !important;
+    }
+
+    /* C. Ajustes estructurales de botones de galería */
+    .gallery-nav { flex-direction: column !important; align-items: center !important; }
+    .gallery-nav a { width: 100% !important; max-width: 280px !important; }
 }
 </style>
     </head>
