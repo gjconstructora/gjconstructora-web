@@ -152,18 +152,18 @@
         position: relative !important;
     }
 
-   /* 7. Ajustes para Celulares (Stack vertical y Fondo Nítido) */
+/* 7. Ajustes para Celulares (Stack vertical y Fondo Nítido) */
     @media screen and (max-width: 768px) {
         #main h1, .inner h1 { font-size: 2.2em !important; }
         
-        /* A. Apagamos el fondo original que se estiraba y perdía calidad */
+        /* A. Apagamos el fondo estirado y hacemos el body TRANSPARENTE */
         body, body.is-preload { 
             background-image: none !important; 
-            background-color: #333 !important;
+            background-color: transparent !important; /* CLAVE: Sin esto se ve gris */
         }
         
-        /* B. Creamos una "pantalla virtual" fija del tamaño exacto del celular */
-        body::before {
+        /* B. Pantalla virtual fija (Alta definición) */
+        body::after {
             content: '' !important;
             position: fixed !important;
             top: 0 !important; 
@@ -173,7 +173,8 @@
             background-image: url('images/fondo.jpg') !important;
             background-size: cover !important;
             background-position: center center !important;
-            z-index: -100 !important; /* Lo mandamos al fondo de todo */
+            background-repeat: no-repeat !important;
+            z-index: -1 !important; /* Detrás del texto, pero visible */
             pointer-events: none !important;
         }
 
@@ -182,21 +183,6 @@
         .gallery-nav a { width: 100% !important; max-width: 280px !important; }
         .featured-ventas-container { grid-template-columns: 1fr !important; }
         .featured-ventas-container article { height: 250px !important; }
-    }
-/* --- CORRECCIÓN DEFINITIVA DE COLOR: TARJETAS SUPERIORES --- */
-    /* Al sumar "#main" obligamos al navegador a obedecer esta orden sobre la del azul */
-    #main .featured-ventas-container article .content h2,
-    #main .featured-ventas-container article .content p {
-        color: #d3d3d3 !important; /* Gris claro para los títulos de arriba */
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.9) !important;
-        margin: 0 !important;
-        position: relative !important;
-    }
-
-    /* --- CORRECCIÓN DEFINITIVA DE COLOR: TARJETAS INFERIORES (OBRAS) --- */
-    #main .tiles article .content h2 {
-        color: #d3d3d3 !important; /* Gris claro para las obras de abajo */
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9) !important; 
     }
 </style>
 </head>
