@@ -15,7 +15,7 @@
         font-style: normal;
     }
 
-    /* 1. Encabezado "Charcoal-Glass" (Fijo y Elegante) */
+    /* 1. Encabezado "Charcoal-Glass" (Fijo) */
     #header {
         background-color: rgba(63, 63, 63, 0.7) !important; 
         backdrop-filter: blur(12px) !important; 
@@ -23,28 +23,14 @@
         position: fixed !important;
         top: 0; left: 0; width: 100%; z-index: 10000 !important;
         padding: 0.6em 0 !important;
-        height: auto !important;
         border-bottom: 1px solid rgba(63, 63, 63, 0.7) !important;
     }
 
-    #header .inner {
-        padding: 0 5% !important; 
+    #header .logo, #header .logo .title, #header .navPanelToggle, #header nav ul li a {
+        color: #000000 !important;
     }
 
-    /* Menú en BLANCO para resaltar sobre el gris */
-    #header .logo, #header .logo .title {
-        color: #000000!important;
-    }
-    #header .navPanelToggle, #header nav ul li a {
-        color: #000000!important;
-    }
-
-    #header .logo {
-        font-size: 2em !important;
-        line-height: 1 !important;
-    }
-
-    /* 2. Fondo de Cemento Unificado */
+    /* 2. Fondo de Cemento y Transparencias */
     body, body.is-preload {
         background-image: url('images/fondo.jpg') !important;
         background-size: cover !important;
@@ -54,78 +40,142 @@
         background-color: #333 !important;
     }
 
-    /* 3. Transparencias para ver el fondo en todas las secciones */
-    #wrapper, #main, #main > .inner, .thumbnails > article {
-        background: transparent !important;
-        background-color: transparent !important;
+    #wrapper { padding-top: 150px !important; background: transparent !important; }
+    #main, #main > .inner { background: transparent !important; }
+
+    /* 3. Títulos Centrados (Azul Constructora) */
+    h1, h2, #main h1, #main h2, .centered-title {
+        color:#030041 !important;
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
     }
 
-    /* 4. Espacio de seguridad (Para que el menú no tape el título) */
-    #wrapper {
-        padding-top: 150px !important; 
+    /* 4. Pie de página e Iconos */
+    #footer h2, #footer p, #footer .copyright li {
+        color: #030041 !important;
+        text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
     }
 
-    /* Color de los títulos (Azul Constructora) */
-    h1,#main h1 {
-      color: #030041 !important;}
-     h2, #main h2 {
-        color: #bebebe !important;
-    }
-    /* 1. Bloqueo del Desbordamiento Horizontal (Fondo blanco lateral) */
-html, body {
-    overflow-x: hidden !important; 
-    width: 100% !important;
-    max-width: 100vw !important;
-}
-
-/* 2. Contención de Imágenes (Para que no rompan la pantalla en celulares) */
-img, .image, .image.main, .image-zoom-gallery img {
-    max-width: 100% !important;
-    height: auto !important; /* Mantiene la proporción sin deformar la foto */
-    box-sizing: border-box !important;
-}
-
-/* 3. Fractura de Textos Largos (Fuerza a que "proyecto|..." baje de renglón si no cabe) */
-p, h1, h2, h3, h4, h5, h6, span, a, div {
-    max-width: 100% !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    box-sizing: border-box !important;
-}
-/* 1. Comportamiento Base (Computadoras) */
-.salto-movil {
-    display: none !important; /* Oculta los saltos de renglón en PC */
-}
-
-/* 2. Comportamiento Condicional (Celulares - Pantallas menores a 768px) */
-@media screen and (max-width: 768px){
-    .salto-movil {
-        display: block !important; /* Activa los saltos de renglón */
-    }
-    
-    .barra-desktop {
-        display: none !important; /* Oculta las barras '|' para que quede más limpio */
+    /* 5. Botones de Navegación */
+    .gallery-nav {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        margin: 2em auto !important;
     }
 
-    /* Reducción estructural del tamaño de fuente en celulares para mejor legibilidad */
-    #main h1, .inner h1 {
-        font-size: 2.2em !important; 
-        line-height: 1.3 !important;
+    .gallery-nav a {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background-color: #030041 !important;
+        color: #ffffff !important;
+        padding: 1em 2em !important;
+        border-radius: 6px !important;
+        font-weight: bold !important;
+        text-decoration: none !important;
+        text-transform: uppercase !important;
     }
+
+    /* --- CORRECCIÓN INTEGRAL INICIO: TARJETAS SUPERIORES SIMÉTRICAS EN PC --- */
+
+    /* 1. Transformamos el contenedor específico en una cuadrícula exacta de 2 columnas matemáticas (50/50) */
+    .featured-ventas-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Mitades idénticas, no importa el contenido */
+        gap: 30px !important; /* Espacio uniforme entre ellas */
+        width: 100% !important;
+        max-width: none !important; /* Anulamos anchos máximos del template */
+        margin-bottom: 2em !important;
     }
-/* 1. Unificación Tipográfica: Pie de página y Menú */
-#footer h2, 
-#footer p, 
-#footer .copyright li, 
-#menu ul li a[href*="seguinos"] {
-    color: #030041 !important;
-    text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5); /* Sombra sutil para legibilidad sobre el cemento */
-}
-/* 2. Unificación: Párrafos en Próximamente (ventas.html) */
-.ventas-content p {
-    color: #030041 !important;
-    font-weight: normal !important; /* Restaura el grosor y tamaño original */
-}
+
+    /* 2. Anulamos los márgenes de las secciones internas y forzamos su altura */
+    .featured-ventas-container section,
+    .featured-ventas-container article {
+        width: 100% !important;
+        margin: 0 !important;
+        max-width: none !important;
+    }
+
+    /* 3. Definición de la tarjeta (Caja rígida) */
+    .featured-ventas-container article {
+        height: 350px !important; /* ALTURA FIJA PARA AMBAS: Simetría total */
+        position: relative !important;
+        overflow: hidden !important; /* CORTA cualquier parte de la imagen grande que sobre */
+        border-radius: 8px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    }
+
+    /* 4. Comportamiento de las imágenes grandes (Adaptación forzada) */
+    .featured-ventas-container article .image,
+    .featured-ventas-container article .image img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        object-fit: cover !important; /* ESTA ES LA CLAVE: Recorta proporcionalmente llenando el cuadro de 350px sin deformar */
+        z-index: 1 !important;
+        min-width: 0 !important; /* Clave para imágenes masivas */
+    }
+
+    /* 5. Filtro oscuro para contraste */
+    .featured-ventas-container article::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.4) !important; /* Un filtro oscuro uniforme sobre la foto */
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* 6. Centrado absoluto del contenido (Textos) */
+    .featured-ventas-container article .content {
+        position: absolute !important;
+        z-index: 10 !important; /* Ponemos el texto sobre la foto y el filtro */
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important; /* Centrado matemático perfecto en PC */
+        text-align: center !important;
+        width: 90% !important;
+        padding: 0 !important;
+    }
+
+    .featured-ventas-container article .content h2,
+    .featured-ventas-container article .content p {
+        color: #ffffff !important;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
+        margin: 0 !important;
+        position: relative !important;
+    }
+
+    /* 7. Ajustes para Celulares (Stack vertical) */
+    @media screen and (max-width: 768px) {
+        #main h1, .inner h1 { font-size: 2.2em !important; }
+        body, body.is-preload { background-attachment: scroll !important; }
+        .gallery-nav { flex-direction: column !important; align-items: center !important; }
+        .gallery-nav a { width: 100% !important; max-width: 280px !important; }
+        .featured-ventas-container { grid-template-columns: 1fr !important; }
+        .featured-ventas-container article { height: 250px !important; }
+    }
+/* --- CORRECCIÓN DEFINITIVA DE COLOR: TARJETAS SUPERIORES --- */
+    /* Al sumar "#main" obligamos al navegador a obedecer esta orden sobre la del azul */
+    #main .featured-ventas-container article .content h2,
+    #main .featured-ventas-container article .content p {
+        color: #d3d3d3 !important; /* Gris claro para los títulos de arriba */
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.9) !important;
+        margin: 0 !important;
+        position: relative !important;
+    }
+
+    /* --- CORRECCIÓN DEFINITIVA DE COLOR: TARJETAS INFERIORES (OBRAS) --- */
+    #main .tiles article .content h2 {
+        color: #d3d3d3 !important; /* Gris claro para las obras de abajo */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9) !important; 
+    }
 </style>
 </head>
 
@@ -163,7 +213,7 @@ p, h1, h2, h3, h4, h5, h6, span, a, div {
             <h2>Menu</h2>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a hr|ef="nosotros.html">Nosotros</a></li>
                 <li><a href="ventas.html">Próximamente</a></li>
                 <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
                 <li><a href="galeria-proyecto-2.html">Espacios Integrados</a></li>
@@ -178,7 +228,7 @@ p, h1, h2, h3, h4, h5, h6, span, a, div {
             <div class="inner">
                 <header>
                <h1>
-    |Proyecto|Dirección| <br class="salto-movil">
+    |Proyecto| |Dirección| <br class="salto-movil">
     |Ejecución| <br class="salto-movil">
 </h1>
                 </header>  
