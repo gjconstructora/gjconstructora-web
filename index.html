@@ -43,7 +43,7 @@
     #wrapper { padding-top: 150px !important; background: transparent !important; }
     #main, #main > .inner { background: transparent !important; }
 
-    /* 3. Títulos Centrados (Azul Constructora) */
+    /* 3. Títulos Generales (Azul Constructora) */
     h1, h2, #main h1, #main h2, .centered-title {
         color:#030041 !important;
         text-align: center !important;
@@ -78,19 +78,16 @@
         text-transform: uppercase !important;
     }
 
-    /* --- CORRECCIÓN INTEGRAL INICIO: TARJETAS SUPERIORES SIMÉTRICAS EN PC --- */
-
-    /* 1. Transformamos el contenedor específico en una cuadrícula exacta de 2 columnas matemáticas (50/50) */
+    /* --- TARJETAS SUPERIORES SIMÉTRICAS EN PC --- */
     .featured-ventas-container {
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* Mitades idénticas, no importa el contenido */
-        gap: 30px !important; /* Espacio uniforme entre ellas */
+        grid-template-columns: 1fr 1fr !important;
+        gap: 30px !important;
         width: 100% !important;
-        max-width: none !important; /* Anulamos anchos máximos del template */
+        max-width: none !important;
         margin-bottom: 2em !important;
     }
 
-    /* 2. Anulamos los márgenes de las secciones internas y forzamos su altura */
     .featured-ventas-container section,
     .featured-ventas-container article {
         width: 100% !important;
@@ -98,16 +95,14 @@
         max-width: none !important;
     }
 
-    /* 3. Definición de la tarjeta (Caja rígida) */
     .featured-ventas-container article {
-        height: 350px !important; /* ALTURA FIJA PARA AMBAS: Simetría total */
+        height: 350px !important;
         position: relative !important;
-        overflow: hidden !important; /* CORTA cualquier parte de la imagen grande que sobre */
+        overflow: hidden !important;
         border-radius: 8px !important;
         box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
     }
 
-    /* 4. Comportamiento de las imágenes grandes (Adaptación forzada) */
     .featured-ventas-container article .image,
     .featured-ventas-container article .image img {
         position: absolute !important;
@@ -116,53 +111,57 @@
         width: 100% !important;
         height: 100% !important;
         display: block !important;
-        object-fit: cover !important; /* ESTA ES LA CLAVE: Recorta proporcionalmente llenando el cuadro de 350px sin deformar */
+        object-fit: cover !important;
         z-index: 1 !important;
-        min-width: 0 !important; /* Clave para imágenes masivas */
+        min-width: 0 !important;
     }
 
-    /* 5. Filtro oscuro para contraste */
     .featured-ventas-container article::after {
         content: '';
         position: absolute;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.4) !important; /* Un filtro oscuro uniforme sobre la foto */
+        background: rgba(0, 0, 0, 0.4) !important;
         z-index: 2;
         pointer-events: none;
     }
 
-    /* 6. Centrado absoluto del contenido (Textos) */
     .featured-ventas-container article .content {
         position: absolute !important;
-        z-index: 10 !important; /* Ponemos el texto sobre la foto y el filtro */
+        z-index: 10 !important;
         top: 50% !important;
         left: 50% !important;
-        transform: translate(-50%, -50%) !important; /* Centrado matemático perfecto en PC */
+        transform: translate(-50%, -50%) !important;
         text-align: center !important;
         width: 90% !important;
         padding: 0 !important;
     }
 
-    .featured-ventas-container article .content h2,
-    .featured-ventas-container article .content p {
-        color: #ffffff !important;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
+    /* --- CORRECCIÓN DEFINITIVA DE COLOR EN TARJETAS (ESTO VA AFUERA DEL @MEDIA) --- */
+    /* Color Gris para las 2 tarjetas de arriba */
+    #main .featured-ventas-container article .content h2,
+    #main .featured-ventas-container article .content p {
+        color: #d3d3d3 !important; 
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.9) !important;
         margin: 0 !important;
         position: relative !important;
     }
 
-/* 7. Ajustes para Celulares (Stack vertical y Fondo Nítido) */
+    /* Color Gris para las 6 tarjetas de Obras (Abajo) */
+    #main .tiles article .content h2 {
+        color: #d3d3d3 !important; 
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.9) !important;
+    }
+
+    /* --- Ajustes para Celulares (Stack vertical y Fondo Nítido) --- */
     @media screen and (max-width: 768px) {
         #main h1, .inner h1 { font-size: 2.2em !important; }
         
-        /* A. Apagamos el fondo estirado y hacemos el body TRANSPARENTE */
         body, body.is-preload { 
             background-image: none !important; 
-            background-color: transparent !important; /* CLAVE: Sin esto se ve gris */
+            background-color: transparent !important; 
         }
         
-        /* B. Pantalla virtual fija (Alta definición) */
         body::after {
             content: '' !important;
             position: fixed !important;
@@ -174,11 +173,10 @@
             background-size: cover !important;
             background-position: center center !important;
             background-repeat: no-repeat !important;
-            z-index: -1 !important; /* Detrás del texto, pero visible */
+            z-index: -1 !important;
             pointer-events: none !important;
         }
 
-        /* C. Ajustes estructurales de botones y tarjetas */
         .gallery-nav { flex-direction: column !important; align-items: center !important; }
         .gallery-nav a { width: 100% !important; max-width: 280px !important; }
         .featured-ventas-container { grid-template-columns: 1fr !important; }
