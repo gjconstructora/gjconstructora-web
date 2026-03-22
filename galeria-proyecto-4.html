@@ -13,8 +13,59 @@
                 font-weight: normal;
                 font-style: normal;
             }
+            /* Nueva inyección de precisión: Cabezal pequeño, Letras grandes */
+            #header {
+                padding: 0.2em 0 !important; /* Reduce espacio superior/inferior del contenedor */
+                height: auto !important; /* Permite que la altura la defina el contenido */
+            }
+            #header .inner {
+                padding: 0.1rem 0.5rem !important; /* Padding mínimo */
+            }
+            #header .logo {
+                font-size: 0.9em !important; /* Tamaño normal */
+                line-height: 1 !important; /* Alineación vertical perfecta */
+            }
         </style>
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+    /* 1. Encabezado con efecto vidrio y margen lateral del 5% */
+    #header {
+        background-color: rgba(63, 63, 63, 0.6) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10000 !important;
+        border-bottom: 1px solid rgba(63, 63, 63, 0.6) !important;
+    }
+
+    #header .inner {
+        /* El 5% empuja el menú hacia la izquierda y despega el logo del borde */
+        padding: 0 5% !important; 
+    }
+
+    #header .logo {
+        font-size: 2.2em !important;
+        line-height: 1 !important;
+    }
+
+    /* 2. Imagen de fondo de la obra */
+    body, body.is-preload {
+        background-image: url('images/Fondo.jpg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-attachment: fixed !important;
+        background-repeat: no-repeat !important;
+    }
+
+    /* 3. Ajuste para que el encabezado fijo no tape las fotos */
+    #wrapper {
+        padding-top: 100px !important;
+        background-color: transparent !important;
+    }
+</style>
     </head>
     <body class="is-preload">
         <div id="wrapper">
@@ -27,10 +78,14 @@
                     <nav class="top-nav">
                         <ul>
                             <li><a href="index.html">Inicio</a></li>
+
                             <li><a href="nosotros.html">Nosotros</a></li>
+
                             <li><a href="index.html#obras-destacadas">Obras</a></li>
-                            <li><a href="index.html#contacto">Contactanos</a></li>
-                            <li><a href="index.html#seguinos">Seguinos</a></li>
+
+                            <li><a href="ventas.html">Próximamente</a></li>
+
+                            <li><a href="index.html#seguinos">Contactá con nosotros</a></li>
                         </ul>
                     </nav>
                     <a href="#menu">
@@ -53,8 +108,9 @@
                     <li><a href="galeria-proyecto-4.html">Obras hospitalarias</a></li>
                     <li><a href="galeria-proyecto-5.html">Ladrillo tradicional</a></li>
                     <li><a href="galeria-proyecto-6.html">Troncos y piedras</a></li>
+                    <li><a href="ventas.html">Próximamente</a></li>
                     <li><a href="index.html#contacto">Contactanos</a></li>
-                    <li><a href="index.html#seguinos">Seguinos</a></li>
+                    <li><a href="index.html#seguinos">Contactá con nosotros</a></li>
                 </ul>
             </nav>
             <div id="main">
@@ -85,27 +141,8 @@
             </div>
             <footer id="footer">
                 <div class="inner">
-                    <section id="contacto">
-                        <h2>Contactanos</h2>
-                        <form method="post" action="#">
-                            <div class="fields">
-                                <div class="field half">
-                                    <input type="text" name="name" id="name" placeholder="Nombre" />
-                                </div>
-                                <div class="field half">
-                                    <input type="email" name="email" id="email" placeholder="Email" />
-                                </div>
-                                <div class="field">
-                                    <textarea name="message" id="message" placeholder="Mensaje"></textarea>
-                                </div>
-                            </div>
-                            <ul class="actions">
-                                <li><input type="submit" value="Enviar" class="primary" /></li>
-                            </ul>
-                        </form>
-                    </section>
                     <section id="seguinos">
-                        <h2>Seguinos</h2>
+                        <h2>Contactá con nosotros</h2>
                         <ul class="icons">
                             <li><a href="https://www.facebook.com/profile.php?id=61579259110187"><img src="images/facebook.png" alt="Facebook" /></a></li>
                             <li><a href="https://www.instagram.com/gj_constructora/"><img src="images/instagram.png" alt="Instagram" /></a></li>
