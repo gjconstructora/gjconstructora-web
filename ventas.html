@@ -1,391 +1,125 @@
 <!DOCTYPE HTML>
-
 <html>
-
     <head>
-
-        <title>Próximamente- GJ Constructora</title>
-
+        <title>Oportunidades - GJ Constructora</title>
         <meta charset="utf-8" />
-
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
-<link rel="stylesheet" href="assets/css/main.css?v=3.3" />
-
-<style>
-    @font-face {
-        font-family: 'Sk-Modernist-Regular';
-        src: url('Sk-Modernist-Regular.woff2') format('woff2'),
-             url('Sk-Modernist-Regular.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    /* 1. Encabezado "Charcoal-Glass" (Fijo y Elegante) */
-    #header {
-        background-color: rgba(63, 63, 63, 0.7) !important; 
-        backdrop-filter: blur(12px) !important; 
-        -webkit-backdrop-filter: blur(12px) !important;
-        position: fixed !important;
-        top: 0; left: 0; width: 100%; z-index: 10000 !important;
-        padding: 0.6em 0 !important;
-        height: auto !important;
-        border-bottom: 1px solid rgba(63, 63, 63, 0.7) !important;
-    }
-
-    #header .inner {
-        padding: 0 5% !important; 
-    }
-
-    /* Menú en BLANCO para resaltar sobre el gris */
-    #header .logo, #header .logo .title {
-        color: #000000!important;
-    }
-    #header .navPanelToggle, #header nav ul li a {
-        color: #000000!important;
-    }
-
-    #header .logo {
-        font-size: 2em !important;
-        line-height: 1 !important;
-    }
-
-    /* 2. Fondo de Cemento Unificado */
-    body, body.is-preload {
-        background-image: url('images/fondo.jpg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-attachment: fixed !important;
-        background-repeat: no-repeat !important;
-        background-color: #333 !important;
-    }
-
-    /* 3. Transparencias para ver el fondo en todas las secciones */
-    #wrapper, #main, #main > .inner, .thumbnails > article {
-        background: transparent !important;
-        background-color: transparent !important;
-    }
-
-    /* 4. Espacio de seguridad (Para que el menú no tape el título) */
-    #wrapper {
-        padding-top: 150px !important; 
-    }
-
-    /* Color de los títulos (Azul Constructora) */
-    h1,#main h1 {
-      color: #030041 !important;}
-     h2, #main h2{
-        color: #030041 !important;
-    }
-</style>
-
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-
+        <link rel="stylesheet" href="assets/css/main.css?v=10" />
         <style>
-
-    /* 1. Encabezado con efecto vidrio y margen lateral del 5% */
-
-/* 1. Encabezado "Charcoal-Glass" (Oscuro y Elegante) */
-            #header {
-                background-color: rgba(63, 63, 63, 0.6) !important; 
-                backdrop-filter: blur(12px) !important; 
-                -webkit-backdrop-filter: blur(12px) !important;
-                position: fixed !important;
-                top: 0; left: 0; width: 100%; z-index: 10000 !important;
-                padding: 0.8em 0 !important;
-                height: auto !important;
-                border-bottom: 1px solid rgba(64, 55, 55, 0.1) !important;
+            @font-face {
+                font-family: 'Sk-Modernist-Regular';
+                src: url('Sk-Modernist-Regular.woff2') format('woff2'),
+                     url('Sk-Modernist-Regular.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
             }
-            
-            #header .inner {
-                padding: 0 5% !important; /* Margen lateral del 5% */
-            }
-            
-            /* Logo e Icono de Menú en Blanco para Contraste */
-            #header .logo, #header .logo .title, #header .navPanelToggle {
-                color: #000000 !important;
-            }
-            
-            #header .logo {
-                font-size: 2.2em !important;
-                line-height: 1 !important;
-            }
-
-/* 2. Forzar imagen de fondo de la página */
-    body, body.is-preload {
-        background-image: url('images/fondo.jpg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-attachment: fixed !important;
-        background-repeat: no-repeat !important
-            }
-
-            /* 3. Ajuste de Wrapper para evitar solapamiento */
-            #wrapper {
-                padding-top: 110px !important; 
-                background-color: transparent !important;
-            } 
-            /* 2. Contención de Imágenes (Para que no rompan la pantalla en celulares) */
-img, .image, .image.main, .image-zoom-gallery img {
-    max-width: 100% !important;
-    height: auto !important; /* Mantiene la proporción sin deformar la foto */
-    box-sizing: border-box !important;
-}
-            /* 2. Comportamiento Condicional (Celulares - Pantallas menores a 768px) */
-@media screen and (max-width: 768px){
-    .salto-movil {
-        display: block !important; /* Activa los saltos de renglón */
-    }
-    
-    .barra-desktop {
-        display: none !important; /* Oculta las barras '|' para que quede más limpio */
-    }
-
-    /* Reducción estructural del tamaño de fuente en celulares para mejor legibilidad */
-    #main h1, .inner h1 {
-        font-size: 2.2em !important; 
-        line-height: 1.3 !important;
-    }
-    }
-            /* 1. Unificación Tipográfica: Pie de página y Menú */
-#footer h2, 
-#footer p, 
-#footer .copyright li, 
-#menu ul li a[href*="seguinos"] {
-    color: #030041 !important;
-    text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5); /* Sombra sutil para legibilidad sobre el cemento */
-}
-/* 2. Unificación: Párrafos en Próximamente (ventas.html) */
-.ventas-content p {
-    color: #030041 !important;
-    font-weight: normal !important; /* Restaura el grosor y tamaño original */
-}
-.gallery-nav {
-    display: flex !important;
-    flex-direction: row !important; 
-    justify-content: center !important; /* Centra el grupo de botones */
-    align-items: stretch !important;    /* ESTA ES LA CLAVE: Estira ambos a la misma altura */
-    gap: 15px !important;              /* Espacio entre botones */
-    margin: 2em auto !important;
-    width: 100% !important;
-}
-
-.gallery-nav a {
-    /* Flex interno para centrar el texto verticalmente */
-    display: flex !important;
-    align-items: center !important; 
-    justify-content: center !important;
-    text-align: center !important;
-    
-    /* Ancho variable según el texto */
-    width: auto !important; 
-    flex: 0 1 auto !important; /* No los obliga a ocupar todo el ancho */
-    
-    /* Estética visual */
-    background-color: #030041 !important; 
-    color: #ffffff !important; 
-    padding: 1em 2em !important; /* El padding vertical asegura una altura base cómoda */
-    border-radius: 6px !important;
-    font-weight: bold !important;
-    text-decoration: none !important;
-    font-size: 0.85em !important;
-    text-transform: uppercase !important;
-}
-
-/* Ajuste para celular: se ponen uno arriba del otro para no apretarse */
-@media screen and (max-width: 480px) {
-    .gallery-nav {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    .gallery-nav a {
-        width: 100% !important; /* En el celu sí conviene que ocupen todo el ancho */
-        max-width: 280px !important;
-    }
-    }
-/* --- FONDO CELULAR NÍTIDO (Pantalla Virtual Unificada) --- */
-@media screen and (max-width: 768px) {
-    #main h1, .inner h1 { font-size: 2.2em !important; }
-    
-    /* A. Apagamos el fondo estirado y hacemos el body transparente */
-    body, body.is-preload { 
-        background-image: none !important; 
-        background-color: transparent !important; 
-    }
-    
-    /* B. Pantalla virtual fija (Alta definición) */
-    body::after {
-        content: '' !important;
-        position: fixed !important;
-        top: 0 !important; 
-        left: 0 !important;
-        width: 100vw !important; 
-        height: 100vh !important;
-        background-image: url('images/fondo.jpg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-        z-index: -1 !important; 
-        pointer-events: none !important;
-    }
-
-    /* C. Ajustes estructurales de botones de galería */
-    .gallery-nav { flex-direction: column !important; align-items: center !important; }
-    .gallery-nav a { width: 100% !important; max-width: 280px !important; }
-}
-</style>
-
+        </style>
     </head>
-
     <body class="is-preload">
-
         <div id="wrapper">
-
-           <header id="header">
-
+            <header id="header">
                 <div class="inner">
-
                     <a href="index.html" class="logo">
-
                         <span class="symbol"><img src="images/logo_gj.png" alt="Logo GJConstructora" /></span>
-
                         <span class="title">GJConstructora</span>
-
                     </a>
-
                     <nav class="top-nav">
-
                         <ul>
-
                             <li><a href="index.html">Inicio</a></li>
-
                             <li><a href="nosotros.html">Nosotros</a></li>
-
                             <li><a href="index.html#obras-destacadas">Obras</a></li>
-
-                            <li><a href="ventas.html">Próximamente</a></li>
-
-                            <li><a href="index.html#seguinos">Contactá con nosotros</a></li>
-
+                            <li><a href="ventas.html">Oportunidades</a></li>
+                            <li><a href="index.html#seguinos">Contacto</a></li>
                         </ul>
-
                     </nav>
-
                     <a href="#menu">
-
                         <span class="hamburger-icon">
-
                             <span></span>
-
                             <span></span>
-
                             <span></span>
-
                         </span>
-
                     </a>
-
                 </div>
-
             </header>
 
             <nav id="menu">
-
-                <h2>Menu</h2>
-
+                <h2>Menú</h2>
                 <ul>
-
                     <li><a href="index.html">Inicio</a></li>
-
                     <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="ventas.html">Próximamente</a></li>
+                    <li><a href="ventas.html">Oportunidades</a></li>
                     <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
-
                     <li><a href="galeria-proyecto-2.html">Espacios Integrados</a></li>
-
                     <li><a href="galeria-proyecto-3.html">Detalles de Diseño</a></li>
-
                     <li><a href="galeria-proyecto-4.html">Obras hospitalarias</a></li>
-
                     <li><a href="galeria-proyecto-5.html">Ladrillo tradicional</a></li>
-
-                    <li><a href="galeria-proyecto-6.html">Troncos y piedras</a></li> 
-
-                    <li><a href="index.html#seguinos">Contactá con nosotros</a></li>
-
+                    <li><a href="galeria-proyecto-6.html">Troncos y piedras</a></li>
+                    <li><a href="index.html#seguinos">Contacto</a></li>
                 </ul>
-
             </nav>
 
             <div id="main">
+                <div class="inner">
 
-                <div class="inner ventas-content">
+                    <div class="hero-section">
+                        <h1>Oportunidades</h1>
+                        <div class="hero-divider"></div>
+                        <p class="hero-subtitle">Próximas propiedades disponibles</p>
+                    </div>
 
-                    <h1>Próximamente</h1>
+                    <div class="content-panel" style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem; display: flex; flex-direction: column; align-items: center;">
+                        <div class="img-wrapper" style="max-width: 720px; width: 100%; height: auto;">
+                            <img src="images/1.jpg" alt="Próximamente" style="height: auto; object-fit: contain;" />
+                            <div class="img-overlay"></div>
+                        </div>
+                        <p style="margin-top: 1.5rem; font-size: 1.05rem; color: var(--text-body);">Estamos trabajando en presentar nuestras próximas propiedades en venta.</p>
+                        <p style="font-size: 1.3rem; font-weight: 600; color: var(--navy); margin-top: 2rem;">Su consulta no es molestia</p>
+                        <a href="https://wa.me/2994087407" target="_blank" style="display: inline-flex; margin-top: 1.5rem;">
+                            <span style="background-color: var(--copper); color: white; padding: 0.9rem 2rem; border-radius: var(--radius); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.35s;">
+                                <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i>Consultanos por WhatsApp
+                            </span>
+                        </a>
+                    </div>
 
-                    <span class="image main image-zoom-gallery"><img src="images/1.jpg" alt="Próximamente" /></span>
-
-                    <p>Estamos trabajando en presentar nuestras próximas propiedades en venta</p>
-
-                    <p class="consultation-text">Su consulta no es molestia</p>
-
-
-<div class="gallery-nav">
-    <a href="nosotros.html">Nuestra historia</a>
-    <a href="galeria-proyecto-1.html">Conexión con el exterior</a>
-</div>
+                    <div class="gallery-nav">
+                        <a href="nosotros.html">Nosotros</a>
+                        <a href="galeria-proyecto-1.html">Conexión con el exterior</a>
                     </div>
 
                 </div>
-
             </div>
 
             <footer id="footer">
-
                 <div class="inner">
-
                     <section id="seguinos">
-
-                        <h2>Contactá con nosotros</h2>
-
+                        <h2>Contacta con nosotros</h2>
                         <ul class="icons">
-
                             <li><a href="https://www.facebook.com/profile.php?id=61579259110187"><img src="images/facebook.png" alt="Facebook" /></a></li>
-
                             <li><a href="https://www.instagram.com/gj_constructora/"><img src="images/instagram.png" alt="Instagram" /></a></li>
-
                             <li><a href="tel:2994087407"><img src="images/telefono.png" alt="Teléfono" /></a></li>
-
                             <li><a href="mailto:gjconstructora92@gmail.com"><img src="images/email.png" alt="Email" /></a></li>
-
                             <li><a href="https://wa.me/2994087407" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a></li>
-
                         </ul>
-
                     </section>
-
                     <ul class="copyright">
-
                         <li>&copy; GJ Constructora. All rights reserved.</li>
-
                     </ul>
-
                 </div>
-
             </footer>
-
         </div>
 
+        <a href="https://wa.me/2994087407" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+            <img src="images/whatsapp.png" alt="WhatsApp" />
+        </a>
+
         <script src="assets/js/jquery.min.js"></script>
-
         <script src="assets/js/browser.min.js"></script>
-
         <script src="assets/js/breakpoints.min.js"></script>
-
         <script src="assets/js/util.js"></script>
-
         <script src="assets/js/main.js"></script>
-
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="assets/js/gsap-animations.js"></script>
     </body>
-
 </html>
