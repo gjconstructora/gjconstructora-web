@@ -5,193 +5,16 @@
     <title>GJ Constructora</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-<style>
-    @font-face {
-        font-family: 'Sk-Modernist-Regular';
-        src: url('Sk-Modernist-Regular.woff2') format('woff2'),
-             url('Sk-Modernist-Regular.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    /* 1. Encabezado "Charcoal-Glass" (Fijo) */
-    #header {
-        background-color: rgba(63, 63, 63, 0.7) !important; 
-        backdrop-filter: blur(12px) !important; 
-        -webkit-backdrop-filter: blur(12px) !important;
-        position: fixed !important;
-        top: 0; left: 0; width: 100%; z-index: 10000 !important;
-        padding: 0.6em 0 !important;
-        border-bottom: 1px solid rgba(63, 63, 63, 0.7) !important;
-    }
-
-    #header .logo, #header .logo .title, #header .navPanelToggle, #header nav ul li a {
-        color: #000000 !important;
-    }
-
-    /* 2. Fondo de Cemento y Transparencias */
-    body, body.is-preload {
-        background-image: url('images/fondo.jpg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-attachment: fixed !important;
-        background-repeat: no-repeat !important;
-        background-color: #333 !important;
-    }
-
-    #wrapper { padding-top: 150px !important; background: transparent !important; }
-    #main, #main > .inner { background: transparent !important; }
-
-    /* 3. Títulos Generales (Azul Constructora) */
-    h1, h2, #main h1, #main h2, .centered-title {
-        color:#030041 !important;
-        text-align: center !important;
-        width: 100% !important;
-        display: block !important;
-    }
-
-    /* 4. Pie de página e Iconos */
-    #footer h2, #footer p, #footer .copyright li {
-        color: #030041 !important;
-        text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
-    }
-
-    /* 5. Botones de Navegación */
-    .gallery-nav {
-        display: flex !important;
-        justify-content: center !important;
-        gap: 15px !important;
-        margin: 2em auto !important;
-    }
-
-    .gallery-nav a {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background-color: #030041 !important;
-        color: #ffffff !important;
-        padding: 1em 2em !important;
-        border-radius: 6px !important;
-        font-weight: bold !important;
-        text-decoration: none !important;
-        text-transform: uppercase !important;
-    }
-
-    /* --- TARJETAS SUPERIORES SIMÉTRICAS EN PC --- */
-    .featured-ventas-container {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 30px !important;
-        width: 100% !important;
-        max-width: none !important;
-        margin-bottom: 2em !important;
-    }
-
-    .featured-ventas-container section,
-    .featured-ventas-container article {
-        width: 100% !important;
-        margin: 0 !important;
-        max-width: none !important;
-    }
-
-    .featured-ventas-container article {
-        height: 350px !important;
-        position: relative !important;
-        overflow: hidden !important;
-        border-radius: 8px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
-    }
-
-    .featured-ventas-container article .image,
-    .featured-ventas-container article .image img {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        display: block !important;
-        object-fit: cover !important;
-        z-index: 1 !important;
-        min-width: 0 !important;
-    }
-
-    /* Desactivamos el filtro oscuro total para que se vea la franja base */
-    .featured-ventas-container article::after {
-        display: none !important;
-    }
-
-    /* Modificación Estructural: Anclaje al pie con franja oscura */
-    .featured-ventas-container article .content {
-        position: absolute !important;
-        z-index: 10 !important;
-        bottom: 0 !important; 
-        left: 0 !important;
-        top: auto !important; /* Anula el centrado previo */
-        transform: none !important; /* Anula el centrado previo */
-        width: 100% !important;
-        padding: 1.5em 1em !important;
-        text-align: center !important;
-        background-color: rgba(25, 25, 25, 0.95) !important; /* Franja base oscura */
-    }
-
-    /* --- CORRECCIÓN DEFINITIVA DE COLOR EN TARJETAS --- */
-    #main .featured-ventas-container article .content h2,
-    #main .featured-ventas-container article .content p {
-        color: #d3d3d3 !important; 
-        text-shadow: none !important; /* Sombra eliminada por redundancia sobre fondo negro */
-        margin: 0 !important;
-        position: relative !important;
-    }
-
-    #main .featured-ventas-container article .content h2 {
-        font-size: 1.9em !important;
-        margin-bottom: 0.25em !important;
-    }
-
-    #main .tiles article .content h2 {
-        color: #d3d3d3 !important; 
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.9) !important;
-    }
-
-    /* --- LÓGICA DEL TÍTULO PRINCIPAL (PC vs CELULAR) --- */
-    .salto-movil { display: none !important; }
-    .barra-celu { display: none !important; }
-
-    /* --- Ajustes para Celulares --- */
-    @media screen and (max-width: 768px) {
-        #main h1, .inner h1 { font-size: 2.2em !important; }
-        
-        /* Activamos saltos y barras en celular */
-        .salto-movil { display: block !important; }
-        .barra-celu { display: inline !important; }
-
-        body, body.is-preload { 
-            background-image: none !important; 
-            background-color: transparent !important; 
+    <link rel="stylesheet" href="assets/css/main.css?v=13" />
+    <style>
+        @font-face {
+            font-family: 'Sk-Modernist-Regular';
+            src: url('Sk-Modernist-Regular.woff2') format('woff2'),
+                 url('Sk-Modernist-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
-        
-        body::after {
-            content: '' !important;
-            position: fixed !important;
-            top: 0 !important; 
-            left: 0 !important;
-            width: 100vw !important; 
-            height: 100vh !important;
-            background-image: url('images/fondo.jpg') !important;
-            background-size: cover !important;
-            background-position: center center !important;
-            background-repeat: no-repeat !important;
-            z-index: -1 !important;
-            pointer-events: none !important;
-        }
-
-        .gallery-nav { flex-direction: column !important; align-items: center !important; }
-        .gallery-nav a { width: 100% !important; max-width: 280px !important; }
-        .featured-ventas-container { grid-template-columns: 1fr !important; }
-        .featured-ventas-container article { height: 250px !important; }
-    }
-</style>
+    </style>
 </head>
 
 <body class="is-preload">
@@ -204,11 +27,11 @@
                 </a>
                 <nav class="top-nav">
                     <ul>
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="nosotros.html">Nosotros</a></li>
-                            <li><a href="index.html#obras-destacadas">Obras</a></li>
-                            <li><a href="ventas.html">Próximamente</a></li>
-                            <li><a href="index.html#seguinos">Contactá con nosotros</a></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="index.html#obras-destacadas">Obras</a></li>
+                        <li><a href="ventas.html">Oportunidades</a></li>
+                        <li><a href="index.html#seguinos">Contacto</a></li>
                     </ul>
                 </nav>
                 <a href="#menu">
@@ -220,40 +43,62 @@
                 </a>
             </div>
         </header>
+
         <nav id="menu">
-            <h2>Menu</h2>
+            <h2>Menú</h2>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="ventas.html">Próximamente</a></li>
+                <li><a href="ventas.html">Oportunidades</a></li>
                 <li><a href="galeria-proyecto-1.html">Conexión con el exterior</a></li>
                 <li><a href="galeria-proyecto-2.html">Espacios Integrados</a></li>
                 <li><a href="galeria-proyecto-3.html">Detalles de Diseño</a></li>
                 <li><a href="galeria-proyecto-4.html">Obras hospitalarias</a></li>
                 <li><a href="galeria-proyecto-5.html">Ladrillo tradicional</a></li>
                 <li><a href="galeria-proyecto-6.html">Troncos y piedras</a></li>
-                <li><a href="index.html#seguinos">Contactá con nosotros</a></li>
+                <li><a href="index.html#seguinos">Contacto</a></li>
             </ul>
         </nav>
+
         <div id="main">
             <div class="inner">
-                <header>
-<h1>
-    | Proyecto | <br class="salto-movil">
-    <span class="barra-celu">|</span> Dirección | <br class="salto-movil">
-    <span class="barra-celu">|</span> Ejecución |
-</h1>
-                </header>  
 
+                <!-- HERO SECTION -->
+                <div class="hero-section">
+                    <h1>Proyecto <span style="color: var(--copper);">|</span> Dirección <span style="color: var(--copper);">|</span> Ejecución</h1>
+                    <div class="hero-divider"></div>
+                    <p class="hero-subtitle">Construyendo hogares desde 1992</p>
+                </div>
+
+                <!-- STATS BAR -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">30<span class="copper">+</span></div>
+                        <div class="stat-label">Años de experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100<span class="copper">%</span></div>
+                        <div class="stat-label">Control integral</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3D</div>
+                        <div class="stat-label">Gemelo digital</div>
+                    </div>
+                </div>
+
+                <!-- SECTION DIVIDER -->
+                <div class="section-divider"></div>
+
+                <!-- FEATURED CARDS -->
                 <div class="featured-ventas-container">
                     <section class="featured-story">
                         <article class="style1">
                             <a href="nosotros.html">
                                 <span class="image">
-                                    <img src="images/portadanosotros.jpg" alt="Nuestra Historia" />
+                                    <img src="images/portadanosotros.jpg" alt="Nosotros" />
                                 </span>
                                 <div class="content">
-                                    <h2>Nuestra Historia</h2>
+                                    <h2>Nosotros</h2>
                                 </div>
                             </a>
                         </article>
@@ -267,13 +112,17 @@
                                 </span>
                                 <div class="content">
                                     <h2>Oportunidad en Cipolletti</h2>
-                                    <p>Disponible proximamente</p>
+                                    <p>Disponible próximamente</p>
                                 </div>
                             </a>
                         </article>
                     </section>
                 </div>
 
+                <!-- SECTION DIVIDER -->
+                <div class="section-divider"></div>
+
+                <!-- OBRAS GRID -->
                 <section class="tiles" id="obras-destacadas">
                     <article class="style2">
                         <a href="galeria-proyecto-1.html">
@@ -336,22 +185,20 @@
                         </a>
                     </article>
                 </section>
+
             </div>
         </div>
+
         <footer id="footer">
             <div class="inner">
                 <section id="seguinos">
-                    <h2>Contactá con nosotros</h2>
+                    <h2>Contacta con nosotros</h2>
                     <ul class="icons">
-                        <li><a href="https://www.facebook.com/profile.php?id=61579259110187"><img
-                                    src="images/facebook.png" alt="Facebook" /></a></li>
-                        <li><a href="https://www.instagram.com/gj_constructora/"><img src="images/instagram.png"
-                                    alt="Instagram" /></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61579259110187"><img src="images/facebook.png" alt="Facebook" /></a></li>
+                        <li><a href="https://www.instagram.com/gj_constructora/"><img src="images/instagram.png" alt="Instagram" /></a></li>
                         <li><a href="tel:2994087407"><img src="images/telefono.png" alt="Teléfono" /></a></li>
-                        <li><a href="mailto:gjconstructora92@gmail.com"><img src="images/email.png" alt="Email" /></a>
-                        </li>
-                        <li><a href="https://wa.me/2994087407" target="_blank"><img src="images/whatsapp.png"
-                                    alt="WhatsApp" /></a></li>
+                        <li><a href="mailto:gjconstructora92@gmail.com"><img src="images/email.png" alt="Email" /></a></li>
+                        <li><a href="https://wa.me/2994087407" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp" /></a></li>
                     </ul>
                 </section>
                 <ul class="copyright">
@@ -360,11 +207,21 @@
             </div>
         </footer>
     </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2994087407" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <img src="images/whatsapp.png" alt="WhatsApp" />
+    </a>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="assets/js/gsap-animations.js"></script>
 </body>
 
 </html>
