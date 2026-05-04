@@ -73,7 +73,7 @@ p { line-height: 1.7; }
    BACKGROUND SYSTEM (Cemento)
    =========================== */
 html {
-  background-image: url('../images/fondo.jpg');
+  background-image: url('../../images/fondo.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -311,6 +311,26 @@ body.is-menu-visible #menu { transform: translateX(0); }
   border-radius: 2px;
 }
 
+.hero-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.85rem 2.2rem;
+  background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
 /* ===========================
    STATS BAR (Cifras de confianza)
    =========================== */
@@ -353,6 +373,93 @@ body.is-menu-visible #menu { transform: translateX(0); }
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-top: 0.5rem;
+}
+
+/* ===========================
+   GEMELO DIGITAL 3D
+   =========================== */
+.gemelo-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 2.5rem;
+  background: var(--panel-bg);
+  border-radius: var(--radius);
+}
+.gemelo-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+.gemelo-text p {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+.gemelo-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.gemelo-pair h3 {
+  font-size: 1rem;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.6rem;
+  text-align: center;
+  opacity: 0.7;
+}
+.gemelo-pair-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+.gemelo-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--navy);
+}
+.gemelo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  transition: transform 0.3s ease;
+}
+.gemelo-card:hover img {
+  transform: scale(1.03);
+}
+.gemelo-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem;
+  background: rgba(26, 26, 78, 0.85);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 768px) {
+  .gemelo-section {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  .gemelo-pair-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gemelo-pair-cards {
+    align-items: center;
+  }
 }
 
 /* ===========================
@@ -836,10 +943,11 @@ body.is-menu-visible #menu { transform: translateX(0); }
 .gallery-nav {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
   gap: 1rem;
   margin: 2.5rem auto;
+  max-width: 700px;
   width: 100%;
 }
 .gallery-nav a {
@@ -847,15 +955,15 @@ body.is-menu-visible #menu { transform: translateX(0); }
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: auto;
-  flex: 0 1 auto;
+  flex: 1 1 0;
+  min-width: 200px;
   background-color: var(--navy);
   color: var(--white);
-  padding: 0.9rem 2rem;
+  padding: 0.9rem 1.5rem;
   border-radius: var(--radius);
   font-weight: 700;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: 'Lato', sans-serif;
@@ -932,12 +1040,11 @@ body.is-menu-visible #menu { transform: translateX(0); }
    FOOTER
    =========================== */
 #footer {
-  background: var(--panel-bg);
+  background: transparent;
   padding: 3rem 2rem;
   text-align: center;
   color: var(--text-body);
   margin-top: 2rem;
-  border-radius: var(--radius) var(--radius) 0 0;
 }
 #footer h2 {
   font-size: 1.6rem;
@@ -1088,7 +1195,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    background-image: url('../images/fondo.jpg');
+    background-image: url('../../images/fondo.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1119,11 +1226,84 @@ body.is-menu-visible #menu { transform: translateX(0); }
 }
 
 /* ===========================
-   LIGHTBOX (CSS-only simple)
+   LIGHTBOX
    =========================== */
 .gallery img {
   cursor: pointer;
 }
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: zoom-out;
+}
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox-overlay img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+.lightbox-overlay.active img {
+  transform: scale(1);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  z-index: 20001;
+}
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.3);
+}
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  z-index: 20001;
+}
+.lightbox-nav:hover {
+  background: rgba(255,255,255,0.25);
+}
+.lightbox-prev { left: 1.5rem; }
+.lightbox-next { right: 1.5rem; }
 
 /* ===========================
    UTILITY — Title bar separators for mobile
