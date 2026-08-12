@@ -3,6 +3,11 @@
   Requiere: gsap.min.js + ScrollTrigger.min.js
 */
 
+/* GJ-GUARD: si el CDN de GSAP no cargo, salir en silencio en vez de romper.
+   Sin esto, una caida o demora del CDN tira ReferenceError y corta todo el script. */
+if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+  console.warn('[GJ] GSAP no disponible: animaciones desactivadas.');
+} else {
 gsap.registerPlugin(ScrollTrigger);
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -240,3 +245,5 @@ ScrollTrigger.create({
   end: 99999,
   toggleClass: { className: 'scrolled', targets: '#header' }
 });
+
+} /* fin GJ-GUARD */
