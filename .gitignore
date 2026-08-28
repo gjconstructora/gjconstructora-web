@@ -2,3 +2,6 @@
 # Herramientas locales, no forman parte del sitio
 PUBLICAR.bat
 _to_delete/
+
+# archivos temporales de generacion
+_chrome_ok.txt
