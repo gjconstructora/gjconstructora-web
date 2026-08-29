@@ -90,5 +90,56 @@ for p in pages:
         if not os.path.isfile(t):
             check(False, "enlace roto en %s -> %s" % (os.path.relpath(p, ROOT), h))
 
+
+# 8. posicionamiento comercial: el sitio tiene que decir que GJ construye Y vende
+for rel, needles in [
+    ("index.html", ["dise", "construimos", "vendemos unidades propias"]),
+    ("ventas.html", ["Unidades terminadas", "Unidades en pozo", "no intermediamos"]),
+    ("contacto.html", ["Construir a medida", "Comprar una unidad propia"]),
+    ("servicios.html", ["terminadas o en pozo"]),
+    ("llms.txt", ["Comprar en pozo", "unidades de desarrollo propio"]),
+]:
+    t = io.open(os.path.join(ROOT, rel), encoding="utf-8").read()
+    for nd in needles:
+        check(nd in t, "%s menciona %r" % (rel, nd))
+
+# 9. coherencia de zona: ninguna pagina puede contradecir la politica de cobertura
+prohibidas = [
+    "no dispersamos la operacion fuera de la region",
+    "no dispersamos la operaci\u00f3n fuera de la regi\u00f3n",
+    "Tambien ejecutamos obras fuera de la region cuando el proyecto lo justifica",
+    "Tambi\u00e9n ejecutamos obras fuera de la regi\u00f3n cuando el proyecto lo justifica",
+]
+for p2 in pages:
+    t = io.open(p2, encoding="utf-8").read()
+    for fr in prohibidas:
+        if fr in t:
+            check(False, "%s contiene una frase de zona contradictoria: %r" % (os.path.relpath(p2, ROOT), fr))
+
+# 10. la direccion de obra no debe venderse como servicio suelto
+t = io.open(os.path.join(ROOT, "direccion-de-obra-cipolletti.html"), encoding="utf-8").read()
+check("Cu\u00e1ndo tiene sentido contratar solo la direcci\u00f3n" not in t,
+      "direccion-de-obra: no promociona la direccion suelta como recomendable")
+check("Antes que nada: qu\u00e9 hacemos" in t,
+      "direccion-de-obra: aclara que GJ disena y construye")
+
+# 11. errores de redaccion ya corregidos
+t = io.open(os.path.join(ROOT, "nosotros.html"), encoding="utf-8").read()
+for mal in ["d\u00e9cadas dedicadas", "superiores a cada proyecto", "ya sean en material de",
+            "la conformidad de nuestros clientes"]:
+    check(mal not in t, "nosotros.html sin el error %r" % mal)
+
+# 12. 404: markdown visible ademas del script
+s404b = io.open(os.path.join(ROOT, "404.html"), encoding="utf-8").read()
+check("<pre" in s404b and "## Donde buscar" in s404b,
+      "404.html expone el markdown como texto visible")
+
+# 13. CSS: las tarjetas del gemelo digital se estiran a la misma altura
+css = io.open(os.path.join(ROOT, "assets/css/main.css"), encoding="utf-8").read()
+import re as _re
+for blk in _re.findall(r"\.gemelo-pair-cards\s*\{[^}]*\}", css):
+    check("align-items: center" not in blk,
+          "CSS .gemelo-pair-cards sin align-items:center (alturas desparejas)")
+
 print("\n%d fallos" % len(fails))
 sys.exit(1 if fails else 0)
