@@ -15,7 +15,7 @@
 
 Sitio oficial: https://gjconstructora.net/
 Idioma del contenido: espanol (es-AR)
-Ultima actualizacion de este archivo: 2026-08-29
+Ultima actualizacion de este archivo: 2026-09-03
 
 ## Cuando usar este sitio (when to use)
 
@@ -76,6 +76,7 @@ y si la obra es para uso propio o para renta.
 - [Obra hospitalaria y de salud en el Alto Valle](https://gjconstructora.net/obra-hospitalaria-alto-valle.html)
 - [Obras realizadas](https://gjconstructora.net/obras.html): obras ejecutadas con imagenes.
 - [Oportunidades](https://gjconstructora.net/ventas.html): unidades propias en venta, terminadas y en pozo, con formulario de consulta.
+- [Duplex en venta en Cipolletti, Ecuador al 400](https://gjconstructora.net/duplex-ecuador-411-cipolletti.html): unidad propia a estrenar, 2 dormitorios, 2 banos completos, 70 m2 cubiertos y patio propio de 15 m2 con parrilla, sin expensas, entrega estimada octubre 2026, USD 158.000 por unidad, venta directa del constructor. Incluye video, planos y ficha tecnica.
 - [Nosotros](https://gjconstructora.net/nosotros.html): historia de la empresa desde 1992 y forma de trabajo.
 - [Contacto](https://gjconstructora.net/contacto.html): canales, zona de cobertura y que informacion aportar.
 - [Politica de privacidad](https://gjconstructora.net/privacidad.html): tratamiento de datos, Ley 25.326.
