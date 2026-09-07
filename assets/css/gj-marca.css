@@ -202,11 +202,15 @@ body:has(.hero-video) #main { padding-top: 0; }
   .hero-video .hero-velo {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: auto;
-    height: 75vw;              /* el hero mide 100vw: 75vw = 4:3 exacto */
+    /* Se corta el 18% izquierdo, que es la casa vecina y el cerco. Lo que
+       queda es la casa completa, y al repartir el mismo ancho de pantalla
+       entre menos imagen, se ve un 22% mas grande. 91.5vw sale de la
+       proporcion del recorte: (0,82 x 1280) / 960. */
+    height: 91.5vw;
     transform: none;
   }
   .hero-video video,
-  .hero-video .hero-poster { object-fit: cover; object-position: center center; }
+  .hero-video .hero-poster { object-fit: cover; object-position: 100% center; }
   /* solo un fundido corto abajo para que la imagen se apoye en el fondo */
   .hero-video .hero-velo {
     background: linear-gradient(180deg,
@@ -216,7 +220,7 @@ body:has(.hero-video) #main { padding-top: 0; }
       rgba(14,26,12,1) 100%);
   }
   .hero-video .hero-contenido {
-    padding: calc(75vw + 1.4rem) 6% 0;
+    padding: calc(91.5vw + 1.4rem) 6% 0;
     background: none;
   }
   /* La volanta ocupaba dos lineas de mayusculas justo encima del titular:
