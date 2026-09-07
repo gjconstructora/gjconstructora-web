@@ -365,3 +365,15 @@ hr { border-color: var(--gj-borde); }
   .featured-story article .content h2 { font-size: 1.35rem !important; margin-bottom: 0.35rem !important; }
   .featured-story article .content p { font-size: 0.85rem; line-height: 1.4; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Medida de lectura: ninguna línea de texto corrido supera
+   los ~72 caracteres (medido, no estimado). Arriba de eso el
+   ojo pierde el renglón al volver al margen izquierdo.
+   ═══════════════════════════════════════════════════════════ */
+#main p, #main li { max-width: 66ch; }
+#main .content-panel p, #main .ventas-content p { max-width: 66ch; margin-left: auto; margin-right: auto; }
+/* Excepciones: texto centrado corto, pies y celdas de tabla */
+#main .hero-subtitle, #main .hero-nota, #main .stat-label,
+#main .tiles p, #main .featured-ventas-container p,
+#main td p, #main th p, #main .ec-datos p { max-width: none; }
