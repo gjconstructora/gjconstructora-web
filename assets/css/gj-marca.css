@@ -189,51 +189,50 @@ body:has(.hero-video) #main { padding-top: 0; }
 @media (prefers-reduced-motion: reduce) { .hero-video video { display: none; } }
 @media screen and (max-width: 736px) {
   /* En celular el hero deja de ser una sola capa con todo encima del render.
-     La imagen ocupa una franja fija arriba, el titulo apoya sobre su borde
-     inferior, y subtitulo, botones y nota bajan al fondo solido. Asi los
-     botones no le comen espacio a la imagen. */
+     El video se muestra entero, en su proporcion 4:3 y a todo el ancho de la
+     pantalla, sin recortar nada: se ve la casa completa. El titular, el
+     subtitulo, los dos botones y la nota van debajo, sobre el fondo solido. */
   .hero-video {
     display: block;
     min-height: 0;
-    margin-bottom: 2.6rem;
+    margin-bottom: 2.4rem;
   }
+  .hero-video video,
+  .hero-video .hero-poster,
   .hero-video .hero-velo {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: auto;
-    height: 54vh;
-  }
-  /* El clip es 4:3 y entra completo de alto: un tercio de la franja seria
-     cielo vacio. En vez de escalarlo (el scale se derrama fuera de la franja
-     porque el hero ya no la recorta) se le da mas alto y se lo sube: el
-     sobrante queda arriba, donde el hero si recorta. */
-  .hero-video video,
-  .hero-video .hero-poster {
-    position: absolute;
-    top: -13vh; left: 0; right: 0; bottom: auto;
-    height: 67vh;
+    height: 75vw;              /* el hero mide 100vw: 75vw = 4:3 exacto */
     transform: none;
   }
+  .hero-video video,
+  .hero-video .hero-poster { object-fit: cover; object-position: center center; }
+  /* solo un fundido corto abajo para que la imagen se apoye en el fondo */
   .hero-video .hero-velo {
     background: linear-gradient(180deg,
-      rgba(14,26,12,0.30) 0%,
-      rgba(14,26,12,0.08) 30%,
-      rgba(14,26,12,0.42) 62%,
-      rgba(14,26,12,0.93) 100%);
+      rgba(14,26,12,0) 0%,
+      rgba(14,26,12,0) 74%,
+      rgba(14,26,12,0.55) 92%,
+      rgba(14,26,12,1) 100%);
   }
   .hero-video .hero-contenido {
-    padding: calc(54vh - 10.3rem) 6% 0;
+    padding: calc(75vw + 1.4rem) 6% 0;
     background: none;
   }
-  .hero-video .hero-kicker { font-size: 0.68rem; letter-spacing: 0.15em; margin: 0 0 0.5rem; }
+  /* La volanta ocupaba dos lineas de mayusculas justo encima del titular:
+     molestaba mas de lo que aportaba. En celular se saca. La misma
+     informacion queda en la banda de cifras, en el texto de la portada, en
+     el pie y en la descripcion de la pagina. */
+  .hero-video .hero-kicker { display: none; }
   .hero-video h1 {
-    font-size: 1.95rem;
+    font-size: 2.05rem;
     line-height: 1.12;
     max-width: 15ch;
     margin: 0;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.55);
+    text-shadow: none;
   }
   .hero-video .hero-divider { display: none; }
-  .hero-video .hero-subtitle { font-size: 0.94rem; line-height: 1.5; max-width: none; margin: 1.6rem 0 1.3rem; }
+  .hero-video .hero-subtitle { font-size: 0.94rem; line-height: 1.5; max-width: none; margin: 1.1rem 0 1.3rem; }
   .hero-video .hero-acciones { gap: 0.55rem; }
   .hero-video .hero-acciones .hero-cta { flex: 1 1 100%; text-align: center; padding: 0.8rem 1rem; }
   .hero-video .hero-nota { font-size: 0.64rem; line-height: 1.4; margin: 1rem 0 0; text-shadow: none; }
