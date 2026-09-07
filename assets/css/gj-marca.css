@@ -1,0 +1,367 @@
+/* =====================================================================
+   GJ Constructora — capa de marca (propuesta)
+   Se carga DESPUÉS de main.css. No toca estructura ni animaciones:
+   solo paleta, tipografía, fondos y el hero con video.
+   Fuente de verdad: GJ Estudio/00_marca/marca.json
+   ===================================================================== */
+
+/* ---------- Tipografías de marca (autoalojadas, licencia OFL) ---------- */
+@font-face { font-family: 'Playfair Display'; font-weight: 400; font-display: swap; src: url('../webfonts/gj/playfair-display-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Playfair Display'; font-weight: 500; font-display: swap; src: url('../webfonts/gj/playfair-display-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Playfair Display'; font-weight: 600; font-display: swap; src: url('../webfonts/gj/playfair-display-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Playfair Display'; font-weight: 700; font-display: swap; src: url('../webfonts/gj/playfair-display-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 400; font-display: swap; src: url('../webfonts/gj/inter-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 500; font-display: swap; src: url('../webfonts/gj/inter-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 600; font-display: swap; src: url('../webfonts/gj/inter-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 700; font-display: swap; src: url('../webfonts/gj/inter-latin-700-normal.woff2') format('woff2'); }
+
+/* ---------- Paleta ---------- */
+:root {
+  --gj-fondo:       #0E1A0C;
+  --gj-fondo-claro: #162014;
+  --gj-panel:       #1B2719;
+  --gj-borde:       rgba(232, 237, 230, 0.10);
+  --gj-texto:       #E8EDE6;
+  --gj-texto-medio: #B9C3B5;
+  --gj-texto-tenue: #8B9E88;
+  --gj-oliva:       #9DB098;
+  --gj-oliva-claro: #B0C4AC;
+  --gj-whatsapp:    #25D366;
+
+  /* Reasignación de las variables del template para que arrastren todo el sitio */
+  /* --navy se usa 21 veces como color de TEXTO y 6 como fondo: va a texto, y los fondos se corrigen abajo */
+  --navy:        var(--gj-texto);
+  --navy-light:  var(--gj-texto-medio);
+  --white-warm:  var(--gj-fondo-claro);
+  --gray-light:  var(--gj-panel);
+  --gray-mid:    var(--gj-texto-tenue);
+  --gray-dark:   var(--gj-texto-medio);
+  --copper:      var(--gj-oliva);
+  --copper-dark: #7E9479;
+  --text-dark:   var(--gj-texto);
+  --text-body:   var(--gj-texto-medio);
+  --text-light:  var(--gj-texto-tenue);
+  --panel-bg:    var(--gj-panel);
+  --card-overlay: linear-gradient(0deg, rgba(14,26,12,0.88) 0%, rgba(14,26,12,0.35) 45%, rgba(14,26,12,0) 100%);
+  --header-bg:   rgba(14, 26, 12, 0.80);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.35);
+  --shadow-md: 0 6px 24px rgba(0,0,0,0.40);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.50);
+  --radius: 8px;
+}
+
+/* ---------- Fondo: liso, sin hormigón ---------- */
+html {
+  background-image: none;
+  background-color: var(--gj-fondo);
+}
+body { font-family: 'Inter', system-ui, sans-serif; color: var(--gj-texto-medio); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--gj-texto);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+h3 { font-family: 'Inter', system-ui, sans-serif; font-weight: 600; }
+strong { color: var(--gj-texto); }
+p { color: var(--gj-texto-medio); }
+a { color: var(--gj-oliva-claro); }
+
+/* ---------- Header ---------- */
+#header { border-bottom: 1px solid var(--gj-borde); box-shadow: none; }
+#header .logo .title { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: 0.02em; color: var(--gj-texto); }
+#header .top-nav ul li a { font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 0.12em; color: var(--gj-texto-medio); }
+#header .top-nav ul li a:hover,
+#header .top-nav ul li a[aria-current="page"] { color: var(--gj-texto); }
+#header .top-nav ul li a::after { background: var(--gj-oliva); }
+#header.scrolled { background-color: rgba(14,26,12,0.94); }
+#menu { background: var(--gj-fondo-claro); }
+#menu h2, #menu ul li a { color: var(--gj-texto); font-family: 'Inter', sans-serif; }
+#menu ul li a { border-color: var(--gj-borde); }
+#header .hamburger-icon span { background: var(--gj-texto); }
+
+/* ---------- HERO con video ---------- */
+body:has(.hero-video) #wrapper { padding-top: 0; }
+body:has(.hero-video) #main { padding-top: 0; }
+.hero-video {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--gj-fondo);
+  border-radius: 0;
+  padding: 0;
+  margin: 0 0 3.5rem calc(50% - 50vw);
+  width: 100vw;
+  box-shadow: none;
+}
+.hero-video::before { display: none; }
+.hero-video video,
+.hero-video .hero-poster {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+}
+.hero-video .hero-velo {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(14,26,12,0.62) 0%, rgba(14,26,12,0.28) 45%, rgba(14,26,12,0.05) 100%),
+    linear-gradient(180deg, rgba(14,26,12,0.50) 0%, rgba(14,26,12,0.05) 35%, rgba(14,26,12,0.25) 65%, rgba(14,26,12,0.94) 100%);
+}
+.hero-video .hero-contenido {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 9rem 4% 4rem;
+  text-align: left;
+}
+.hero-video .hero-kicker {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gj-oliva-claro);
+  margin: 0 0 1rem;
+}
+.hero-video h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 5.2vw, 4.6rem);
+  line-height: 1.05;
+  color: var(--gj-texto);
+  letter-spacing: -0.01em;
+  margin: 0 0 1.2rem;
+  max-width: 14ch;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+}
+.hero-video h1 em { font-style: italic; color: var(--gj-oliva-claro); }
+.hero-video .hero-divider { margin: 0 0 1.4rem; background: var(--gj-oliva); width: 72px; height: 2px; }
+.hero-video .hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--gj-texto-medio);
+  max-width: 52ch;
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+.hero-video .hero-acciones { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+.hero-cta {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.95rem 1.7rem;
+  border-radius: 6px;
+  margin-top: 0;
+  background: var(--gj-oliva);
+  color: var(--gj-fondo);
+  box-shadow: none;
+}
+.hero-cta:hover { background: var(--gj-oliva-claro); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.35); }
+.hero-cta.secundario {
+  background: transparent !important;
+  color: var(--gj-texto);
+  border: 1px solid rgba(232,237,230,0.45);
+}
+.hero-cta.secundario:hover { border-color: var(--gj-texto); background: rgba(232,237,230,0.06) !important; }
+.hero-video .hero-nota {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: var(--gj-texto-tenue);
+  margin: 1.4rem 0 0;
+  letter-spacing: 0.04em;
+}
+@media (prefers-reduced-motion: reduce) { .hero-video video { display: none; } }
+@media screen and (max-width: 736px) {
+  .hero-video { min-height: 88vh; }
+  .hero-video .hero-velo { background: linear-gradient(180deg, rgba(14,26,12,0.55) 0%, rgba(14,26,12,0.30) 40%, rgba(14,26,12,0.80) 70%, rgba(14,26,12,0.96) 100%); }
+  .hero-video .hero-contenido { padding: 7rem 6% 2.6rem; }
+  .hero-video h1 { max-width: 12ch; }
+  .hero-video .hero-acciones .hero-cta { flex: 1 1 100%; text-align: center; }
+}
+
+/* ---------- Cifras: una fila sobria, sin tarjetas ---------- */
+.stats-bar {
+  gap: 0;
+  margin: 0 auto 3.5rem;
+  border-top: 1px solid var(--gj-borde);
+  border-bottom: 1px solid var(--gj-borde);
+}
+.stat-item {
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--gj-borde);
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 0;
+  padding: 1.6rem 1rem;
+}
+.stat-item:last-child { border-right: 0; }
+.stat-item:hover { box-shadow: none; }
+.stat-number { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 2.6rem; color: var(--gj-texto); }
+.stat-number .copper { color: var(--gj-oliva); }
+.stat-label { font-family: 'Inter', sans-serif; color: var(--gj-texto-tenue); font-size: 0.74rem; letter-spacing: 0.16em; }
+@media screen and (max-width: 736px) {
+  .stats-bar { grid-template-columns: repeat(3, 1fr); }
+  .stat-item { padding: 1.1rem 0.4rem; }
+  .stat-number { font-size: 1.7rem; }
+  .stat-label { font-size: 0.6rem; letter-spacing: 0.1em; }
+}
+
+/* ---------- Separadores ---------- */
+.section-divider { opacity: 0.35; }
+
+/* ---------- Tarjetas y grillas ---------- */
+.featured-ventas-container article,
+.tiles article,
+.featured-story article { box-shadow: var(--shadow-md); border: 1px solid var(--gj-borde); }
+.featured-ventas-container article .content h2,
+.tiles article .content h2 { font-family: 'Playfair Display', serif; font-weight: 600; }
+.tiles article a::after { background: var(--card-overlay); }
+
+/* ---------- Gemelo digital ---------- */
+.gemelo-section { background: var(--gj-fondo-claro); border: 1px solid var(--gj-borde); box-shadow: none; }
+.gemelo-text h2 { color: var(--gj-texto); }
+.gemelo-text h2 span, .gemelo-text h2 .copper { color: var(--gj-oliva-claro) !important; }
+.gemelo-pair h3 { color: var(--gj-oliva-claro); font-family: 'Inter', sans-serif; letter-spacing: 0.16em; }
+.gemelo-label { background: rgba(14,26,12,0.88) !important; color: var(--gj-texto) !important; font-family: 'Inter', sans-serif; letter-spacing: 0.12em; }
+.gemelo-card { border: 1px solid var(--gj-borde); }
+
+/* ---------- Texto largo (SEO) con aire ---------- */
+.story-block-text h2 { color: var(--gj-texto); }
+.story-block-text h3 { color: var(--gj-oliva-claro); font-family: 'Inter', sans-serif; font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2.2rem; }
+.story-block-text p { color: var(--gj-texto-medio); max-width: 68ch; }
+.story-block-text p strong { color: var(--gj-texto); }
+.story-block-text a { color: var(--gj-oliva-claro); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Footer ---------- */
+#footer { background: transparent; border-top: 1px solid var(--gj-borde); }
+#footer h2 { color: var(--gj-texto); font-family: 'Playfair Display', serif; }
+#footer .icons a { background: var(--gj-fondo-claro) !important; border: 1px solid var(--gj-borde); }
+#footer .icons a:hover { background: var(--gj-oliva) !important; }
+#footer .copyright, #footer .copyright a, #footer p { color: var(--gj-texto-tenue); }
+
+/* ---------- Donde --navy era fondo ---------- */
+.gemelo-card, .gallery-nav a, #footer .actions input[type="submit"], .ec-entrega { background: var(--gj-fondo-claro) !important; color: var(--gj-texto) !important; }
+.ec-entrega { border: 1px solid var(--gj-borde); }
+.ec-video { background: var(--gj-fondo-claro) !important; }
+::-webkit-scrollbar-thumb { background: var(--gj-panel); }
+.hero-cta { background: var(--gj-oliva); }
+
+/* ---------- WhatsApp flotante ---------- */
+.whatsapp-float { box-shadow: 0 6px 24px rgba(0,0,0,0.45); }
+
+/* ---------- Páginas internas: títulos y paneles ---------- */
+#main .inner > h1.centered-title, #main .inner > h2.centered-title { color: var(--gj-texto); }
+.content-panel, .ventas-content, .valor-card, .project-section, .box, .contact-card, .service-card, .servicio-card {
+  background: var(--gj-fondo-claro);
+  color: var(--gj-texto-medio);
+  border: 1px solid var(--gj-borde);
+}
+.content-panel h2, .content-panel h3, .valor-card h3 { color: var(--gj-texto); }
+input, select, textarea { background: var(--gj-fondo-claro) !important; color: var(--gj-texto) !important; border: 1px solid var(--gj-borde) !important; font-family: 'Inter', sans-serif; }
+input::placeholder, textarea::placeholder { color: var(--gj-texto-tenue); }
+.button, button, input[type="submit"] { background: var(--gj-oliva) !important; color: var(--gj-fondo) !important; font-family: 'Inter', sans-serif; font-weight: 600; box-shadow: none !important; }
+table th { color: var(--gj-texto); border-color: var(--gj-borde); }
+table td { border-color: var(--gj-borde); color: var(--gj-texto-medio); }
+hr { border-color: var(--gj-borde); }
+
+/* ═══════════════════════════════════════════════════════════
+   CTA del dúplex — es la unidad que está en venta, va primero
+   ═══════════════════════════════════════════════════════════ */
+
+/* Botón del hero: dos líneas, con el dato duro debajo */
+.hero-cta.cta-duplex {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  padding: 0.8rem 1.7rem;
+  line-height: 1.25;
+}
+.cta-duplex .cta-duplex-txt { font-size: 1rem; font-weight: 700; }
+.cta-duplex .cta-duplex-dato {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.72;
+}
+
+/* Banda de destacados: el dúplex ocupa dos tercios */
+.featured-ventas-container { grid-template-columns: 1.75fr 1fr; align-items: stretch; }
+.featured-ventas-container article { height: 420px; min-height: 420px; }
+.destacado-duplex { border: 1px solid rgba(157,176,152,0.35); }
+.destacado-duplex::after {
+  background: linear-gradient(0deg, rgba(14,26,12,0.94) 0%, rgba(14,26,12,0.55) 45%, rgba(14,26,12,0.05) 100%) !important;
+}
+.destacado-duplex .content { padding: 2.2rem 2rem !important; }
+.etiqueta-venta {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gj-fondo);
+  background: var(--gj-oliva);
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+  margin-bottom: 0.8rem;
+}
+.destacado-duplex .content h2 { font-size: 1.9rem !important; margin-bottom: 0.5rem !important; }
+.destacado-duplex .content p { font-size: 0.95rem !important; max-width: 46ch; }
+.pseudo-cta {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: var(--gj-oliva-claro);
+  transition: gap 0.2s ease;
+}
+.destacado-duplex:hover .pseudo-cta { color: var(--gj-texto); }
+.featured-story article .content p { color: var(--gj-texto-medio) !important; font-size: 0.9rem; margin: 0.3rem 0 0; }
+
+@media screen and (max-width: 768px) {
+  .featured-ventas-container { grid-template-columns: 1fr; }
+  .featured-ventas-container article { height: 340px; min-height: 340px; }
+  .featured-story article { height: 240px; min-height: 240px; }
+  .destacado-duplex .content { padding: 1.6rem 1.3rem !important; }
+  .destacado-duplex .content h2 { font-size: 1.45rem !important; }
+  .hero-cta.cta-duplex { align-items: center; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Correcciones puntuales: lugares donde el template usaba
+   --navy como FONDO (ahora es color de texto) o beige fijo
+   ═══════════════════════════════════════════════════════════ */
+.gallery .project-section { background: var(--gj-fondo-claro); border: 1px solid var(--gj-borde); }
+.gallery h2 { color: var(--gj-texto); }
+.gallery h2::after { background: var(--gj-oliva); }
+.img-wrapper { background: linear-gradient(90deg, #182114 25%, #202c1d 50%, #182114 75%) !important; background-size: 200% 100% !important; }
+.gallery-nav a { background-color: var(--gj-fondo-claro) !important; color: var(--gj-texto) !important; border: 1px solid var(--gj-borde); }
+.gallery-nav a:hover { background-color: var(--gj-oliva) !important; color: var(--gj-fondo) !important; }
+.gemelo-card { background: var(--gj-fondo-claro); }
+#footer .actions input[type="submit"] { background: var(--gj-oliva) !important; color: var(--gj-fondo) !important; }
+::-webkit-scrollbar-thumb { background: var(--gj-oliva) !important; }
+::-webkit-scrollbar { background: var(--gj-fondo-claro); }
+
+/* Área de clic cómoda en la navegación (el texto medía 19 px de alto) */
+#header .top-nav ul li a { padding: 0.85rem 0.2rem; display: inline-block; }
+#menu ul li a { padding: 1rem 0; }
+.gallery-nav a { padding: 0.85rem 1.4rem; }
+
+/* La tarjeta "Nosotros" en móvil: el subtítulo pisaba el título */
+@media screen and (max-width: 768px) {
+  .featured-story article { height: 260px; min-height: 260px; }
+  .featured-story article .content { padding: 1.4rem 1.3rem !important; }
+  .featured-story article .content h2 { font-size: 1.35rem !important; margin-bottom: 0.35rem !important; }
+  .featured-story article .content p { font-size: 0.85rem; line-height: 1.4; }
+}

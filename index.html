@@ -25,15 +25,9 @@
     <link rel="apple-touch-icon" href="images/logo_gj.png" />
 
     <link rel="stylesheet" href="assets/css/main.css?v=18" />
+    <link rel="stylesheet" href="assets/css/gj-marca.css?v=1" />
     <style>
-        @font-face {
-            font-family: 'Sk-Modernist-Regular';
-            src: url('Sk-Modernist-Regular.woff2') format('woff2'),
-                 url('Sk-Modernist-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-        .story-block-text p { margin-bottom: 1.7rem; line-height: 1.72; }
+.story-block-text p { margin-bottom: 1.7rem; line-height: 1.72; }
         .story-block-text p:last-child { margin-bottom: 0; }
         .story-block-text h2 { margin-bottom: 1.2rem; }
         .story-block-text h3 { margin-bottom: 0.8rem; }
@@ -53,13 +47,13 @@
   "url": "https://gjconstructora.net/",
   "logo": "https://gjconstructora.net/images/logo_gj.png",
   "image": "https://gjconstructora.net/images/portadanosotros.jpg",
-  "telephone": "+542994087407",
+  "telephone": "+542994194155",
   "email": "gjconstructora92@gmail.com",
   "contactPoint": [
     {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "telephone": "+542994087407",
+      "telephone": "+542994194155",
       "email": "gjconstructora92@gmail.com",
       "url": "https://gjconstructora.net/contacto.html",
       "availableLanguage": ["Spanish"],
@@ -68,7 +62,7 @@
     {
       "@type": "ContactPoint",
       "contactType": "sales",
-      "telephone": "+542994087407",
+      "telephone": "+542994194155",
       "email": "gjconstructora92@gmail.com",
       "url": "https://gjconstructora.net/ventas.html",
       "availableLanguage": ["Spanish"],
@@ -258,18 +252,32 @@
         </nav>
 
         <div id="main">
-            <div class="inner">
-
-                <!-- HERO SECTION -->
-                <div class="hero-section">
-                    <h1>Proyecto <span style="color: var(--copper);">|</span> Dirección <span style="color: var(--copper);">|</span> Ejecución</h1>
+            <!-- HERO: video día→noche de obra propia (Fernández Oro) -->
+            <div class="hero-section hero-video">
+                <picture class="hero-poster-wrap">
+                    <source srcset="images/hero_casa_dianoche.webp" type="image/webp" />
+                    <img class="hero-poster" src="images/hero_casa_dianoche.jpg" alt="Casa unifamiliar construida por GJ Constructora en Fernández Oro, de día" />
+                </picture>
+                <video class="hero-fondo" autoplay muted loop playsinline preload="metadata" poster="images/hero_casa_dianoche.jpg" aria-hidden="true">
+                    <source src="images/hero_casa_dianoche.mp4" type="video/mp4" />
+                </video>
+                <div class="hero-velo" aria-hidden="true"></div>
+                <div class="hero-contenido">
+                    <p class="hero-kicker">Constructora &middot; Cipolletti y Fernández Oro &middot; desde 1992</p>
+                    <h1>Proyectamos, dirigimos y <em>construimos</em> tu casa.</h1>
                     <div class="hero-divider"></div>
-                    <p class="hero-subtitle">Construyendo hogares desde 1992</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center;">
-                        <a href="https://wa.me/2994087407?text=Hola%2C%20quiero%20consultar%20sobre%20un%20proyecto%20de%20construcción" target="_blank" class="hero-cta">Empezá tu proyecto hoy</a>
-                        <a href="duplex-ecuador-411-cipolletti.html" class="hero-cta" style="background: linear-gradient(135deg, var(--navy), var(--navy-light));">Ver el dúplex en venta</a>
+                    <p class="hero-subtitle">Gemelo digital 3D antes de empezar, control integral de obra y materiales nobles. Ves la casa terminada antes del replanteo.</p>
+                    <div class="hero-acciones">
+                        <a href="duplex-ecuador-411-cipolletti.html" class="hero-cta cta-duplex">
+                            <span class="cta-duplex-txt">Ver el dúplex en venta</span>
+                            <span class="cta-duplex-dato">Cipolletti &middot; USD 158.000 &middot; a estrenar</span>
+                        </a>
+                        <a href="https://wa.me/5492994194155?text=Hola%2C%20quiero%20consultar%20sobre%20un%20proyecto%20de%20construcción" target="_blank" rel="noopener" class="hero-cta secundario">Escribinos por WhatsApp</a>
                     </div>
+                    <p class="hero-nota">Imágenes ilustrativas. Video generado con inteligencia artificial a partir de los renders del proyecto.</p>
                 </div>
+            </div>
+            <div class="inner">
 
                 <!-- STATS BAR -->
                 <div class="stats-bar">
@@ -290,30 +298,33 @@
                 <!-- SECTION DIVIDER -->
                 <div class="section-divider"></div>
 
-                <!-- FEATURED CARDS -->
+                <!-- DESTACADOS: el dúplex primero y más grande, es la unidad que está en venta -->
                 <div class="featured-ventas-container">
-                    <section class="featured-story">
-                        <article class="style1">
-                            <a href="nosotros.html">
-                                <span class="image">
-                                    <picture><source srcset="images/portadanosotros.webp" type="image/webp" /><img loading="lazy" src="images/portadanosotros.jpg" alt="Nosotros" /></picture>
-                                </span>
-                                <div class="content">
-                                    <h2>Nosotros</h2>
-                                </div>
-                            </a>
-                        </article>
-                    </section>
-
                     <section class="tiles" id="ventas-destacadas">
-                        <article class="style1">
+                        <article class="style1 destacado-duplex">
                             <a href="duplex-ecuador-411-cipolletti.html">
                                 <span class="image">
                                     <picture><source srcset="images/ecuador411_render.webp" type="image/webp" /><img loading="lazy" src="images/ecuador411_render.jpg" alt="Dúplex en venta en Cipolletti, Ecuador al 400 - GJ Constructora" /></picture>
                                 </span>
                                 <div class="content">
-                                    <h2>Dúplex en venta &middot; Cipolletti</h2>
-                                    <p>2 dormitorios, patio propio, sin expensas &middot; video, planos y ficha</p>
+                                    <span class="etiqueta-venta">En venta &middot; USD 158.000</span>
+                                    <h2>Dúplex a estrenar en Cipolletti</h2>
+                                    <p>2 dormitorios, 2 baños, patio propio con parrilla y sin expensas. Entrega estimada octubre 2026.</p>
+                                    <span class="pseudo-cta">Ver video, planos y ficha completa &rarr;</span>
+                                </div>
+                            </a>
+                        </article>
+                    </section>
+
+                    <section class="featured-story">
+                        <article class="style1">
+                            <a href="nosotros.html">
+                                <span class="image">
+                                    <picture><source srcset="images/portadanosotros.webp" type="image/webp" /><img loading="lazy" src="images/portadanosotros.jpg" alt="Obra de GJ Constructora" /></picture>
+                                </span>
+                                <div class="content">
+                                    <h2>Nosotros</h2>
+                                    <p>Tres décadas construyendo en el Alto Valle.</p>
                                 </div>
                             </a>
                         </article>
@@ -326,7 +337,7 @@
                 <!-- GEMELO DIGITAL 3D -->
                 <section class="gemelo-section">
                     <div class="gemelo-text">
-                        <h2>Gemelo Digital <span style="color: var(--copper);">3D</span></h2>
+                        <h2>Gemelo Digital <span class="copper">3D</span></h2>
                         <p>Antes de colocar el primer ladrillo, construimos tu proyecto completo en un modelo digital tridimensional. Cada medida, cada instalación, cada detalle — resuelto antes de que empiece la obra.</p>
                         <p>Esto elimina errores, evita sobrecostos y te permite recorrer tu hogar antes de que exista.</p>
                     </div>
@@ -470,13 +481,13 @@
                         <li><a href="https://www.facebook.com/profile.php?id=61579259110187"><img loading="lazy" src="images/facebook.png" alt="Facebook" /></a></li>
                    
                         <li><a href="https://www.instagram.com/gj_constructora/"><img loading="lazy" src="images/instagram.png" alt="Instagram" /></a></li>
-                        <li><a href="tel:2994087407"><img loading="lazy" src="images/telefono.png" alt="Teléfono" /></a></li>
+                        <li><a href="tel:+542994194155"><img loading="lazy" src="images/telefono.png" alt="Teléfono" /></a></li>
                         <li><a href="mailto:gjconstructora92@gmail.com"><img loading="lazy" src="images/email.png" alt="Email" /></a></li>
-                        <li><a href="https://wa.me/2994087407" target="_blank"><img loading="lazy" src="images/whatsapp.png" alt="WhatsApp" /></a></li>
+                        <li><a href="https://wa.me/5492994194155" target="_blank"><img loading="lazy" src="images/whatsapp.png" alt="WhatsApp" /></a></li>
                     </ul>
                 </section>
                 <ul class="copyright">
-                    <li>&copy; GJ Constructora. All rights reserved.</li>
+                    <li>&copy; GJ Constructora. Todos los derechos reservados.</li>
                     <li><a href="contacto.html">Contacto</a></li>
                     <li><a href="privacidad.html">Privacidad</a></li>
                 </ul>
@@ -484,7 +495,7 @@
         </footer>
     </div>
 
-    <a href="https://wa.me/2994087407" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/5492994194155" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <img loading="lazy" src="images/whatsapp.png" alt="WhatsApp" />
     </a>
 
