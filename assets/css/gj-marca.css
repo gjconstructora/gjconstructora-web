@@ -377,3 +377,32 @@ hr { border-color: var(--gj-borde); }
 #main .hero-subtitle, #main .hero-nota, #main .stat-label,
 #main .tiles p, #main .featured-ventas-container p,
 #main td p, #main th p, #main .ec-datos p { max-width: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   Micro-interacciones (CSS puro, no dependen de GSAP)
+   ═══════════════════════════════════════════════════════════ */
+.pseudo-cta::after { content: ''; }
+.destacado-duplex .pseudo-cta { transition: color 0.2s ease, transform 0.25s ease; display: inline-block; }
+.destacado-duplex:hover .pseudo-cta { transform: translateX(4px); }
+
+.hero-cta, .hero-cta.secundario { transition: background-color 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease; }
+
+.tiles article .content h2,
+.featured-ventas-container article .content h2 { transition: color 0.22s ease; }
+.tiles article:hover .content h2,
+.featured-ventas-container article:hover .content h2 { color: var(--gj-oliva-claro); }
+
+#footer .icons a { transition: background-color 0.22s ease, border-color 0.22s ease; }
+.gallery-nav a { transition: background-color 0.22s ease, color 0.22s ease; }
+
+/* Foco visible para teclado, en toda la página */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--gj-oliva-claro);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
