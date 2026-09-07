@@ -55,6 +55,10 @@ html {
   background-image: none;
   background-color: var(--gj-fondo);
 }
+/* En celular main.css no pinta la textura en el html: la monta como una capa
+   fija aparte (body::before, z-index -1). Apagar el fondo del html no la toca,
+   así que el hormigón seguía apareciendo solo en el teléfono. */
+body::before { display: none !important; }
 body { font-family: 'Inter', system-ui, sans-serif; color: var(--gj-texto-medio); }
 
 h1, h2, h3, h4, h5, h6 {
