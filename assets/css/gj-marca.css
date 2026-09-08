@@ -427,7 +427,7 @@ hr { border-color: var(--gj-borde); }
    ojo pierde el renglón al volver al margen izquierdo.
    ═══════════════════════════════════════════════════════════ */
 #main p, #main li { max-width: 66ch; }
-#main .content-panel p, #main .ventas-content p { max-width: 66ch; margin-left: auto; margin-right: auto; }
+#main .content-panel p, #main .ventas-content p, #main .hero-section p { max-width: 66ch; margin-left: auto; margin-right: auto; }
 /* Excepciones: texto centrado corto, pies y celdas de tabla */
 #main .hero-subtitle, #main .hero-nota, #main .stat-label,
 #main .tiles p, #main .featured-ventas-container p,
@@ -461,3 +461,9 @@ select:focus-visible, textarea:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* Menu movil: las 5 paginas de servicio quedan como sub-items de Servicios,
+   para que el menu se lea con las mismas 6 entradas que la barra de escritorio
+   sin perder los enlaces internos hacia esas paginas. */
+#menu ul li.sub a { padding-left: 1.4rem; font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+#menu ul li.sub a:hover { padding-left: 1.9rem; }
