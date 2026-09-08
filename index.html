@@ -34,7 +34,34 @@
         @media screen and (max-width: 736px) {
             .story-block-text p { font-size: 0.95em; line-height: 1.62; margin-bottom: 1.5rem; }
         }
-    </style>
+
+        /* ── Cocina 3D · bloque a sangre con velo, mismo lenguaje que el hero ── */
+        .cocina-3d { position: relative; overflow: hidden; background: var(--gj-fondo);
+            width: 100vw; margin: 3.5rem 0 3.5rem calc(50% - 50vw);
+            aspect-ratio: 16 / 9; max-height: 78vh; display: flex; align-items: flex-end; }
+        .cocina-3d-fondo { position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 0; }
+        .cocina-3d-velo { position: absolute; inset: 0; z-index: 1; background:
+            linear-gradient(90deg, rgba(14,26,12,0.52) 0%, rgba(14,26,12,0.18) 40%, rgba(14,26,12,0) 72%),
+            linear-gradient(180deg, rgba(14,26,12,0.22) 0%, rgba(14,26,12,0) 26%, rgba(14,26,12,0.30) 66%, rgba(14,26,12,0.94) 100%); }
+        .cocina-3d-contenido { position: relative; z-index: 2; width: 100%; max-width: 1300px;
+            margin: 0 auto; padding: 0 4% 3.2rem; text-align: left; }
+        .cocina-3d-kicker { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600;
+            letter-spacing: 0.22em; text-transform: uppercase; color: #D6E1D2;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.55); margin: 0 0 0.9rem; }
+        .cocina-3d-contenido h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600;
+            font-size: clamp(1.9rem, 3.6vw, 3.1rem); line-height: 1.06; color: var(--gj-texto);
+            letter-spacing: -0.01em; margin: 0; text-shadow: 0 2px 24px rgba(0,0,0,0.35); }
+        .cocina-3d-nota { font-family: 'Inter', sans-serif; font-size: 0.72rem;
+            color: var(--gj-texto-tenue); text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+            margin: 1.2rem 0 0; letter-spacing: 0.04em; }
+        @media screen and (max-width: 736px) {
+            .cocina-3d { aspect-ratio: 4 / 5; max-height: none; margin: 2.4rem 0 2.4rem calc(50% - 50vw); }
+            .cocina-3d-contenido { padding: 0 6% 2.2rem; }
+            .cocina-3d-kicker { font-size: 0.68rem; letter-spacing: 0.18em; }
+            .cocina-3d-nota { font-size: 0.64rem; margin-top: 0.9rem; }
+        }
+</style>
         <script src="assets/js/tracking.js"></script>
     <script type="application/ld+json">
 {
@@ -360,6 +387,23 @@
                 <!-- SECTION DIVIDER -->
                 <div class="section-divider"></div>
 
+                <!-- COCINA 3D -->
+                <section class="cocina-3d">
+                    <video class="cocina-3d-fondo" poster="images/cocina_duplex_cipolletti.jpg"
+                           muted loop playsinline preload="none" aria-hidden="true">
+                        <source src="images/cocina_duplex_cipolletti.mp4" type="video/mp4" />
+                    </video>
+                    <div class="cocina-3d-velo" aria-hidden="true"></div>
+                    <div class="cocina-3d-contenido">
+                        <p class="cocina-3d-kicker">Gemelo digital</p>
+                        <h2>Cocina &middot; Dúplex Cipolletti</h2>
+                        <p class="cocina-3d-nota">Imágenes ilustrativas.</p>
+                    </div>
+                </section>
+
+
+
+
                 <div class="section-divider"></div>
 
 
@@ -500,5 +544,23 @@
     <script src="assets/js/gsap-animations.js"></script>
     <script src="assets/js/gj-motion.js"></script>
 
-    </body>
+    <script>
+    // El MP4 no se descarga al abrir la pagina: solo cuando el bloque entra en pantalla.
+    (function () {
+        var vs = document.querySelectorAll('.cocina-3d-fondo');
+        if (!vs.length) return;
+        function arranca(v) {
+            if (!v.dataset.cargado) { v.preload = 'auto'; v.load(); v.dataset.cargado = '1'; }
+            var p = v.play(); if (p) { p.catch(function () {}); }
+        }
+        if (!('IntersectionObserver' in window)) {
+            Array.prototype.forEach.call(vs, arranca); return;
+        }
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) { arranca(e.target); } else { e.target.pause(); } });
+        }, { threshold: 0.2 });
+        Array.prototype.forEach.call(vs, function (v) { io.observe(v); });
+    })();
+    </script>
+</body>
 </html>
