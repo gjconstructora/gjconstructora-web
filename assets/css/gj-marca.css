@@ -467,3 +467,8 @@ select:focus-visible, textarea:focus-visible {
    sin perder los enlaces internos hacia esas paginas. */
 #menu ul li.sub a { padding-left: 1.4rem; font-size: 0.88rem; color: rgba(255,255,255,0.55); }
 #menu ul li.sub a:hover { padding-left: 1.9rem; }
+
+/* El boton del hero quedaba pegado al subtitulo: gj-marca fija margin-top:0 en
+   .hero-cta y pisa el 1.5rem de main.css. Solo hijos directos, para no tocar los
+   botones del hero con video de la home, que van dentro de .hero-acciones. */
+#main .hero-section > .hero-cta { margin-top: 1.7rem; }

@@ -21,7 +21,7 @@
         <link rel="icon" type="image/png" href="images/logo_gj.png" />
         <link rel="apple-touch-icon" href="images/logo_gj.png" />
         <link rel="stylesheet" href="assets/css/main.css?v=18" />
-    <link rel="stylesheet" href="assets/css/gj-marca.css?v=7" />
+    <link rel="stylesheet" href="assets/css/gj-marca.css?v=8" />
         <style>
 /* Legibilidad en paginas de texto largo */
             .story-block-text p { margin-bottom: 1.7rem; line-height: 1.72; }
@@ -31,14 +31,10 @@
                 /* En movil el texto largo se lee mejor algo mas compacto */
                 .story-block-text p { font-size: 0.95em; line-height: 1.62; margin-bottom: 1.5rem; }
             }
-            /* Grilla de tarjetas.
-               El CSS compartido solo aplica 3 columnas a #obras-destacadas (por ID),
-               asi que aca la resuelvo local para no tocar main.css ni el SASS.
-               6 columnas base: 3 tarjetas de 2 arriba + 2 tarjetas de 3 abajo = filas parejas. */
+            /* Grilla de tarjetas: 4 servicios en 2x2 en escritorio. */
             @media screen and (min-width: 737px) {
-                .tiles.tiles-servicios { grid-template-columns: repeat(6, 1fr); }
-                .tiles.tiles-servicios > article { grid-column: span 2; }
-                .tiles.tiles-servicios > article:nth-last-child(-n+2) { grid-column: span 3; }
+                .tiles.tiles-servicios { grid-template-columns: repeat(2, 1fr); }
+                .tiles.tiles-servicios > article { grid-column: span 1; }
             }
         </style>
         <script src="assets/js/tracking.js"></script>
@@ -87,7 +83,6 @@
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="servicios.html">Servicios</a></li>
                     <li class="sub"><a href="construccion-de-viviendas-cipolletti.html">Construcción de viviendas</a></li>
-                    <li class="sub"><a href="construccion-duplex-cipolletti.html">Construcción de dúplex</a></li>
                     <li class="sub"><a href="direccion-de-obra-cipolletti.html">Dirección de obra</a></li>
                     <li class="sub"><a href="ejecucion-integral-llave-en-mano.html">Ejecución integral</a></li>
                     <li class="sub"><a href="obra-hospitalaria-alto-valle.html">Obra hospitalaria</a></li>
@@ -109,7 +104,7 @@
 
                     <div class="story-block-text" style="max-width: 60rem; margin: 0 auto;">
                         <h2>Cómo trabajamos</h2>
-                        <p>Nuestro encargo habitual es la obra completa: proyectamos y construimos. Una sola empresa responde por el diseño, la dirección técnica y la ejecución, que es la modalidad con menos puntos de fricción porque no existe la posibilidad de derivar un problema a un tercero. Eso es <a href="ejecucion-integral-llave-en-mano.html">ejecución integral</a>.</p>
+                        <p>Nuestro encargo habitual es la obra completa: proyectamos y construimos. Una sola empresa responde por el diseño, la dirección técnica y la ejecución, que es la modalidad con menos puntos de fricción. Eso es <a href="ejecucion-integral-llave-en-mano.html">ejecución integral</a>.</p>
                         <p>Si ya tenés un proyecto hecho por otro profesional, lo evaluamos y, si está bien resuelto, lo construimos. Tomar únicamente la <a href="direccion-de-obra-cipolletti.html">dirección técnica</a> de una obra que ejecuta otra empresa es posible.</p>
                         <p>Si tu intención es comprar en lugar de construir, desarrollamos proyectos propios y comercializamos esas unidades, terminadas o en pozo. La disponibilidad vigente está en <a href="ventas.html">Oportunidades</a>.</p>
                         <p>Las páginas de viviendas, dúplex y obra hospitalaria describen cómo se aplica ese trabajo según el tipo de obra.</p>
@@ -126,17 +121,6 @@
                             <div class="content">
                                 <h2>Construcción de viviendas</h2>
                                 <p>Casas a medida en Cipolletti y el Alto Valle</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="style3">
-                        <a href="construccion-duplex-cipolletti.html">
-                            <span class="image">
-                                <picture><source srcset="images/duplex_ext.webp" type="image/webp" /><img loading="lazy" src="images/duplex_ext.jpg" alt="Exterior de dúplex construido por GJ Constructora" /></picture>
-                            </span>
-                            <div class="content">
-                                <h2>Construcción de dúplex</h2>
-                                <p>Para vivir o para rentar</p>
                             </div>
                         </a>
                     </article>
