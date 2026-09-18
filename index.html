@@ -37,8 +37,13 @@
 
         /* ── Hero: el rótulo «Constructora · …» va bien arriba, lejos del título ── */
         .hero-video .hero-kicker { margin-bottom: 4.5rem; }
-        /* celular: aire entre el título y los botones (el subtítulo que los separaba ya no está) */
-        @media screen and (max-width: 736px) { .hero-video h1 { margin-bottom: 1.6rem; } }
+        /* celular: imagen entera arriba; título centrado en dos líneas y los dos botones apilados, también centrados */
+        @media screen and (max-width: 736px) {
+            .hero-video .hero-contenido { text-align: center; padding-top: calc(91.5vw + 1.2rem); }
+            .hero-video h1 { margin: 0 auto 1.3rem; max-width: none; font-size: 1.9rem; }
+            .hero-video .hero-acciones { gap: 0.6rem; justify-content: center; }
+            .hero-video .hero-acciones .hero-cta { flex: 1 1 100%; }
+        }
 
         /* ── Destacado único: el dúplex ocupa el ancho completo ── */
         .featured-ventas-container.solo { grid-template-columns: 1fr; max-width: 920px; margin-left: auto; margin-right: auto; }
