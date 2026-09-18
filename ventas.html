@@ -15,13 +15,13 @@
         <link rel="stylesheet" href="assets/css/main.css?v=18" />
     <link rel="stylesheet" href="assets/css/gj-marca.css?v=8" />
         <style>
-        /* ── Video vertical del dúplex de Oro dentro de la tarjeta ── */
-        .oro-video-wrap { width: 100%; max-width: 380px; aspect-ratio: 9 / 16; border-radius: 12px; overflow: hidden;
+        /* ── Videos verticales dentro de las tarjetas (Ecuador al 400 y Oro) ── */
+        .tarjeta-video-wrap { width: 100%; max-width: 380px; aspect-ratio: 9 / 16; border-radius: 12px; overflow: hidden;
             background: var(--gj-fondo); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
-        .oro-video { display: block; width: 100%; height: 100%; object-fit: cover; }
-        .oro-video-nota { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--gj-texto-tenue);
-            letter-spacing: 0.04em; margin: 0.9rem 0 0; }
-        @media screen and (max-width: 736px) { .oro-video-wrap { max-width: 300px; } }
+        .tarjeta-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+        a.tarjeta-video-wrap { display: block; transition: transform 0.25s ease; }
+        a.tarjeta-video-wrap:hover { transform: translateY(-3px); }
+        @media screen and (max-width: 736px) { .tarjeta-video-wrap { max-width: 300px; } }
 </style>
         <script src="assets/js/tracking.js"></script>
     </head>
@@ -73,9 +73,12 @@
                     <!-- Proyecto Cipolletti -->
                     <div class="content-panel" style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem; display: flex; flex-direction: column; align-items: center;">
                         <h2 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem;">Dúplex en venta en Cipolletti &middot; Ecuador al 400</h2>
-                        <a href="duplex-ecuador-411-cipolletti.html" class="img-wrapper" style="max-width: 720px; width: 100%; height: auto; display: block;" aria-label="Ver el dúplex en Ecuador al 400">
-                            <picture><source srcset="images/ecuador411_render.webp" type="image/webp" /><img loading="lazy" src="images/ecuador411_render.jpg" alt="Render del dúplex en venta en Ecuador al 400, Cipolletti - GJ Constructora" style="height: auto; object-fit: contain;" /></picture>
-                            <div class="img-overlay"></div>
+                        <a href="duplex-ecuador-411-cipolletti.html" class="tarjeta-video-wrap" aria-label="Ver el dúplex en Ecuador al 400">
+                            <video class="tarjeta-video" muted loop playsinline preload="none"
+                                   poster="images/ecuador411_loop_poster.jpg"
+                                   aria-label="Recorrido exterior del dúplex en Ecuador al 400">
+                                <source src="images/ecuador411_loop.mp4" type="video/mp4" />
+                            </video>
                         </a>
                         <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--navy); font-weight: 600;">2 dormitorios, 2 baños, 70 m² cubiertos y patio propio con parrilla. Sin expensas.</p>
                         <p style="margin-top: 0.8rem; font-size: 1rem; color: var(--text-body);">A estrenar, entrega estimada octubre 2026. Venta directa, sin comisión inmobiliaria.</p>
@@ -89,15 +92,14 @@
                     <!-- Proyecto Fernández Oro -->
                     <div class="content-panel" style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem; display: flex; flex-direction: column; align-items: center;">
                         <h2 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem;">Vivienda residencial en Gral. Fernández Oro</h2>
-                        <div class="oro-video-wrap">
+                        <div class="tarjeta-video-wrap">
                             <!-- Recorrido del dúplex de Oro: sin audio, en bucle (la noche funde con el amanecer). Se descarga recién cuando entra en pantalla. -->
-                            <video class="oro-video" muted loop playsinline preload="none"
+                            <video class="tarjeta-video" muted loop playsinline preload="none"
                                    poster="images/oro_duplex_poster.jpg"
                                    aria-label="Recorrido en video del dúplex en Fernández Oro">
                                 <source src="images/oro_duplex_loop.mp4" type="video/mp4" />
                             </video>
                         </div>
-                        <p class="oro-video-nota">Imágenes ilustrativas. Video con escenas generadas con inteligencia artificial.</p>
                         <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--navy); font-weight: 600;">Próximo desarrollo en General Fernández Oro.</p>
                         <p style="margin-top: 0.8rem; font-size: 1rem; color: var(--text-body);">Un nuevo proyecto residencial diseñado con nuestro sistema de Gemelo Digital 3D. Consultanos para conocer los detalles.</p>
                         <a href="https://wa.me/5492995958293?text=Hola%2C%20vi%20las%20unidades%20en%20venta%20en%20la%20web%20y%20quiero%20consultar." target="_blank" class="hero-cta" style="margin-top: 2rem;">
@@ -157,7 +159,7 @@
     <script>
     // El MP4 no se descarga al abrir la pagina: solo cuando el bloque entra en pantalla.
     (function () {
-        var vs = document.querySelectorAll('.oro-video');
+        var vs = document.querySelectorAll('.tarjeta-video');
         if (!vs.length) return;
         function arranca(v) {
             if (!v.dataset.cargado) { v.preload = 'auto'; v.load(); v.dataset.cargado = '1'; }
