@@ -58,7 +58,6 @@ No hay API publica ni endpoint programatico. El contacto es humano y directo:
 
 - WhatsApp y telefono: +54 299 595-8293
 - Email: gjconstructora92@gmail.com
-- Formulario de consulta: https://gjconstructora.net/ventas.html
 - Pagina de contacto: https://gjconstructora.net/contacto.html
 
 La consulta inicial no tiene costo. Para que la primera respuesta sea util conviene indicar
@@ -69,7 +68,7 @@ y si la obra es para uso propio o para renta.
 
 - [Inicio](https://gjconstructora.net/): presentacion de la empresa, gemelo digital 3D, obras destacadas, quienes somos y valores. Las antiguas paginas de Servicios y Nosotros se integraron aca.
 - [Obras realizadas](https://gjconstructora.net/obras.html): obras ejecutadas con imagenes.
-- [Oportunidades](https://gjconstructora.net/ventas.html): unidades propias en venta, terminadas y en pozo, con formulario de consulta.
+- [Oportunidades](https://gjconstructora.net/ventas.html): unidades propias en venta, terminadas y en pozo.
 - [Duplex en venta en Cipolletti, Ecuador al 400](https://gjconstructora.net/duplex-ecuador-411-cipolletti.html): unidad propia a estrenar, 2 dormitorios, 2 banos completos, 70 m2 cubiertos y patio propio de 15 m2 con parrilla, sin expensas, entrega estimada octubre 2026, USD 158.000 por unidad, venta directa del constructor. Incluye video, planos y ficha tecnica.
 - [Contacto](https://gjconstructora.net/contacto.html): canales, zona de cobertura y que informacion aportar.
 - [Politica de privacidad](https://gjconstructora.net/privacidad.html): tratamiento de datos, Ley 25.326.
