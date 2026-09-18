@@ -80,6 +80,9 @@
         .gemelo-apilado .gemelo-text { text-align: center; }
         .gemelo-apilado .gemelo-text h2 { margin-bottom: 1.8rem; }
         .gemelo-apilado .gemelo-images { flex-direction: column; gap: 1.8rem; max-width: 900px; margin: 0 auto; }
+        .gemelo-volanta { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em;
+            text-transform: uppercase; color: var(--gj-oliva-claro); margin: 0 0 1.6rem; text-align: center; }
+        .cocina-3d + .gemelo-section { margin-top: -1rem; }
 
         /* ── Cocina 3D · bloque a sangre con velo, mismo lenguaje que el hero ── */
         .cocina-3d { position: relative; overflow: hidden; background: var(--gj-fondo);
@@ -322,10 +325,22 @@
                 <!-- SECTION DIVIDER -->
 <div class="section-divider"></div>
 
+                <!-- COCINA 3D -->
+                <section class="cocina-3d">
+                    <video class="cocina-3d-fondo" poster="images/cocina_duplex_cipolletti.jpg"
+                           muted loop playsinline preload="metadata" aria-hidden="true">
+                        <source src="images/cocina_duplex_cipolletti.mp4" type="video/mp4" />
+                    </video>
+                    <div class="cocina-3d-velo" aria-hidden="true"></div>
+                    <div class="cocina-3d-contenido">
+                        <h2>Gemelo Digital 3D</h2>
+                    </div>
+                </section>
+
                 <!-- GEMELO DIGITAL 3D -->
                 <section class="gemelo-section gemelo-apilado">
                     <div class="gemelo-text">
-                        <h2>Gemelo Digital <span class="copper">3D</span></h2>
+                        <p class="gemelo-volanta">Modelo 3D y obra terminada</p>
                     </div>
                     <div class="gemelo-images">
                         <div class="gemelo-pair">
@@ -358,29 +373,6 @@
                 </section>
 
                 <!-- SECTION DIVIDER -->
-                <div class="section-divider"></div>
-
-                <!-- COCINA 3D -->
-                <section class="cocina-3d">
-                    <video class="cocina-3d-fondo" poster="images/cocina_duplex_cipolletti.jpg"
-                           muted loop playsinline preload="metadata" aria-hidden="true">
-                        <source src="images/cocina_duplex_cipolletti.mp4" type="video/mp4" />
-                    </video>
-                    <div class="cocina-3d-velo" aria-hidden="true"></div>
-                    <div class="cocina-3d-contenido">
-                        <p class="cocina-3d-kicker">Gemelo digital</p>
-                        <h2>Cocina &middot; Dúplex Cipolletti</h2>
-                    </div>
-                </section>
-
-
-
-
-                <div class="section-divider"></div>
-
-
-                <div class="section-divider"></div>
-
                 <div class="section-divider"></div>
 
                 <div class="story-block-text" id="quienes-somos" style="max-width: 60rem; margin: 0 auto;">
