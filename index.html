@@ -35,6 +35,20 @@
             .story-block-text p { font-size: 0.95em; line-height: 1.62; margin-bottom: 1.5rem; }
         }
 
+        /* ── Destacado único: el dúplex ocupa el ancho completo ── */
+        .featured-ventas-container.solo { grid-template-columns: 1fr; max-width: 920px; margin-left: auto; margin-right: auto; }
+        .featured-ventas-container.solo article { height: 440px; min-height: 440px; }
+        @media screen and (max-width: 736px) { .featured-ventas-container.solo article { height: 300px; min-height: 300px; } }
+
+        /* ── Gemelo digital: título arriba, fotos al centro, cierre abajo ── */
+        .gemelo-section.gemelo-apilado { display: block; }
+        .gemelo-apilado .gemelo-text { text-align: center; }
+        .gemelo-apilado .gemelo-text h2 { margin-bottom: 1.8rem; }
+        .gemelo-apilado .gemelo-images { flex-direction: row; gap: 2rem; align-items: flex-start; }
+        .gemelo-apilado .gemelo-pair { flex: 1 1 0; min-width: 0; }
+        .gemelo-apilado .gemelo-cierre p { max-width: 46rem; margin: 1.8rem auto 0; }
+        @media screen and (max-width: 768px) { .gemelo-apilado .gemelo-images { flex-direction: column; gap: 1.5rem; } }
+
         /* ── Cocina 3D · bloque a sangre con velo, mismo lenguaje que el hero ── */
         .cocina-3d { position: relative; overflow: hidden; background: var(--gj-fondo);
             width: 100vw; margin: 3.5rem 0 3.5rem calc(50% - 50vw);
@@ -150,58 +164,6 @@
     "itemListElement": [
       {
         "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Construcción de viviendas en Cipolletti",
-          "serviceType": "Construcción de viviendas",
-          "url": "https://gjconstructora.net/construccion-de-viviendas-cipolletti.html",
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Alto Valle de Río Negro y Neuquén"
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Dirección de obra",
-          "serviceType": "Dirección técnica de obra",
-          "url": "https://gjconstructora.net/direccion-de-obra-cipolletti.html",
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Alto Valle de Río Negro y Neuquén"
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Ejecución integral llave en mano",
-          "serviceType": "Ejecución integral de obra",
-          "url": "https://gjconstructora.net/ejecucion-integral-llave-en-mano.html",
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Alto Valle de Río Negro y Neuquén"
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Obra hospitalaria y de salud",
-          "serviceType": "Construcción hospitalaria",
-          "url": "https://gjconstructora.net/obra-hospitalaria-alto-valle.html",
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Alto Valle de Río Negro y Neuquén"
-          }
-        }
-      },
-      {
-        "@type": "Offer",
         "name": "Venta de unidades propias terminadas y en pozo",
         "url": "https://gjconstructora.net/ventas.html",
         "availableAtOrFrom": {
@@ -231,8 +193,6 @@
                 <nav class="top-nav">
                     <ul>
                         <li><a href="index.html">Inicio</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
                         <li><a href="ventas.html">Oportunidades</a></li>
                         <li><a href="obras.html">Obras</a></li>
                         <li><a href="contacto.html">Contacto</a></li>
@@ -252,12 +212,6 @@
             <h2>Menú</h2>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li class="sub"><a href="construccion-de-viviendas-cipolletti.html">Construcción de viviendas</a></li>
-                <li class="sub"><a href="direccion-de-obra-cipolletti.html">Dirección de obra</a></li>
-                <li class="sub"><a href="ejecucion-integral-llave-en-mano.html">Ejecución integral</a></li>
-                <li class="sub"><a href="obra-hospitalaria-alto-valle.html">Obra hospitalaria</a></li>
                 <li><a href="ventas.html">Oportunidades</a></li>
                 <li><a href="obras.html">Obras realizadas</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
@@ -277,17 +231,15 @@
                 <div class="hero-velo" aria-hidden="true"></div>
                 <div class="hero-contenido">
                     <p class="hero-kicker">Constructora &middot; Cipolletti y Fernández Oro &middot; desde 1992</p>
-                    <h1>Proyectamos, dirigimos y <em>construimos</em> tu casa.</h1>
+                    <h1>Proyectamos, dirigimos y construimos tu casa.</h1>
                     <div class="hero-divider"></div>
-                    <p class="hero-subtitle">Gemelo digital 3D antes de iniciar la obra, control integral de la ejecuci&oacute;n y materiales nobles. La vivienda puede recorrerse terminada antes de llevarse a cabo.</p>
                     <div class="hero-acciones">
                         <a href="duplex-ecuador-411-cipolletti.html" class="hero-cta cta-duplex">
-                            <span class="cta-duplex-txt">Ver el dúplex en venta</span>
+                            <span class="cta-duplex-txt">Ver dúplex en venta</span>
                             <span class="cta-duplex-dato">Cipolletti &middot; USD 158.000 &middot; a estrenar</span>
                         </a>
-                        <a href="https://wa.me/5492994194155?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20GJ%20Constructora%20y%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" class="hero-cta secundario">Consultar por WhatsApp</a>
+                        <a href="https://wa.me/5492995958293?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20GJ%20Constructora%20y%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" class="hero-cta secundario">Consultar por WhatsApp</a>
                     </div>
-                    <p class="hero-nota">Imágenes ilustrativas. Video generado con inteligencia artificial a partir de los renders del proyecto.</p>
                 </div>
             </div>
             <div class="inner">
@@ -312,7 +264,7 @@
                 <div class="section-divider"></div>
 
                 <!-- DESTACADOS: el dúplex primero y más grande, es la unidad que está en venta -->
-                <div class="featured-ventas-container">
+                <div class="featured-ventas-container solo">
                     <section class="tiles" id="ventas-destacadas">
                         <article class="style1 destacado-duplex">
                             <a href="duplex-ecuador-411-cipolletti.html">
@@ -329,30 +281,15 @@
                         </article>
                     </section>
 
-                    <section class="featured-story">
-                        <article class="style1">
-                            <a href="nosotros.html">
-                                <span class="image">
-                                    <picture><source srcset="images/portadanosotros.webp" type="image/webp" /><img loading="lazy" src="images/portadanosotros.jpg" alt="Obra de GJ Constructora" /></picture>
-                                </span>
-                                <div class="content">
-                                    <h2>Nosotros</h2>
-                                    <p>Tres décadas proyectando, diseñando y construyendo.</p>
-                                </div>
-                            </a>
-                        </article>
-                    </section>
                 </div>
 
                 <!-- SECTION DIVIDER -->
 <div class="section-divider"></div>
 
                 <!-- GEMELO DIGITAL 3D -->
-                <section class="gemelo-section">
+                <section class="gemelo-section gemelo-apilado">
                     <div class="gemelo-text">
                         <h2>Gemelo Digital <span class="copper">3D</span></h2>
-                        <p>Antes de colocar el primer ladrillo, el proyecto completo se construye en un modelo digital tridimensional. Cada medida, cada instalaci&oacute;n y cada detalle quedan resueltos antes de que comience la obra.</p>
-                        <p>Esto reduce errores, evita sobrecostos y permite recorrer la vivienda antes de que exista.</p>
                     </div>
                     <div class="gemelo-images">
                         <div class="gemelo-pair">
@@ -382,6 +319,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="gemelo-text gemelo-cierre">
+                        <p>Esto reduce errores, evita sobrecostos y permite recorrer la vivienda antes de que exista.</p>
+                    </div>
                 </section>
 
                 <!-- SECTION DIVIDER -->
@@ -397,7 +337,6 @@
                     <div class="cocina-3d-contenido">
                         <p class="cocina-3d-kicker">Gemelo digital</p>
                         <h2>Cocina &middot; Dúplex Cipolletti</h2>
-                        <p class="cocina-3d-nota">Imágenes ilustrativas.</p>
                     </div>
                 </section>
 
@@ -476,31 +415,55 @@
                 <!-- SECTION DIVIDER -->
                 <div class="section-divider"></div>
 
-                <div class="story-block-text" style="max-width: 60rem; margin: 0 auto;">
-                    <h2>Qu&eacute; hace GJ Constructora</h2>
-                    <p>GJ Constructora es una empresa constructora radicada en Cipolletti, provincia de R&iacute;o Negro, que desde 1992 proyecta y construye en el Alto Valle. Desarrollamos la obra desde el anteproyecto y la ejecutamos hasta la entrega de llaves: viviendas unifamiliares, d&uacute;plex, obra comercial y obra de salud. Comercializamos adem&aacute;s unidades propias &mdash;viviendas y d&uacute;plex de desarrollo propio&mdash; terminadas o en pozo.</p>
+                <div class="story-block-text" id="quienes-somos" style="max-width: 60rem; margin: 0 auto;">
+                    <h2>Quiénes somos</h2>
+                    <p>Somos una empresa radicada en Cipolletti, provincia de Río Negro. Desde 1992 proyectamos y construimos en la Patagonia. Controlamos el proceso desde el anteproyecto hasta la entrega de llaves. Contamos con dos modalidades de trabajo, obras por encargo y venta de unidades propias.</p>
 
-                    <h3>Dos modalidades de trabajo</h3>
-                    <p><strong>Obra por encargo.</strong> El cliente plantea una necesidad &mdash;una vivienda, un d&uacute;plex destinado a renta, una cl&iacute;nica, un local&mdash; nosotros la proyectamos y la ejecutamos. Es la modalidad habitual y la que mejor resultado ofrece, porque quien dise&ntilde;a es tambi&eacute;n quien debe ejecutar lo proyectado.</p>
-                    <p><strong>Venta de unidades propias.</strong> Desarrollamos proyectos por cuenta propia y comercializamos esas unidades, terminadas o en pozo. La disponibilidad vigente se publica en <a href="ventas.html">Oportunidades</a>.</p>
-                    <p>Cuando el proyecto ya fue elaborado por otro profesional, lo evaluamos y, si est&aacute; correctamente resuelto, lo ejecutamos. No es el punto de partida ideal &mdash;un proyecto concebido sin quien va a ejecutarlo suele arrastrar decisiones de costo elevado&mdash;, pero es una alternativa viable.</p>
-
-                    <h3>Control integral en lugar de una cadena de subcontratos</h3>
-                    <p>La mayor parte de los problemas de una obra no se origina en los materiales, sino en la articulaci&oacute;n entre oficios, cuando nadie se responsabiliza por el conjunto. Por esa raz&oacute;n mantenemos la coordinaci&oacute;n dentro de la empresa en lugar de distribuirla entre proveedores independientes. Un &uacute;nico responsable por plazo, costo y resultado.</p>
-
-                    <h3>El gemelo digital 3D como herramienta de control t&eacute;cnico</h3>
-                    <p>Antes de iniciar los movimientos de suelo modelamos la obra completa en tres dimensiones: estructura, instalaciones sanitarias, el&eacute;ctricas y de climatizaci&oacute;n, carpinter&iacute;as y terminaciones. Las interferencias que habitualmente se detectan con el muro ya levantado se resuelven sobre el modelo, donde la correcci&oacute;n insume horas de trabajo en lugar de d&iacute;as de obra y demoliciones. El modelo permite adem&aacute;s que el cliente recorra la vivienda antes de su construcci&oacute;n y decida sobre un objeto concreto y no sobre un plano.</p>
+                    <h3>Gemelo digital como herramienta de control técnico</h3>
+                    <p>Trabajamos con sistema BIM que permite un control integral de la obra, como así también las modificaciones que el propietario puede llegar a solicitar y el impacto en la ejecución de esos cambios. Como aspecto principal, el propietario puede ver el proyecto en 3D teniendo una visión de la casa terminada.</p>
 
                     <h3>Zona de trabajo</h3>
-                    <p>Cipolletti, General Fern&aacute;ndez Oro, Allen, Cinco Saltos, Neuqu&eacute;n capital y el resto del Alto Valle de R&iacute;o Negro y Neuqu&eacute;n.</p>
+                    <p>Neuquén-Río Negro.</p>
 
-                    <h3>Obra hospitalaria: el est&aacute;ndar que ordena el resto</h3>
-                    <p>Ejecutamos obras de salud, donde las tolerancias de ejecuci&oacute;n, la coordinaci&oacute;n de instalaciones y la trazabilidad documental son mucho m&aacute;s estrictas que en la construcci&oacute;n residencial. Los procedimientos que exige ese tipo de obra &mdash;replanteo verificado, control de instalaciones antes del cierre, registro de cada etapa&mdash; son los mismos que aplicamos luego en una vivienda familiar.</p>
+                    <h3>Obras salud: públicas y privadas</h3>
+                    <p>Salas de tomografía y resonancia, consultorios generales y odontológicos, salas maternales y clínicas de diálisis.</p>
+                </div>
 
-                    <h3>Materiales y criterio de proyecto</h3>
-                    <p>Trabajamos con materiales duraderos combinados con soluciones constructivas actuales de aislamiento y eficiencia. El criterio no es est&eacute;tico sino de vida &uacute;til: en el clima del Alto Valle, con amplitud t&eacute;rmica marcada y viento, es crucial trabajar con materiales de calidad.</p>
+                <!-- SECTION DIVIDER -->
+                <div class="section-divider"></div>
 
-                    <p>El detalle de cada servicio est&aacute; en <a href="servicios.html">Servicios</a>, las obras ejecutadas en <a href="obras.html">Obras</a>, las unidades propias en venta en <a href="ventas.html">Oportunidades</a> y los canales de consulta en <a href="contacto.html">Contacto</a>.</p>
+                <!-- VALORES (antes en nosotros.html) -->
+                <div class="hero-section" style="margin-top: 1rem;">
+                    <h2 style="font-size: 2.8rem; margin-bottom: 0;">Nuestros Valores</h2>
+                    <div class="hero-divider"></div>
+                </div>
+
+                <div class="valores-grid">
+                    <div class="valor-card">
+                        <i class="fas fa-gem"></i>
+                        <h3>Calidad</h3>
+                        <p>Seleccionamos los materiales por vida útil y no por costo inicial, que es lo que determina el comportamiento de la obra a largo plazo.</p>
+                    </div>
+                    <div class="valor-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Transparencia</h3>
+                        <p>Mantenemos transparencia con el cliente a la hora de proyectar plazos, costo total y variables relacionadas a la obra.</p>
+                    </div>
+                    <div class="valor-card">
+                        <i class="fas fa-shield-halved"></i>
+                        <h3>Compromiso</h3>
+                        <p>Asumimos la obra completa y respondemos por ella: un solo responsable durante todo el proceso, del anteproyecto a la entrega.</p>
+                    </div>
+                    <div class="valor-card">
+                        <i class="fas fa-cube"></i>
+                        <h3>Innovación</h3>
+                        <p>El gemelo digital 3D permite detectar y resolver interferencias antes de construir.</p>
+                    </div>
+                    <div class="valor-card">
+                        <i class="fas fa-check-double"></i>
+                        <h3>Control Integral</h3>
+                        <p>Verificamos cada etapa antes de avanzar a la siguiente.</p>
+                    </div>
                 </div>
 
             </div>
@@ -516,7 +479,7 @@
                         <li><a href="https://www.instagram.com/gj_constructora/"><img loading="lazy" src="images/instagram.png" alt="Instagram" /></a></li>
                         <li><a href="tel:+542994194155"><img loading="lazy" src="images/telefono.png" alt="Teléfono" /></a></li>
                         <li><a href="mailto:gjconstructora92@gmail.com"><img loading="lazy" src="images/email.png" alt="Email" /></a></li>
-                        <li><a href="https://wa.me/5492994194155?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20GJ%20Constructora%20y%20quiero%20hacer%20una%20consulta." target="_blank"><img loading="lazy" src="images/whatsapp.png" alt="WhatsApp" /></a></li>
+                        <li><a href="https://wa.me/5492995958293?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20GJ%20Constructora%20y%20quiero%20hacer%20una%20consulta." target="_blank"><img loading="lazy" src="images/whatsapp.png" alt="WhatsApp" /></a></li>
                     </ul>
                 </section>
                 <ul class="copyright">
@@ -528,7 +491,7 @@
         </footer>
     </div>
 
-    <a href="https://wa.me/5492994194155?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20GJ%20Constructora%20y%20quiero%20hacer%20una%20consulta." target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/5492995958293?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20GJ%20Constructora%20y%20quiero%20hacer%20una%20consulta." target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <img loading="lazy" src="images/whatsapp.png" alt="WhatsApp" />
     </a>
 

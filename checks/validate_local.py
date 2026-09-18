@@ -23,6 +23,13 @@ def text_of(html):
 pages = sorted(glob.glob(os.path.join(ROOT, "*.html")))
 pages += sorted(glob.glob(os.path.join(ROOT, "*", "index.html")))
 
+# Paginas dadas de baja que quedan solo como redireccion (no tienen h1 ni contenido propio)
+def es_stub(path):
+    return 'http-equiv="refresh"' in io.open(path, encoding="utf-8").read()
+BAJAS = ["nosotros.html", "servicios.html", "construccion-de-viviendas-cipolletti.html",
+         "direccion-de-obra-cipolletti.html", "ejecucion-integral-llave-en-mano.html",
+         "obra-hospitalaria-alto-valle.html", "construccion-duplex-cipolletti.html"]
+
 # 1. archivos obligatorios para agentes
 for f in ["robots.txt", "sitemap.xml", "llms.txt", "404.html", "CNAME",
           "contacto.html", "privacidad.html",
@@ -52,7 +59,7 @@ check(home_ident, "index.html declara un @type de identidad reconocible")
 # 3. estructura minima por pagina
 for p in pages:
     rel = os.path.relpath(p, ROOT)
-    if rel in ("elements.html", "generic.html"):
+    if rel in ("elements.html", "generic.html") or es_stub(p):
         continue
     s = io.open(p, encoding="utf-8").read()
     check("<title>" in s, "%s tiene <title>" % rel)
@@ -61,8 +68,8 @@ for p in pages:
     check('rel="canonical"' in s, "%s tiene canonical" % rel)
 
 # 4. contenido sin JavaScript: minimo 500 caracteres de texto real
-for rel in ["index.html", "contacto.html", "privacidad.html", "nosotros.html",
-            "servicios.html", "obras.html"]:
+for rel in ["index.html", "contacto.html", "privacidad.html", "ventas.html",
+            "duplex-ecuador-411-cipolletti.html"]:
     n = len(text_of(io.open(os.path.join(ROOT, rel), encoding="utf-8").read()))
     check(n >= 500, "%s tiene %d caracteres de texto sin JS (>=500)" % (rel, n))
 
@@ -93,10 +100,9 @@ for p in pages:
 
 # 8. posicionamiento comercial: el sitio tiene que decir que GJ construye Y vende
 for rel, needles in [
-    ("index.html", ["dise", "construimos", "vendemos unidades propias"]),
-    ("ventas.html", ["Unidades terminadas", "Unidades en pozo", "no intermediamos"]),
+    ("index.html", ["Qui\u00e9nes somos", "construimos", "venta de unidades propias", "Nuestros Valores"]),
+    ("ventas.html", ["D\u00faplex en venta en Cipolletti", "Venta directa"]),
     ("contacto.html", ["Construir a medida", "Comprar una unidad propia"]),
-    ("servicios.html", ["terminadas o en pozo"]),
     ("llms.txt", ["Comprar en pozo", "unidades de desarrollo propio"]),
 ]:
     t = io.open(os.path.join(ROOT, rel), encoding="utf-8").read()
@@ -116,18 +122,25 @@ for p2 in pages:
         if fr in t:
             check(False, "%s contiene una frase de zona contradictoria: %r" % (os.path.relpath(p2, ROOT), fr))
 
-# 10. la direccion de obra no debe venderse como servicio suelto
-t = io.open(os.path.join(ROOT, "direccion-de-obra-cipolletti.html"), encoding="utf-8").read()
-check("Cu\u00e1ndo tiene sentido contratar solo la direcci\u00f3n" not in t,
-      "direccion-de-obra: no promociona la direccion suelta como recomendable")
-check("Antes que nada: qu\u00e9 hacemos" in t,
-      "direccion-de-obra: aclara que GJ disena y construye")
+# 10. paginas dadas de baja: existen solo como redireccion y nadie las enlaza
+for rel in BAJAS:
+    fp = os.path.join(ROOT, rel)
+    check(os.path.isfile(fp) and es_stub(fp), "%s es una redireccion (pagina dada de baja)" % rel)
+for p2 in pages:
+    rel2 = os.path.relpath(p2, ROOT)
+    if es_stub(p2):
+        continue
+    t = io.open(p2, encoding="utf-8").read()
+    for rel in BAJAS:
+        if re.search(r'href="(?:https://gjconstructora\.net)?/?' + re.escape(rel) + '"', t):
+            check(False, "%s enlaza a la pagina dada de baja %s" % (rel2, rel))
+check("nosotros.html" not in io.open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read(),
+      "sitemap sin paginas dadas de baja")
 
-# 11. errores de redaccion ya corregidos
-t = io.open(os.path.join(ROOT, "nosotros.html"), encoding="utf-8").read()
-for mal in ["d\u00e9cadas dedicadas", "superiores a cada proyecto", "ya sean en material de",
-            "la conformidad de nuestros clientes"]:
-    check(mal not in t, "nosotros.html sin el error %r" % mal)
+# 11. WhatsApp: un solo numero en todo el sitio
+for p2 in pages + [os.path.join(ROOT, "llms.txt")]:
+    t = io.open(p2, encoding="utf-8").read()
+    check("wa.me/5492994194155" not in t, "%s sin el numero viejo de WhatsApp" % os.path.relpath(p2, ROOT))
 
 # 12. 404: markdown visible ademas del script
 s404b = io.open(os.path.join(ROOT, "404.html"), encoding="utf-8").read()
