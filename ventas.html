@@ -21,7 +21,20 @@
         .tarjeta-video { display: block; width: 100%; height: 100%; object-fit: cover; }
         a.tarjeta-video-wrap { display: block; transition: transform 0.25s ease; }
         a.tarjeta-video-wrap:hover { transform: translateY(-3px); }
-        @media screen and (max-width: 736px) { .tarjeta-video-wrap { max-width: 240px; } }
+        /* escritorio: video a la izquierda y texto a la derecha; celular: video arriba, texto abajo */
+        .content-panel.tarjeta-lado { display: flex; flex-direction: row; align-items: center; gap: 2.5rem;
+            max-width: 900px; margin: 0 auto 2.5rem; text-align: left; }
+        .tarjeta-lado .tarjeta-video-wrap { flex: 0 0 290px; }
+        .tarjeta-lado .tarjeta-texto { flex: 1 1 0; min-width: 0; }
+        .tarjeta-lado .tarjeta-texto h2 { font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem; }
+        .tarjeta-lado .tarjeta-texto .dato { margin-top: 0; font-size: 1.1rem; color: var(--navy); font-weight: 600; }
+        .tarjeta-lado .tarjeta-texto .detalle { margin-top: 0.8rem; font-size: 1rem; color: var(--text-body); }
+        .tarjeta-lado .tarjeta-texto .hero-cta { margin-top: 1.6rem; }
+        @media screen and (max-width: 736px) {
+            .content-panel.tarjeta-lado { flex-direction: column; gap: 1.4rem; text-align: center; }
+            .tarjeta-lado .tarjeta-video-wrap { flex: 0 0 auto; max-width: 240px; }
+            .tarjeta-lado .tarjeta-texto { width: 100%; }
+        }
 </style>
         <script src="assets/js/tracking.js"></script>
     </head>
@@ -71,8 +84,7 @@
                     </div>
 
                     <!-- Proyecto Cipolletti -->
-                    <div class="content-panel" style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem; display: flex; flex-direction: column; align-items: center;">
-                        <h2 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem;">Dúplex en venta en Cipolletti &middot; Ecuador al 400</h2>
+                    <div class="content-panel tarjeta-lado">
                         <a href="duplex-ecuador-411-cipolletti.html" class="tarjeta-video-wrap" aria-label="Ver el dúplex en Ecuador al 400">
                             <video class="tarjeta-video" muted loop playsinline preload="none"
                                    poster="images/ecuador411_loop_poster.jpg"
@@ -80,18 +92,18 @@
                                 <source src="images/ecuador411_loop.mp4" type="video/mp4" />
                             </video>
                         </a>
-                        <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--navy); font-weight: 600;">2 dormitorios, 2 baños, 70 m² cubiertos y patio propio con parrilla. Sin expensas.</p>
-                        <p style="margin-top: 0.8rem; font-size: 1rem; color: var(--text-body);">A estrenar, entrega estimada octubre 2026. Venta directa, sin comisión inmobiliaria.</p>
-                        <a href="duplex-ecuador-411-cipolletti.html" class="hero-cta" style="margin-top: 2rem;">
-                            Ver video, planos y ficha completa
-                        </a>
+                        <div class="tarjeta-texto">
+                            <h2>Dúplex en venta en Cipolletti &middot; Ecuador al 400</h2>
+                            <p class="dato">2 dormitorios, 2 baños, 70 m² cubiertos y patio propio con parrilla. Sin expensas.</p>
+                            <p class="detalle">A estrenar, entrega estimada octubre 2026. Venta directa, sin comisión inmobiliaria.</p>
+                            <a href="duplex-ecuador-411-cipolletti.html" class="hero-cta">Ver video, planos y ficha completa</a>
+                        </div>
                     </div>
 
                     <div class="section-divider"></div>
 
                     <!-- Proyecto Fernández Oro -->
-                    <div class="content-panel" style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem; display: flex; flex-direction: column; align-items: center;">
-                        <h2 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem;">Vivienda residencial en Gral. Fernández Oro</h2>
+                    <div class="content-panel tarjeta-lado">
                         <div class="tarjeta-video-wrap">
                             <!-- Recorrido del dúplex de Oro: sin audio, en bucle (la noche funde con el amanecer). Se descarga recién cuando entra en pantalla. -->
                             <video class="tarjeta-video" muted loop playsinline preload="none"
@@ -100,11 +112,12 @@
                                 <source src="images/oro_duplex_loop.mp4" type="video/mp4" />
                             </video>
                         </div>
-                        <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--navy); font-weight: 600;">Próximo desarrollo en General Fernández Oro.</p>
-                        <p style="margin-top: 0.8rem; font-size: 1rem; color: var(--text-body);">Un nuevo proyecto residencial diseñado con nuestro sistema de Gemelo Digital 3D. Inscribite en la lista de interesados por WhatsApp.</p>
-                        <a href="https://wa.me/5492995958293?text=Hola%2C%20quiero%20inscribirme%20en%20la%20lista%20de%20interesados%20del%20d%C3%BAplex%20en%20Fern%C3%A1ndez%20Oro." target="_blank" rel="noopener" class="hero-cta" style="margin-top: 2rem;">
-                            Inscribirme en la lista de interesados
-                        </a>
+                        <div class="tarjeta-texto">
+                            <h2>Vivienda residencial en Gral. Fernández Oro</h2>
+                            <p class="dato">Próximo desarrollo en General Fernández Oro.</p>
+                            <p class="detalle">Un nuevo proyecto residencial diseñado con nuestro sistema de Gemelo Digital 3D. Inscribite en la lista de interesados por WhatsApp.</p>
+                            <a href="https://wa.me/5492995958293?text=Hola%2C%20quiero%20inscribirme%20en%20la%20lista%20de%20interesados%20del%20d%C3%BAplex%20en%20Fern%C3%A1ndez%20Oro." target="_blank" rel="noopener" class="hero-cta">Inscribirme en la lista de interesados</a>
+                        </div>
                     </div>
 
                     
