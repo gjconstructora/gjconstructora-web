@@ -162,7 +162,7 @@
                         <article class="style6">
                             <a href="galeria-proyecto-5.html">
                                 <span class="image">
-                                    <video class="tarjeta-video" muted loop playsinline preload="none"
+                                    <video class="tarjeta-video" muted loop playsinline preload="metadata"
                                            poster="images/clinica_reconstruccion_web_poster.jpg"
                                            aria-label="Obra de una clínica en reconstrucción: recorrido por sanitarios, planta de agua, salas e instalaciones">
                                         <source src="images/clinica_reconstruccion_web.mp4" type="video/mp4" />
@@ -234,7 +234,7 @@
         }
         var io = new IntersectionObserver(function (es) {
             es.forEach(function (e) { if (e.isIntersecting) { arranca(e.target); } else { e.target.pause(); } });
-        }, { threshold: 0.2 });
+        }, { rootMargin: '900px 0px 900px 0px', threshold: 0 });
         Array.prototype.forEach.call(vs, function (v) { io.observe(v); });
     })();
     </script>
