@@ -140,7 +140,7 @@ check("nosotros.html" not in io.open(os.path.join(ROOT, "sitemap.xml"), encoding
 # 11. WhatsApp: un solo numero en todo el sitio
 for p2 in pages + [os.path.join(ROOT, "llms.txt")]:
     t = io.open(p2, encoding="utf-8").read()
-    check("wa.me/5492994194155" not in t, "%s sin el numero viejo de WhatsApp" % os.path.relpath(p2, ROOT))
+    check("4194155" not in t and "419-4155" not in t, "%s sin el numero viejo de WhatsApp/telefono" % os.path.relpath(p2, ROOT))
 
 # 12. 404: markdown visible ademas del script
 s404b = io.open(os.path.join(ROOT, "404.html"), encoding="utf-8").read()
