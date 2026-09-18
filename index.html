@@ -36,7 +36,13 @@
         }
 
         /* ── Hero: el rótulo «Constructora · …» va bien arriba, lejos del título ── */
-        .hero-video .hero-kicker { margin-bottom: 4.5rem; }
+        #main .hero-video .hero-kicker { margin-bottom: 3rem; max-width: none; text-align: center; }
+        /* el hero termina más arriba para que la banda de cifras entre completa en pantalla */
+        @media screen and (min-width: 737px) {
+            .hero-video { min-height: 74vh; margin-bottom: 2rem; }
+            .hero-video .hero-contenido { padding-top: 6rem; padding-bottom: 3rem; }
+            .stats-bar { margin-bottom: 2.5rem; }
+        }
         /* celular: imagen entera arriba; título centrado en dos líneas y los dos botones apilados, también centrados */
         @media screen and (max-width: 736px) {
             .hero-video .hero-contenido { text-align: center; padding-top: calc(91.5vw + 1.2rem); }
@@ -84,7 +90,7 @@
         /* ── Gemelo digital: título arriba, fotos al centro, cierre abajo ── */
         .gemelo-section.gemelo-apilado { display: block; }
         .gemelo-apilado .gemelo-text { text-align: center; }
-        .gemelo-apilado .gemelo-text h2 { margin-bottom: 1.8rem; }
+        .gemelo-apilado .gemelo-text h2 { margin-bottom: 1.8rem; font-size: 1.6rem; font-weight: 600; letter-spacing: 0; }
         .gemelo-apilado .gemelo-images { flex-direction: column; gap: 1.8rem; max-width: 900px; margin: 0 auto; }
         .cocina-3d + .gemelo-section { margin-top: -1rem; }
 
