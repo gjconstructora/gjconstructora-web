@@ -24,7 +24,8 @@
     <link rel="icon" type="image/png" href="images/logo_gj.png" />
     <link rel="apple-touch-icon" href="images/logo_gj.png" />
 
-    <link rel="stylesheet" href="assets/css/main.css?v=18" />
+    <link rel="preload" as="image" href="images/hero_casa_dianoche.webp" type="image/webp" fetchpriority="high" />
+    <link rel="stylesheet" href="assets/css/main.css?v=19" />
     <link rel="stylesheet" href="assets/css/gj-marca.css?v=8" />
     <style>
 .story-block-text p { margin-bottom: 1.7rem; line-height: 1.72; }
@@ -121,7 +122,7 @@
             .cocina-3d-nota { font-size: 0.64rem; margin-top: 0.9rem; }
         }
 </style>
-        <script src="assets/js/tracking.js"></script>
+        <script defer src="assets/js/tracking.js"></script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -268,9 +269,9 @@
             <div class="hero-section hero-video">
                 <picture class="hero-poster-wrap">
                     <source srcset="images/hero_casa_dianoche.webp" type="image/webp" />
-                    <img class="hero-poster" src="images/hero_casa_dianoche.jpg" alt="Casa unifamiliar construida por GJ Constructora en Fernández Oro, de día" />
+                    <img class="hero-poster" fetchpriority="high" src="images/hero_casa_dianoche.jpg" alt="Casa unifamiliar construida por GJ Constructora en Fernández Oro, de día" />
                 </picture>
-                <video class="hero-fondo" autoplay muted loop playsinline preload="metadata" poster="images/hero_casa_dianoche.jpg" aria-hidden="true">
+                <video class="hero-fondo" muted loop playsinline preload="none" poster="images/hero_casa_dianoche.jpg" aria-hidden="true">
                     <source src="images/hero_casa_ciclo.mp4" type="video/mp4" />
                 </video>
                 <div class="hero-velo" aria-hidden="true"></div>
@@ -553,6 +554,13 @@
     <script src="assets/js/gj-motion.js"></script>
 
     <script>
+    // El video del hero arranca cuando la página terminó de cargar: primero se ve la foto (misma imagen que el póster).
+    (function () {
+        var h = document.querySelector('.hero-fondo');
+        if (!h) return;
+        function play() { h.preload = 'auto'; var p = h.play(); if (p) { p.catch(function () {}); } }
+        if (document.readyState === 'complete') { play(); } else { window.addEventListener('load', play); }
+    })();
     // Los MP4 no se descargan al abrir la pagina: solo cuando el bloque entra en pantalla.
     (function () {
         var vs = document.querySelectorAll('.cocina-3d-fondo, .tarjeta-video');

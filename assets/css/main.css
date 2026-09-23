@@ -1,5 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+/* Fuentes de la plantilla (Lato, Oswald) servidas desde el sitio, sin pasar por Google Fonts */
+@font-face { font-family: 'Lato'; font-weight: 300; font-style: normal; font-display: swap; src: url('../webfonts/gj/lato-latin-300-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Lato'; font-weight: 400; font-style: normal; font-display: swap; src: url('../webfonts/gj/lato-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Lato'; font-weight: 700; font-style: normal; font-display: swap; src: url('../webfonts/gj/lato-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Oswald'; font-weight: 300; font-style: normal; font-display: swap; src: url('../webfonts/gj/oswald-latin-300-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Oswald'; font-weight: 400; font-style: normal; font-display: swap; src: url('../webfonts/gj/oswald-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Oswald'; font-weight: 700; font-style: normal; font-display: swap; src: url('../webfonts/gj/oswald-latin-700-normal.woff2') format('woff2'); }
+/* Íconos: solo los 18 de Font Awesome 6.5 Free (solid) que usa el sitio, en un archivo de 3 KB.
+   Font Awesome Free: íconos CC BY 4.0, fuente SIL OFL 1.1. Para sumar un ícono hay que regenerar
+   fa-solid-900-gj.woff2 con pyftsubset e incluir su código acá. */
+@font-face { font-family: 'Font Awesome 6 Free'; font-style: normal; font-weight: 900; font-display: block; src: url('../webfonts/gj/fa-solid-900-gj.woff2') format('woff2'); }
+.fas { font-family: 'Font Awesome 6 Free'; font-weight: 900; font-style: normal; font-variant: normal; display: inline-block; line-height: 1; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.fa-video::before { content: "\f03d"; }
+.fa-utensils::before { content: "\f2e7"; }
+.fa-tree::before { content: "\f1bb"; }
+.fa-tint::before { content: "\f043"; }
+.fa-temperature-high::before { content: "\f769"; }
+.fa-snowflake::before { content: "\f2dc"; }
+.fa-shield-halved::before { content: "\f3ed"; }
+.fa-ruler-combined::before { content: "\f546"; }
+.fa-plug::before { content: "\f1e6"; }
+.fa-map-marker-alt::before { content: "\f3c5"; }
+.fa-handshake::before { content: "\f2b5"; }
+.fa-gem::before { content: "\f3a5"; }
+.fa-fire::before { content: "\f06d"; }
+.fa-file-invoice-dollar::before { content: "\f571"; }
+.fa-cube::before { content: "\f1b2"; }
+.fa-check-double::before { content: "\f560"; }
+.fa-bed::before { content: "\f236"; }
+.fa-bath::before { content: "\f2cd"; }
 
 /* ===========================
    RESET

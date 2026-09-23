@@ -8,11 +8,24 @@
 */
 
 // === GOOGLE ANALYTICS 4 ===
-(function(){
+// Las colas de gtag y fbq existen desde el principio (los eventos no se pierden),
+// pero las librerías de Google y Meta se descargan recién cuando la página terminó
+// de cargar, para no competir con la foto del hero ni trabar el celular.
+function gjCargarScript(src) {
   var s = document.createElement('script');
   s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-CJ24S44XJC';
+  s.src = src;
   document.head.appendChild(s);
+}
+function gjDespuesDeCargar(fn) {
+  if (document.readyState === 'complete') { setTimeout(fn, 0); }
+  else { window.addEventListener('load', function () { setTimeout(fn, 0); }); }
+}
+
+(function(){
+  gjDespuesDeCargar(function () {
+    gjCargarScript('https://www.googletagmanager.com/gtag/js?id=G-CJ24S44XJC');
+  });
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   window.gtag = gtag;
@@ -21,14 +34,14 @@
 })();
 
 // === PÍXEL DE META (Facebook / Instagram) ===
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+!function(f){
+if(f.fbq)return;var n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+n.queue=[];}(window);
+gjDespuesDeCargar(function () {
+  gjCargarScript('https://connect.facebook.net/en_US/fbevents.js');
+});
 fbq('init', '1062947359713024');
 fbq('track', 'PageView');
 
