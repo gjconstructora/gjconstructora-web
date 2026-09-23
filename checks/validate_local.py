@@ -26,7 +26,7 @@ pages += sorted(glob.glob(os.path.join(ROOT, "*", "index.html")))
 # Paginas dadas de baja que quedan solo como redireccion (no tienen h1 ni contenido propio)
 def es_stub(path):
     return 'http-equiv="refresh"' in io.open(path, encoding="utf-8").read()
-BAJAS = ["nosotros.html", "servicios.html", "construccion-de-viviendas-cipolletti.html",
+BAJAS = ["contacto.html", "nosotros.html", "servicios.html", "construccion-de-viviendas-cipolletti.html",
          "direccion-de-obra-cipolletti.html", "ejecucion-integral-llave-en-mano.html",
          "obra-hospitalaria-alto-valle.html", "construccion-duplex-cipolletti.html"]
 
@@ -68,7 +68,7 @@ for p in pages:
     check('rel="canonical"' in s, "%s tiene canonical" % rel)
 
 # 4. contenido sin JavaScript: minimo 500 caracteres de texto real
-for rel in ["index.html", "contacto.html", "privacidad.html", "ventas.html",
+for rel in ["index.html", "privacidad.html", "ventas.html",
             "duplex-ecuador-411-cipolletti.html"]:
     n = len(text_of(io.open(os.path.join(ROOT, rel), encoding="utf-8").read()))
     check(n >= 500, "%s tiene %d caracteres de texto sin JS (>=500)" % (rel, n))
@@ -102,7 +102,6 @@ for p in pages:
 for rel, needles in [
     ("index.html", ["Qui\u00e9nes somos", "construimos", "venta de unidades propias", "Nuestros Valores"]),
     ("ventas.html", ["D\u00faplex en venta en Cipolletti", "Venta directa"]),
-    ("contacto.html", ["Construir a medida", "Comprar una unidad propia"]),
     ("llms.txt", ["Comprar en pozo", "unidades de desarrollo propio"]),
 ]:
     t = io.open(os.path.join(ROOT, rel), encoding="utf-8").read()

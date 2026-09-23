@@ -52,6 +52,21 @@
             .hero-video .hero-acciones .hero-cta { flex: 1 1 100%; }
         }
 
+        /* ── Contacto al final de la portada (reemplaza contacto.html) ── */
+        #contacto { text-align: center; max-width: 60rem; margin: 0 auto 3rem; scroll-margin-top: 5rem; }
+        #contacto h2 { font-size: 1.8rem; margin-bottom: 0.6rem; }
+        #contacto .contacto-zona { color: var(--gj-texto-tenue); margin: 0 auto 1.8rem; }
+        #contacto .contacto-botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+        #contacto .contacto-botones .hero-cta { display: inline-flex; align-items: center; gap: 0.6rem; border-bottom: 0; }
+        #contacto .contacto-botones img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+        #contacto .contacto-botones .hero-cta:not(.secundario) img { filter: brightness(0); }
+        #contacto .contacto-nota { font-size: 0.9rem; color: var(--gj-texto-tenue); margin: 1.8rem auto 0; max-width: 40rem; }
+        /* los mismos botones ya están arriba: en la portada el pie no los repite */
+        #footer #seguinos { display: none; }
+        @media screen and (max-width: 736px) {
+            #contacto .contacto-botones .hero-cta { flex: 1 1 100%; justify-content: center; }
+        }
+
         /* ── Destacado único: el dúplex ocupa el ancho completo ── */
         .featured-ventas-container.solo { grid-template-columns: 1fr; max-width: 920px; margin-left: auto; margin-right: auto; }
         /* escritorio: texto a la izquierda y recorrido vertical a la derecha, sin superponerse; celular: video arriba, texto abajo */
@@ -142,7 +157,7 @@
       "contactType": "customer service",
       "telephone": "+542995958293",
       "email": "gjconstructora92@gmail.com",
-      "url": "https://gjconstructora.net/contacto.html",
+      "url": "https://gjconstructora.net/#contacto",
       "availableLanguage": ["Spanish"],
       "areaServed": "AR"
     },
@@ -241,7 +256,6 @@
                         <li><a href="index.html">Inicio</a></li>
                         <li><a href="ventas.html">Oportunidades</a></li>
                         <li><a href="obras.html">Obras</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
                     </ul>
                 </nav>
                 <a href="#menu">
@@ -260,7 +274,6 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="ventas.html">Oportunidades</a></li>
                 <li><a href="obras.html">Obras realizadas</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
 
@@ -512,6 +525,23 @@
                     </article>
                 </section>
 
+                <!-- SECTION DIVIDER -->
+                <div class="section-divider"></div>
+
+                <!-- CONTACTO (antes en contacto.html) -->
+                <section id="contacto" class="contacto-home">
+                    <h2>Contacto</h2>
+                    <p class="contacto-zona">Cipolletti, Fernández Oro y el Alto Valle</p>
+                    <div class="contacto-botones">
+                        <a class="hero-cta" href="https://wa.me/5492995958293?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20GJ%20Constructora%20y%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener"><img src="images/whatsapp.png" alt="" width="20" height="20" />WhatsApp · 299 595-8293</a>
+                        <a class="hero-cta secundario" href="tel:+542995958293"><img src="images/telefono.png" alt="" width="20" height="20" />Llamar</a>
+                        <a class="hero-cta secundario" href="mailto:gjconstructora92@gmail.com"><img src="images/email.png" alt="" width="20" height="20" />Email</a>
+                        <a class="hero-cta secundario" href="https://www.instagram.com/gj_constructora/" target="_blank" rel="noopener"><img src="images/instagram.png" alt="" width="20" height="20" />Instagram</a>
+                        <a class="hero-cta secundario" href="https://www.facebook.com/profile.php?id=61579259110187" target="_blank" rel="noopener"><img src="images/facebook.png" alt="" width="20" height="20" />Facebook</a>
+                    </div>
+                    <p class="contacto-nota">Para una consulta de obra conviene enviar la ubicación del lote, la superficie aproximada y si ya existe un anteproyecto. Planos y documentación, por email.</p>
+                </section>
+
             </div>
         </div>
 
@@ -530,7 +560,7 @@
                 </section>
                 <ul class="copyright">
                     <li>&copy; GJ Constructora. Todos los derechos reservados.</li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
                     <li><a href="privacidad.html">Privacidad</a></li>
                 </ul>
             </div>
