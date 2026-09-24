@@ -106,11 +106,12 @@
         .gemelo-section.gemelo-apilado { display: block; }
         .gemelo-apilado .gemelo-text { text-align: center; }
         .gemelo-apilado .gemelo-text h2 { margin-bottom: 1.8rem; font-size: 1.6rem; font-weight: 600; letter-spacing: 0; }
-        .gemelo-apilado .gemelo-images { flex-direction: column; gap: 1.8rem; max-width: none; margin: 0 auto; }
+        .gemelo-apilado .gemelo-images { flex-direction: column; gap: 2.6rem; max-width: none; margin: 0 auto; }
+        .gemelo-apilado .gemelo-pair h3 { margin-bottom: 0.9rem; }
         .cocina-3d + .gemelo-section { margin-top: -1rem; }
 
         /* ── Comparador modelo 3D / obra terminada (se desliza solo) ── */
-        .comparador { --pos: 50%; position: relative; width: 100%; max-width: none; width: min(100%, calc(82vh * 4 / 3)); margin: 0 auto; aspect-ratio: 4 / 3;
+        .comparador { --pos: 50%; position: relative; width: 100%; max-width: none; width: min(100%, calc(82vh * 16 / 9)); margin: 0 auto; aspect-ratio: 16 / 9;
             overflow: hidden; border-radius: 8px; border: 1px solid var(--gj-borde); background: var(--gj-fondo-claro);
             cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
         .comparador img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
@@ -395,17 +396,68 @@
                     </div>
                     <div class="gemelo-images">
                         <div class="gemelo-pair">
-                            <!-- Comparador: la obra terminada de fondo y el modelo 3D recortado encima hasta --pos.
-                                 Se desliza solo mientras está en pantalla; si la persona lo toca, queda en sus manos. -->
+                            <h3>Cinco Saltos · Frente</h3>
                             <div class="comparador" style="--pos: 50%;">
-                                <picture><source srcset="images/exterior_pergola_obra.webp" type="image/webp" /><img loading="lazy" width="1000" height="750" src="images/exterior_pergola_obra.jpg" alt="Casa con pérgola de acero terminada: fotografía de obra" /></picture>
+                                <picture><source srcset="images/comp_cs_frente_obra.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_cs_frente_obra.jpg" alt="Obra terminada: vivienda de dos plantas en Cinco Saltos, vista de frente" /></picture>
                                 <div class="comparador-modelo">
-                                    <picture><source srcset="images/exterior_pergola_modelo3d.webp" type="image/webp" /><img loading="lazy" width="1000" height="750" src="images/exterior_pergola_modelo3d.jpg" alt="Modelo 3D de la misma casa con pérgola, desde el mismo punto de vista" /></picture>
+                                    <picture><source srcset="images/comp_cs_frente_modelo3d.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_cs_frente_modelo3d.jpg" alt="Modelo 3D: vivienda de dos plantas en Cinco Saltos, vista de frente, desde el mismo punto de vista" /></picture>
                                 </div>
                                 <span class="comparador-etiqueta izq" aria-hidden="true">Modelo 3D</span>
                                 <span class="comparador-etiqueta der" aria-hidden="true">Obra terminada</span>
                                 <div class="comparador-linea" aria-hidden="true"><span class="comparador-mango"></span></div>
-                                <input class="comparador-control" type="range" min="0" max="100" step="1" value="50" aria-label="Comparar el modelo 3D con la obra terminada" />
+                                <input class="comparador-control" type="range" min="0" max="100" step="1" value="50" aria-label="Comparar el modelo 3D con la obra terminada: Cinco Saltos · Frente" />
+                            </div>
+                        </div>
+                        <div class="gemelo-pair">
+                            <h3>Cinco Saltos · Pérgola</h3>
+                            <div class="comparador" style="--pos: 50%;">
+                                <picture><source srcset="images/comp_cs_pergola_obra.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_cs_pergola_obra.jpg" alt="Obra terminada: vivienda en Cinco Saltos, pérgola y vidriado de la escalera" /></picture>
+                                <div class="comparador-modelo">
+                                    <picture><source srcset="images/comp_cs_pergola_modelo3d.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_cs_pergola_modelo3d.jpg" alt="Modelo 3D: vivienda en Cinco Saltos, pérgola y vidriado de la escalera, desde el mismo punto de vista" /></picture>
+                                </div>
+                                <span class="comparador-etiqueta izq" aria-hidden="true">Modelo 3D</span>
+                                <span class="comparador-etiqueta der" aria-hidden="true">Obra terminada</span>
+                                <div class="comparador-linea" aria-hidden="true"><span class="comparador-mango"></span></div>
+                                <input class="comparador-control" type="range" min="0" max="100" step="1" value="50" aria-label="Comparar el modelo 3D con la obra terminada: Cinco Saltos · Pérgola" />
+                            </div>
+                        </div>
+                        <div class="gemelo-pair">
+                            <h3>Cinco Saltos · Cocina</h3>
+                            <div class="comparador" style="--pos: 50%;">
+                                <picture><source srcset="images/comp_cs_cocina_obra.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_cs_cocina_obra.jpg" alt="Obra terminada: cocina de la vivienda en Cinco Saltos" /></picture>
+                                <div class="comparador-modelo">
+                                    <picture><source srcset="images/comp_cs_cocina_modelo3d.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_cs_cocina_modelo3d.jpg" alt="Modelo 3D: cocina de la vivienda en Cinco Saltos, desde el mismo punto de vista" /></picture>
+                                </div>
+                                <span class="comparador-etiqueta izq" aria-hidden="true">Modelo 3D</span>
+                                <span class="comparador-etiqueta der" aria-hidden="true">Obra terminada</span>
+                                <div class="comparador-linea" aria-hidden="true"><span class="comparador-mango"></span></div>
+                                <input class="comparador-control" type="range" min="0" max="100" step="1" value="50" aria-label="Comparar el modelo 3D con la obra terminada: Cinco Saltos · Cocina" />
+                            </div>
+                        </div>
+                        <div class="gemelo-pair">
+                            <h3>El Vergel · Frente</h3>
+                            <div class="comparador" style="--pos: 50%;">
+                                <picture><source srcset="images/comp_ev_frente_obra.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_ev_frente_obra.jpg" alt="Obra terminada: vivienda de ladrillo en El Vergel, vista de frente con el portón" /></picture>
+                                <div class="comparador-modelo">
+                                    <picture><source srcset="images/comp_ev_frente_modelo3d.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_ev_frente_modelo3d.jpg" alt="Modelo 3D: vivienda de ladrillo en El Vergel, vista de frente con el portón, desde el mismo punto de vista" /></picture>
+                                </div>
+                                <span class="comparador-etiqueta izq" aria-hidden="true">Modelo 3D</span>
+                                <span class="comparador-etiqueta der" aria-hidden="true">Obra terminada</span>
+                                <div class="comparador-linea" aria-hidden="true"><span class="comparador-mango"></span></div>
+                                <input class="comparador-control" type="range" min="0" max="100" step="1" value="50" aria-label="Comparar el modelo 3D con la obra terminada: El Vergel · Frente" />
+                            </div>
+                        </div>
+                        <div class="gemelo-pair">
+                            <h3>El Vergel · Contrafrente</h3>
+                            <div class="comparador" style="--pos: 50%;">
+                                <picture><source srcset="images/comp_ev_contrafrente_obra.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_ev_contrafrente_obra.jpg" alt="Obra terminada: vivienda de ladrillo en El Vergel, contrafrente" /></picture>
+                                <div class="comparador-modelo">
+                                    <picture><source srcset="images/comp_ev_contrafrente_modelo3d.webp" type="image/webp" /><img loading="lazy" width="1280" height="720" src="images/comp_ev_contrafrente_modelo3d.jpg" alt="Modelo 3D: vivienda de ladrillo en El Vergel, contrafrente, desde el mismo punto de vista" /></picture>
+                                </div>
+                                <span class="comparador-etiqueta izq" aria-hidden="true">Modelo 3D</span>
+                                <span class="comparador-etiqueta der" aria-hidden="true">Obra terminada</span>
+                                <div class="comparador-linea" aria-hidden="true"><span class="comparador-mango"></span></div>
+                                <input class="comparador-control" type="range" min="0" max="100" step="1" value="50" aria-label="Comparar el modelo 3D con la obra terminada: El Vergel · Contrafrente" />
                             </div>
                         </div>
                     </div>
