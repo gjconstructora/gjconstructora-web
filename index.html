@@ -106,11 +106,11 @@
         .gemelo-section.gemelo-apilado { display: block; }
         .gemelo-apilado .gemelo-text { text-align: center; }
         .gemelo-apilado .gemelo-text h2 { margin-bottom: 1.8rem; font-size: 1.6rem; font-weight: 600; letter-spacing: 0; }
-        .gemelo-apilado .gemelo-images { flex-direction: column; gap: 1.8rem; max-width: 900px; margin: 0 auto; }
+        .gemelo-apilado .gemelo-images { flex-direction: column; gap: 1.8rem; max-width: none; margin: 0 auto; }
         .cocina-3d + .gemelo-section { margin-top: -1rem; }
 
         /* ── Comparador modelo 3D / obra terminada (se desliza solo) ── */
-        .comparador { --pos: 50%; position: relative; width: 100%; max-width: 680px; margin: 0 auto; aspect-ratio: 4 / 3;
+        .comparador { --pos: 50%; position: relative; width: 100%; max-width: none; width: min(100%, calc(82vh * 4 / 3)); margin: 0 auto; aspect-ratio: 4 / 3;
             overflow: hidden; border-radius: 8px; border: 1px solid var(--gj-borde); background: var(--gj-fondo-claro);
             cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
         .comparador img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
@@ -129,6 +129,8 @@
         .comparador-control { position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; margin: 0; opacity: 0; pointer-events: none; }
         .comparador:has(.comparador-control:focus-visible) { outline: 2px solid var(--gj-oliva); outline-offset: 3px; }
         @media screen and (max-width: 736px) {
+            /* en celular el comparador ocupa todo el ancho de la tarjeta (sin el margen interno de 1.5rem) */
+            .comparador { width: calc(100% + 3rem); margin: 0 -1.5rem; border-radius: 0; border-left: 0; border-right: 0; }
             .comparador-etiqueta { font-size: 0.62rem; bottom: 0.6rem; }
             .comparador-mango { width: 38px; height: 38px; }
         }
@@ -392,18 +394,6 @@
                         <h2>Modelo 3D y obra terminada</h2>
                     </div>
                     <div class="gemelo-images">
-                        <div class="gemelo-pair">
-                            <div class="comparador" style="--pos: 50%; aspect-ratio: 888 / 822;">
-                                <picture><source srcset="images/frente_pergola_obra.webp?v=2" type="image/webp" /><img loading="lazy" width="888" height="822" src="images/frente_pergola_obra.jpg?v=2" alt="Casa de dos plantas con volumen oscuro al frente, terminada: fotografía de obra" /></picture>
-                                <div class="comparador-modelo">
-                                    <picture><source srcset="images/frente_pergola_modelo3d.webp?v=2" type="image/webp" /><img loading="lazy" width="888" height="822" src="images/frente_pergola_modelo3d.jpg?v=2" alt="Modelo 3D de la misma casa, desde el mismo punto de vista" /></picture>
-                                </div>
-                                <span class="comparador-etiqueta izq" aria-hidden="true">Modelo 3D</span>
-                                <span class="comparador-etiqueta der" aria-hidden="true">Obra terminada</span>
-                                <div class="comparador-linea" aria-hidden="true"><span class="comparador-mango"></span></div>
-                                <input class="comparador-control" type="range" min="0" max="100" step="1" value="50" aria-label="Comparar el modelo 3D con la obra terminada" />
-                            </div>
-                        </div>
                         <div class="gemelo-pair">
                             <!-- Comparador: la obra terminada de fondo y el modelo 3D recortado encima hasta --pos.
                                  Se desliza solo mientras está en pantalla; si la persona lo toca, queda en sus manos. -->
