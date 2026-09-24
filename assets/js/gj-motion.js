@@ -51,7 +51,7 @@
       opacity: 0, y: 18, duration: 0.6, stagger: 0.12, ease: 'power2.out', clearProps: 'all',
       scrollTrigger: { trigger: '.gemelo-section', start: 'top 78%', once: true }
     });
-    gsap.from('.gemelo-card', {
+    gsap.from('.gemelo-pair', {
       opacity: 0, y: 20, duration: 0.5, stagger: 0.08, ease: 'power2.out', clearProps: 'all',
       scrollTrigger: { trigger: '.gemelo-images', start: 'top 82%', once: true }
     });
