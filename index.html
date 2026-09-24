@@ -109,6 +109,30 @@
         .gemelo-apilado .gemelo-images { flex-direction: column; gap: 1.8rem; max-width: 900px; margin: 0 auto; }
         .cocina-3d + .gemelo-section { margin-top: -1rem; }
 
+        /* ── Comparador modelo 3D / obra terminada (se desliza solo) ── */
+        .comparador { --pos: 50%; position: relative; width: 100%; max-width: 760px; margin: 0 auto; aspect-ratio: 4 / 3;
+            overflow: hidden; border-radius: 8px; border: 1px solid var(--gj-borde); background: var(--gj-fondo-claro);
+            cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+        .comparador img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+        .comparador-modelo { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+        .comparador-linea { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px;
+            background: var(--gj-texto); box-shadow: 0 0 10px rgba(0,0,0,0.55); pointer-events: none; }
+        .comparador-mango { position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%);
+            border-radius: 50%; background: rgba(14,26,12,0.9); border: 2px solid var(--gj-texto);
+            display: flex; align-items: center; justify-content: center; }
+        .comparador-mango::before { content: "\2039\00a0\203A"; color: var(--gj-texto); font: 600 1.1rem/1 'Inter', sans-serif; }
+        .comparador-etiqueta { position: absolute; bottom: 0.9rem; padding: 0.4rem 0.75rem; border-radius: 4px; pointer-events: none;
+            background: rgba(14,26,12,0.85); color: var(--gj-texto); font: 600 0.72rem/1 'Inter', sans-serif;
+            letter-spacing: 0.12em; text-transform: uppercase; }
+        .comparador-etiqueta.izq { left: 0.9rem; }
+        .comparador-etiqueta.der { right: 0.9rem; }
+        .comparador-control { position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; margin: 0; opacity: 0; pointer-events: none; }
+        .comparador:has(.comparador-control:focus-visible) { outline: 2px solid var(--gj-oliva); outline-offset: 3px; }
+        @media screen and (max-width: 736px) {
+            .comparador-etiqueta { font-size: 0.62rem; bottom: 0.6rem; }
+            .comparador-mango { width: 38px; height: 38px; }
+        }
+
         /* ── Cocina 3D · bloque a sangre con velo, mismo lenguaje que el hero ── */
         .cocina-3d { position: relative; overflow: hidden; background: var(--gj-fondo);
             width: 100vw; margin: 3.5rem 0 3.5rem calc(50% - 50vw);
@@ -383,15 +407,17 @@
                         </div>
                         <div class="gemelo-pair">
                             <h3>Exterior</h3>
-                            <div class="gemelo-pair-cards">
-                                <div class="gemelo-card">
-                                    <picture><source srcset="images/render_cipolletti.webp" type="image/webp" /><img loading="lazy" src="images/render_cipolletti.jpg" alt="Render 3D fachada Cipolletti" /></picture>
-                                    <span class="gemelo-label">Modelo 3D</span>
+                            <!-- Comparador: la obra terminada de fondo y el modelo 3D recortado encima hasta --pos.
+                                 Se desliza solo mientras está en pantalla; si la persona lo toca, queda en sus manos. -->
+                            <div class="comparador" style="--pos: 50%;">
+                                <picture><source srcset="images/exterior_pergola_obra.webp" type="image/webp" /><img loading="lazy" width="1000" height="750" src="images/exterior_pergola_obra.jpg" alt="Casa con pérgola de acero terminada: fotografía de obra" /></picture>
+                                <div class="comparador-modelo">
+                                    <picture><source srcset="images/exterior_pergola_modelo3d.webp" type="image/webp" /><img loading="lazy" width="1000" height="750" src="images/exterior_pergola_modelo3d.jpg" alt="Modelo 3D de la misma casa con pérgola, desde el mismo punto de vista" /></picture>
                                 </div>
-                                <div class="gemelo-card">
-                                    <picture><source srcset="images/fachada_real.webp" type="image/webp" /><img loading="lazy" src="images/fachada_real.jpg" alt="Fachada real Cipolletti" /></picture>
-                                    <span class="gemelo-label">Obra terminada</span>
-                                </div>
+                                <span class="comparador-etiqueta izq" aria-hidden="true">Modelo 3D</span>
+                                <span class="comparador-etiqueta der" aria-hidden="true">Obra terminada</span>
+                                <div class="comparador-linea" aria-hidden="true"><span class="comparador-mango"></span></div>
+                                <input class="comparador-control" type="range" min="0" max="100" step="1" value="50" aria-label="Comparar el modelo 3D con la obra terminada" />
                             </div>
                         </div>
                     </div>
@@ -584,6 +610,55 @@
     <script src="assets/js/gj-motion.js"></script>
 
     <script>
+    // Comparador modelo 3D / obra terminada: va y viene solo mientras está en pantalla.
+    // Con el mouse se toma al hacer clic; en celular, al arrastrar de costado (el desplazamiento vertical sigue funcionando).
+    // Una vez que la persona lo usa, deja de moverse solo. Sin animación si el sistema pide reducir movimiento.
+    (function () {
+        var cs = document.querySelectorAll('.comparador');
+        if (!cs.length) return;
+        var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        Array.prototype.forEach.call(cs, function (c) {
+            var input = c.querySelector('.comparador-control');
+            var manual = false, visible = false, raf = null, previo = null, fase = 0, PERIODO = 8000;
+            function fijar(p) {
+                p = Math.max(0, Math.min(100, p));
+                c.style.setProperty('--pos', p + '%');
+                input.value = Math.round(p);
+            }
+            function cuadro(t) {
+                if (manual || !visible) { raf = null; previo = null; return; }
+                if (previo !== null) { fase += (t - previo) / PERIODO * 2 * Math.PI; }
+                previo = t;
+                fijar(50 + 45 * Math.sin(fase));
+                raf = requestAnimationFrame(cuadro);
+            }
+            function tomar() { manual = true; }
+            function desde(e) { var r = c.getBoundingClientRect(); fijar((e.clientX - r.left) / r.width * 100); }
+            var inicio = null, arrastrando = false;
+            c.addEventListener('pointerdown', function (e) {
+                inicio = { x: e.clientX, y: e.clientY };
+                if (e.pointerType === 'mouse') { tomar(); arrastrando = true; desde(e); }
+            });
+            c.addEventListener('pointermove', function (e) {
+                if (!inicio) return;
+                if (!arrastrando && Math.abs(e.clientX - inicio.x) > 8 && Math.abs(e.clientX - inicio.x) > Math.abs(e.clientY - inicio.y)) {
+                    tomar(); arrastrando = true;
+                }
+                if (arrastrando) { desde(e); }
+            });
+            ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
+                c.addEventListener(ev, function () { inicio = null; arrastrando = false; });
+            });
+            input.addEventListener('input', function () { tomar(); fijar(parseFloat(input.value)); });
+            input.addEventListener('keydown', tomar);
+            c.addEventListener('click', function () { input.focus({ preventScroll: true }); });
+            if (reducido || !('IntersectionObserver' in window)) return;
+            new IntersectionObserver(function (es) {
+                visible = es[0].isIntersecting;
+                if (visible && !manual && !raf) { raf = requestAnimationFrame(cuadro); }
+            }, { threshold: 0.3 }).observe(c);
+        });
+    })();
     // El video del hero arranca cuando la página terminó de cargar: primero se ve la foto (misma imagen que el póster).
     (function () {
         var h = document.querySelector('.hero-fondo');
