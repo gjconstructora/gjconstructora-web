@@ -132,8 +132,11 @@
                 border-radius: 0; border-left: 0; border-right: 0;
                 /* todo el ancho, pero sin pasar el alto de la pantalla (menos el menú y el rótulo) */
                 aspect-ratio: auto; height: min(56.25vw, calc(100vh - 190px)); height: min(56.25vw, calc(100svh - 190px)); }
-            /* Cinco Saltos · Frente: que se vea la casa hasta arriba; el recorte va abajo */
-            .gemelo-apilado .comparador img[src*="comp_cs_frente"] { object-position: center top; }
+            /* Cinco Saltos · Frente: el cuadro arranca al ras del techo (el techo está al 9,5 % del alto de la foto)
+               y el recorte que haga falta sale del cielo y del pie de la imagen; la casa entra entera */
+            .gemelo-apilado .comparador img[src*="comp_cs_frente"] {
+                object-position: center calc(-1 * min(4.5vw, max(0px, 56.25vw - 100vh + 190px)));
+                object-position: center calc(-1 * min(4.5vw, max(0px, 56.25vw - 100svh + 190px))); }
         }
         .gemelo-apilado .gemelo-text { text-align: center; }
         .gemelo-apilado .gemelo-text h2 { margin-bottom: 1.8rem; font-size: 1.6rem; font-weight: 600; letter-spacing: 0; }
