@@ -48,7 +48,11 @@
             .hero-video { min-height: 100vh; min-height: 100svh; margin-bottom: 2.5rem; }
             /* el rótulo «Constructora · …» queda arriba, bajo el menú; título y botones siguen abajo */
             .hero-video { align-items: stretch; }
-            .hero-video .hero-contenido { display: flex; flex-direction: column; justify-content: flex-end; }
+            #main .hero-video .hero-contenido { display: flex; flex-direction: column; justify-content: flex-end;
+                /* el rótulo queda apenas arriba de la cornisa de la casa. La imagen es 4:3 con object-fit: cover
+                   y object-position 60 %: la cornisa cae en 0,6·alto − 0,273·alto_de_la_imagen (medido sobre el poster) */
+                padding-top: max(84px, calc(60vh - 0.273 * max(100vh, 75vw) - 40px));
+                padding-top: max(84px, calc(60svh - 0.273 * max(100svh, 75vw) - 40px)); }
             #main .hero-video .hero-kicker { margin: 0 0 auto; padding-bottom: 2rem; }
             .hero-video .hero-contenido { padding-top: 6rem; padding-bottom: 3rem; }
             .stats-bar { margin-bottom: 2.5rem; }
@@ -128,6 +132,8 @@
                 border-radius: 0; border-left: 0; border-right: 0;
                 /* todo el ancho, pero sin pasar el alto de la pantalla (menos el menú y el rótulo) */
                 aspect-ratio: auto; height: min(56.25vw, calc(100vh - 190px)); height: min(56.25vw, calc(100svh - 190px)); }
+            /* Cinco Saltos · Frente: que se vea la casa hasta arriba; el recorte va abajo */
+            .gemelo-apilado .comparador img[src*="comp_cs_frente"] { object-position: center top; }
         }
         .gemelo-apilado .gemelo-text { text-align: center; }
         .gemelo-apilado .gemelo-text h2 { margin-bottom: 1.8rem; font-size: 1.6rem; font-weight: 600; letter-spacing: 0; }
