@@ -1,31 +1,28 @@
 /* =====================================================================
-   GJ Constructora — capa de marca (propuesta)
+   Mauri Jocou Constructora — capa de marca (tema arena) (propuesta)
    Se carga DESPUÉS de main.css. No toca estructura ni animaciones:
    solo paleta, tipografía, fondos y el hero con video.
    Fuente de verdad: GJ Estudio/00_marca/marca.json
    ===================================================================== */
 
-/* ---------- Tipografías de marca (autoalojadas, licencia OFL) ---------- */
-@font-face { font-family: 'Playfair Display'; font-weight: 400; font-display: swap; src: url('../webfonts/gj/playfair-display-latin-400-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Playfair Display'; font-weight: 500; font-display: swap; src: url('../webfonts/gj/playfair-display-latin-500-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Playfair Display'; font-weight: 600; font-display: swap; src: url('../webfonts/gj/playfair-display-latin-600-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Playfair Display'; font-weight: 700; font-display: swap; src: url('../webfonts/gj/playfair-display-latin-700-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Inter'; font-weight: 400; font-display: swap; src: url('../webfonts/gj/inter-latin-400-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Inter'; font-weight: 500; font-display: swap; src: url('../webfonts/gj/inter-latin-500-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Inter'; font-weight: 600; font-display: swap; src: url('../webfonts/gj/inter-latin-600-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Inter'; font-weight: 700; font-display: swap; src: url('../webfonts/gj/inter-latin-700-normal.woff2') format('woff2'); }
+/* ---------- Tipografías de marca: General Sans (títulos) + Supreme (texto) ----------
+   Se cargan desde la API de Fontshare con un <link> en el <head> de cada página
+   (licencia ITF Free Font License: uso web permitido). */
 
 /* ---------- Paleta ---------- */
 :root {
-  --gj-fondo:       #0E1A0C;
-  --gj-fondo-claro: #162014;
-  --gj-panel:       #1B2719;
-  --gj-borde:       rgba(232, 237, 230, 0.10);
-  --gj-texto:       #E8EDE6;
-  --gj-texto-medio: #B9C3B5;
-  --gj-texto-tenue: #8B9E88;
-  --gj-oliva:       #9DB098;
-  --gj-oliva-claro: #B0C4AC;
+  --gj-fondo:       #E3DBC5;   /* arena (paleta) */
+  --gj-fondo-claro: #EFEDE2;   /* crema (paleta): paneles y tarjetas */
+  --gj-panel:       #EFEDE2;
+  --gj-verde-medio: #49644D;
+  --gj-sombra:      #184429;   /* veladuras sobre fotos: verde de la paleta */
+  --gj-borde:       rgba(24, 68, 41, 0.16);
+  --gj-texto:       #184429;   /* verde (paleta) */
+  --gj-texto-medio: #184429;
+  --gj-texto-tenue: #49644D;   /* verde medio (paleta) */
+  --gj-oliva:       #184429;   /* acento / botones: verde */
+  --gj-oliva-claro: #49644D;   /* acento secundario: verde medio */
+  --gj-crema:       #EFEDE2;   /* texto sobre fotos y sobre botones verdes */
   --gj-whatsapp:    #25D366;
 
   /* Reasignación de las variables del template para que arrastren todo el sitio */
@@ -37,16 +34,16 @@
   --gray-mid:    var(--gj-texto-tenue);
   --gray-dark:   var(--gj-texto-medio);
   --copper:      var(--gj-oliva);
-  --copper-dark: #7E9479;
+  --copper-dark: #49644D;
   --text-dark:   var(--gj-texto);
   --text-body:   var(--gj-texto-medio);
   --text-light:  var(--gj-texto-tenue);
   --panel-bg:    var(--gj-panel);
-  --card-overlay: linear-gradient(0deg, rgba(14,26,12,0.88) 0%, rgba(14,26,12,0.35) 45%, rgba(14,26,12,0) 100%);
-  --header-bg:   rgba(14, 26, 12, 0.80);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.35);
-  --shadow-md: 0 6px 24px rgba(0,0,0,0.40);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.50);
+  --card-overlay: linear-gradient(0deg, rgba(11,24,16,0.88) 0%, rgba(11,24,16,0.35) 45%, rgba(11,24,16,0) 100%);
+  --header-bg:   rgba(227,219,197, 0.92);
+  --shadow-sm: 0 2px 8px rgba(24,68,41,0.10);
+  --shadow-md: 0 6px 24px rgba(24,68,41,0.12);
+  --shadow-lg: 0 12px 40px rgba(24,68,41,0.16);
   --radius: 8px;
 }
 
@@ -59,29 +56,32 @@ html {
    fija aparte (body::before, z-index -1). Apagar el fondo del html no la toca,
    así que el hormigón seguía apareciendo solo en el teléfono. */
 body::before { display: none !important; }
-body { font-family: 'Inter', system-ui, sans-serif; color: var(--gj-texto-medio); }
+body { font-family: 'Supreme', system-ui, sans-serif; color: var(--gj-texto-medio); }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'General Sans', system-ui, sans-serif;
   color: var(--gj-texto);
   font-weight: 600;
   letter-spacing: 0;
 }
-h3 { font-family: 'Inter', system-ui, sans-serif; font-weight: 600; }
+h3 { font-family: 'Supreme', system-ui, sans-serif; font-weight: 600; }
 strong { color: var(--gj-texto); }
 p { color: var(--gj-texto-medio); }
 a { color: var(--gj-oliva-claro); }
 
 /* ---------- Header ---------- */
 #header { border-bottom: 1px solid var(--gj-borde); box-shadow: none; }
-#header .logo .title { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: 0.02em; color: var(--gj-texto); }
-#header .top-nav ul li a { font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 0.12em; color: var(--gj-texto-medio); }
+#header .logo .title { font-family: 'General Sans', system-ui, sans-serif; font-weight: 600; letter-spacing: 0.02em; color: var(--gj-texto); }
+/* Logo Mauri Jocou Constructora (SVG en crema, sin filtros) */
+#header .logo .logo-mj { display: block; height: 42px; width: auto; }
+@media screen and (max-width: 736px) { #header .logo .logo-mj { height: 34px; } }
+#header .top-nav ul li a { font-family: 'Supreme', sans-serif; font-weight: 500; letter-spacing: 0.12em; color: var(--gj-texto-medio); }
 #header .top-nav ul li a:hover,
 #header .top-nav ul li a[aria-current="page"] { color: var(--gj-texto); }
 #header .top-nav ul li a::after { background: var(--gj-oliva); }
-#header.scrolled { background-color: rgba(14,26,12,0.94); }
+#header.scrolled { background-color: rgba(227,219,197,0.97); }
 #menu { background: var(--gj-fondo-claro); }
-#menu h2, #menu ul li a { color: var(--gj-texto); font-family: 'Inter', sans-serif; }
+#menu h2, #menu ul li a { color: var(--gj-texto); font-family: 'Supreme', sans-serif; }
 #menu ul li a { border-color: var(--gj-borde); }
 #header .hamburger-icon span { background: var(--gj-texto); }
 
@@ -112,8 +112,8 @@ body:has(.hero-video) #main { padding-top: 0; }
 .hero-video .hero-velo {
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(14,26,12,0.76) 0%, rgba(14,26,12,0.42) 45%, rgba(14,26,12,0.06) 100%),
-    linear-gradient(180deg, rgba(14,26,12,0.50) 0%, rgba(14,26,12,0.05) 35%, rgba(14,26,12,0.25) 65%, rgba(14,26,12,0.94) 100%);
+    linear-gradient(90deg, rgba(11,24,16,0.76) 0%, rgba(11,24,16,0.42) 45%, rgba(11,24,16,0.06) 100%),
+    linear-gradient(180deg, rgba(11,24,16,0.50) 0%, rgba(11,24,16,0.05) 35%, rgba(11,24,16,0.25) 65%, rgba(11,24,16,0.94) 100%);
 }
 .hero-video .hero-contenido {
   position: relative;
@@ -124,19 +124,19 @@ body:has(.hero-video) #main { padding-top: 0; }
   text-align: left;
 }
 .hero-video .hero-kicker {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Supreme', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   /* sobre el video el oliva claro no llegaba a 4,5:1 en las zonas mas claras
      del cuadro; se sube el valor y se agrega una sombra corta */
-  color: #D6E1D2;
+  color: var(--gj-oliva);
   text-shadow: 0 1px 10px rgba(0,0,0,0.55);
   margin: 0 0 1rem;
 }
 .hero-video h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'General Sans', system-ui, sans-serif;
   font-weight: 600;
   font-size: clamp(2.4rem, 5.2vw, 4.6rem);
   line-height: 1.05;
@@ -149,7 +149,7 @@ body:has(.hero-video) #main { padding-top: 0; }
 .hero-video h1 em { font-style: italic; color: var(--gj-oliva-claro); }
 .hero-video .hero-divider { margin: 0 0 1.4rem; background: var(--gj-oliva); width: 72px; height: 2px; }
 .hero-video .hero-subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Supreme', sans-serif;
   font-size: 1.05rem;
   letter-spacing: 0;
   text-transform: none;
@@ -160,7 +160,7 @@ body:has(.hero-video) #main { padding-top: 0; }
 }
 .hero-video .hero-acciones { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
 .hero-cta {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Supreme', sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
@@ -175,11 +175,11 @@ body:has(.hero-video) #main { padding-top: 0; }
 .hero-cta.secundario {
   background: transparent !important;
   color: var(--gj-texto);
-  border: 1px solid rgba(232,237,230,0.45);
+  border: 1px solid rgba(239,237,226,0.45);
 }
-.hero-cta.secundario:hover { border-color: var(--gj-texto); background: rgba(232,237,230,0.06) !important; }
+.hero-cta.secundario:hover { border-color: var(--gj-texto); background: rgba(239,237,226,0.06) !important; }
 .hero-video .hero-nota {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Supreme', sans-serif;
   font-size: 0.72rem;
   color: var(--gj-texto-tenue);
   text-shadow: 0 1px 8px rgba(0,0,0,0.5);
@@ -214,10 +214,10 @@ body:has(.hero-video) #main { padding-top: 0; }
   /* solo un fundido corto abajo para que la imagen se apoye en el fondo */
   .hero-video .hero-velo {
     background: linear-gradient(180deg,
-      rgba(14,26,12,0) 0%,
-      rgba(14,26,12,0) 74%,
-      rgba(14,26,12,0.55) 92%,
-      rgba(14,26,12,1) 100%);
+      rgba(227,219,197,0) 0%,
+      rgba(227,219,197,0) 74%,
+      rgba(227,219,197,0.55) 92%,
+      rgba(227,219,197,1) 100%);
   }
   .hero-video .hero-contenido {
     padding: calc(91.5vw + 1.4rem) 6% 0;
@@ -260,9 +260,9 @@ body:has(.hero-video) #main { padding-top: 0; }
 }
 .stat-item:last-child { border-right: 0; }
 .stat-item:hover { box-shadow: none; }
-.stat-number { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 2.6rem; color: var(--gj-texto); }
+.stat-number { font-family: 'General Sans', system-ui, sans-serif; font-weight: 500; font-size: 2.6rem; color: var(--gj-texto); }
 .stat-number .copper { color: var(--gj-oliva); }
-.stat-label { font-family: 'Inter', sans-serif; color: var(--gj-texto-tenue); font-size: 0.74rem; letter-spacing: 0.16em; }
+.stat-label { font-family: 'Supreme', sans-serif; color: var(--gj-texto-tenue); font-size: 0.74rem; letter-spacing: 0.16em; }
 @media screen and (max-width: 736px) {
   .stats-bar { grid-template-columns: repeat(3, 1fr); }
   .stat-item { padding: 1.1rem 0.4rem; }
@@ -278,27 +278,27 @@ body:has(.hero-video) #main { padding-top: 0; }
 .tiles article,
 .featured-story article { box-shadow: var(--shadow-md); border: 1px solid var(--gj-borde); }
 .featured-ventas-container article .content h2,
-.tiles article .content h2 { font-family: 'Playfair Display', serif; font-weight: 600; }
+.tiles article .content h2 { font-family: 'General Sans', system-ui, sans-serif; font-weight: 600; }
 .tiles article a::after { background: var(--card-overlay); }
 
 /* ---------- Gemelo digital ---------- */
 .gemelo-section { background: var(--gj-fondo-claro); border: 1px solid var(--gj-borde); box-shadow: none; }
 .gemelo-text h2 { color: var(--gj-texto); }
 .gemelo-text h2 span, .gemelo-text h2 .copper { color: var(--gj-oliva-claro) !important; }
-.gemelo-pair h3 { color: var(--gj-oliva-claro); font-family: 'Inter', sans-serif; letter-spacing: 0.16em; }
-.gemelo-label { background: rgba(14,26,12,0.88) !important; color: var(--gj-texto) !important; font-family: 'Inter', sans-serif; letter-spacing: 0.12em; }
+.gemelo-pair h3 { color: var(--gj-oliva-claro); font-family: 'Supreme', sans-serif; letter-spacing: 0.16em; }
+.gemelo-label { background: rgba(11,24,16,0.88) !important; color: var(--gj-texto) !important; font-family: 'Supreme', sans-serif; letter-spacing: 0.12em; }
 .gemelo-card { border: 1px solid var(--gj-borde); }
 
 /* ---------- Texto largo (SEO) con aire ---------- */
 .story-block-text h2 { color: var(--gj-texto); }
-.story-block-text h3 { color: var(--gj-oliva-claro); font-family: 'Inter', sans-serif; font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2.2rem; }
+.story-block-text h3 { color: var(--gj-oliva-claro); font-family: 'Supreme', sans-serif; font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2.2rem; }
 .story-block-text p { color: var(--gj-texto-medio); max-width: 68ch; }
 .story-block-text p strong { color: var(--gj-texto); }
 .story-block-text a { color: var(--gj-oliva-claro); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Footer ---------- */
 #footer { background: transparent; border-top: 1px solid var(--gj-borde); }
-#footer h2 { color: var(--gj-texto); font-family: 'Playfair Display', serif; }
+#footer h2 { color: var(--gj-texto); font-family: 'General Sans', system-ui, sans-serif; }
 #footer .icons a { background: var(--gj-fondo-claro) !important; border: 1px solid var(--gj-borde); }
 #footer .icons a:hover { background: var(--gj-oliva) !important; }
 #footer .copyright, #footer .copyright a, #footer p { color: var(--gj-texto-tenue); }
@@ -321,9 +321,9 @@ body:has(.hero-video) #main { padding-top: 0; }
   border: 1px solid var(--gj-borde);
 }
 .content-panel h2, .content-panel h3, .valor-card h3 { color: var(--gj-texto); }
-input, select, textarea { background: var(--gj-fondo-claro) !important; color: var(--gj-texto) !important; border: 1px solid var(--gj-borde) !important; font-family: 'Inter', sans-serif; }
+input, select, textarea { background: var(--gj-fondo-claro) !important; color: var(--gj-texto) !important; border: 1px solid var(--gj-borde) !important; font-family: 'Supreme', sans-serif; }
 input::placeholder, textarea::placeholder { color: var(--gj-texto-tenue); }
-.button, button, input[type="submit"] { background: var(--gj-oliva) !important; color: var(--gj-fondo) !important; font-family: 'Inter', sans-serif; font-weight: 600; box-shadow: none !important; }
+.button, button, input[type="submit"] { background: var(--gj-oliva) !important; color: var(--gj-fondo) !important; font-family: 'Supreme', sans-serif; font-weight: 600; box-shadow: none !important; }
 table th { color: var(--gj-texto); border-color: var(--gj-borde); }
 table td { border-color: var(--gj-borde); color: var(--gj-texto-medio); }
 hr { border-color: var(--gj-borde); }
@@ -352,14 +352,14 @@ hr { border-color: var(--gj-borde); }
 /* Banda de destacados: el dúplex ocupa dos tercios */
 .featured-ventas-container { grid-template-columns: 1.75fr 1fr; align-items: stretch; }
 .featured-ventas-container article { height: 420px; min-height: 420px; }
-.destacado-duplex { border: 1px solid rgba(157,176,152,0.35); }
+.destacado-duplex { border: 1px solid rgba(24,68,41,0.18); }
 .destacado-duplex::after {
-  background: linear-gradient(0deg, rgba(14,26,12,0.94) 0%, rgba(14,26,12,0.55) 45%, rgba(14,26,12,0.05) 100%) !important;
+  background: linear-gradient(0deg, rgba(11,24,16,0.94) 0%, rgba(11,24,16,0.55) 45%, rgba(11,24,16,0.05) 100%) !important;
 }
 .destacado-duplex .content { padding: 2.2rem 2rem !important; }
 .etiqueta-venta {
   display: inline-block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Supreme', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -375,7 +375,7 @@ hr { border-color: var(--gj-borde); }
 .pseudo-cta {
   display: inline-block;
   margin-top: 0.9rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Supreme', sans-serif;
   font-size: 0.87rem;
   font-weight: 600;
   color: var(--gj-oliva-claro);
@@ -400,7 +400,7 @@ hr { border-color: var(--gj-borde); }
 .gallery .project-section { background: var(--gj-fondo-claro); border: 1px solid var(--gj-borde); }
 .gallery h2 { color: var(--gj-texto); }
 .gallery h2::after { background: var(--gj-oliva); }
-.img-wrapper { background: linear-gradient(90deg, #182114 25%, #202c1d 50%, #182114 75%) !important; background-size: 200% 100% !important; }
+.img-wrapper { background: linear-gradient(90deg, #E3DBC5 25%, #EFEDE2 50%, #E3DBC5 75%) !important; background-size: 200% 100% !important; }
 .gallery-nav a { background-color: var(--gj-fondo-claro) !important; color: var(--gj-texto) !important; border: 1px solid var(--gj-borde); }
 .gallery-nav a:hover { background-color: var(--gj-oliva) !important; color: var(--gj-fondo) !important; }
 .gemelo-card { background: var(--gj-fondo-claro); }
@@ -465,10 +465,58 @@ select:focus-visible, textarea:focus-visible {
 /* Menu movil: las 5 paginas de servicio quedan como sub-items de Servicios,
    para que el menu se lea con las mismas 6 entradas que la barra de escritorio
    sin perder los enlaces internos hacia esas paginas. */
-#menu ul li.sub a { padding-left: 1.4rem; font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+#menu ul li.sub a { padding-left: 1.4rem; font-size: 0.88rem; color: #49644D; }
 #menu ul li.sub a:hover { padding-left: 1.9rem; }
 
 /* El boton del hero quedaba pegado al subtitulo: gj-marca fija margin-top:0 en
    .hero-cta y pisa el 1.5rem de main.css. Solo hijos directos, para no tocar los
    botones del hero con video de la home, que van dentro de .hero-acciones. */
 #main .hero-section > .hero-cta { margin-top: 1.7rem; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   Tema arena (25/09/2026): fondo arena, paneles crema, todo lo
+   demás en los verdes de la paleta. Lo que va SOBRE fotos o
+   sobre botones verdes se escribe en crema.
+   ═══════════════════════════════════════════════════════════ */
+#header { border-bottom: 1px solid rgba(24,68,41,0.14); }
+/* botones verdes: texto e ícono crema */
+.hero-cta, .button, button, input[type="submit"], .etiqueta-venta, .gallery-nav a:hover,
+#footer .actions input[type="submit"] { color: var(--gj-crema) !important; }
+.hero-cta:hover { background: var(--gj-oliva-claro); }
+.hero-cta.secundario { color: var(--gj-texto) !important; border: 1px solid rgba(24,68,41,0.45); }
+.hero-cta.secundario:hover { border-color: var(--gj-texto); background: rgba(24,68,41,0.06) !important; }
+/* hero: en escritorio el texto va sobre la imagen */
+@media screen and (min-width: 737px) {
+  .hero-video h1, .hero-video .hero-subtitle, .hero-video .hero-nota { color: var(--gj-crema); }
+  .hero-video .hero-kicker { color: #E3DBC5; }
+  .hero-video .hero-divider { background: var(--gj-crema); }
+  .hero-video .hero-cta.secundario { color: var(--gj-crema) !important; border-color: rgba(239,237,226,0.6); }
+  .hero-video .hero-cta.secundario:hover { background: rgba(239,237,226,0.10) !important; border-color: var(--gj-crema); }
+  .hero-video .hero-cta:not(.secundario) { background: var(--gj-crema); color: var(--gj-texto) !important; }
+  .hero-video .hero-cta:not(.secundario):hover { background: #E3DBC5; }
+}
+/* texto sobre fotos: crema */
+.gemelo-label { color: var(--gj-crema) !important; }
+.tiles article .content h2, .tiles article .content p,
+.tiles article:hover .content h2 { color: var(--gj-crema) !important; }
+.featured-ventas-container:not(.solo) article .content h2,
+.featured-ventas-container:not(.solo) article .content p,
+.featured-ventas-container:not(.solo) article:hover .content h2 { color: var(--gj-crema) !important; }
+.cocina-3d-contenido h2, .cocina-3d-contenido p { color: var(--gj-crema) !important; }
+.comparador-etiqueta, .comparador-mango::before { color: var(--gj-crema) !important; }
+.comparador-mango { border-color: var(--gj-crema) !important; }
+.comparador-linea { background: var(--gj-crema) !important; }
+/* íconos: en el pie van sobre círculo verde; en botones claros, en verde */
+#footer .icons a { background: var(--gj-texto) !important; border-color: var(--gj-texto); }
+#footer .icons a:hover { background: var(--gj-oliva-claro) !important; }
+#contacto .contacto-botones .hero-cta:not(.secundario) img { filter: brightness(0) invert(1) !important; }
+#contacto .contacto-botones .hero-cta.secundario img {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(19%) saturate(1923%) hue-rotate(90deg) brightness(28%) contrast(81%) !important; }
+
+/* destacado único del dúplex (portada): tarjeta clara, sin velo, texto verde */
+.featured-ventas-container.solo article > a::after, .featured-ventas-container.solo article::after { display: none !important; }
+.featured-ventas-container.solo article .content h2,
+.featured-ventas-container.solo article .content p { color: var(--gj-texto) !important; }
+.featured-ventas-container.solo article .content h2,
+.featured-ventas-container.solo article .content p { text-shadow: none !important; }

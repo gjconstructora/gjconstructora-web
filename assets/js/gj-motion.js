@@ -1,5 +1,5 @@
 /*
-  GJ Constructora — capa de movimiento (complemento)
+  Mauri Jocou Constructora — capa de movimiento (complemento)
 
   NO reemplaza gsap-animations.js: solo agrega lo que ese archivo no cubre
   (el hero nuevo con video, la sección del gemelo y la banda de destacados).

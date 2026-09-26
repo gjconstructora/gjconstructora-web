@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gjconstructora.net/sitemap.xml
+Sitemap: https://mjconstructora.com/sitemap.xml
 
 # Guia para agentes de IA (cuando usar este sitio, paginas y contacto)
-# https://gjconstructora.net/llms.txt
+# https://mjconstructora.com/llms.txt

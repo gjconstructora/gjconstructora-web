@@ -1,5 +1,5 @@
 /*
-  GJ Constructora — Medición
+  Mauri Jocou Constructora — Medición
 
   Google Analytics 4 + píxel de Meta. Este archivo se carga en las 26 páginas.
 

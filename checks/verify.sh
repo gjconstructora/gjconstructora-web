@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Verificacion de endpoints publicos de gjconstructora.net tras el deploy.
-# Uso: bash checks/verify.sh [dominio]   (por defecto https://gjconstructora.net)
-BASE="${1:-https://gjconstructora.net}"
+# Verificacion de endpoints publicos de mjconstructora.com tras el deploy.
+# Uso: bash checks/verify.sh [dominio]   (por defecto https://mjconstructora.com)
+BASE="${1:-https://mjconstructora.com}"
 fails=0
 
 expect() { # url codigo_esperado descripcion

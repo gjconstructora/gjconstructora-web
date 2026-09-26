@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Chequeos locales del sitio estatico de GJ Constructora.
+"""Chequeos locales del sitio estatico de Mauri Jocou Constructora.
 Uso: python3 checks/validate_local.py   (desde la raiz del repo)
 Salida: lista de FAIL/OK y codigo de salida 1 si hay algun FAIL."""
 import io, os, re, json, glob, sys
@@ -82,7 +82,7 @@ check('type="text/markdown"' in s404, "404.html incluye cuerpo markdown para age
 
 # 6. sitemap: todas las URL apuntan a archivos existentes
 sm = io.open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read()
-for loc in re.findall(r"<loc>https://gjconstructora\.net/([^<]*)</loc>", sm):
+for loc in re.findall(r"<loc>https://mjconstructora\.com/([^<]*)</loc>", sm):
     f = loc if loc else "index.html"
     check(os.path.isfile(os.path.join(ROOT, f)), "sitemap: existe %s" % f)
 
@@ -98,7 +98,7 @@ for p in pages:
             check(False, "enlace roto en %s -> %s" % (os.path.relpath(p, ROOT), h))
 
 
-# 8. posicionamiento comercial: el sitio tiene que decir que GJ construye Y vende
+# 8. posicionamiento comercial: el sitio tiene que decir que Mauri Jocou construye Y vende
 for rel, needles in [
     ("index.html", ["Qui\u00e9nes somos", "construimos", "venta de unidades propias", "Nuestros Valores"]),
     ("ventas.html", ["D\u00faplex en venta en Cipolletti", "Venta directa"]),
@@ -131,7 +131,7 @@ for p2 in pages:
         continue
     t = io.open(p2, encoding="utf-8").read()
     for rel in BAJAS:
-        if re.search(r'href="(?:https://gjconstructora\.net)?/?' + re.escape(rel) + '"', t):
+        if re.search(r'href="(?:https://mjconstructora\.com)?/?' + re.escape(rel) + '"', t):
             check(False, "%s enlaza a la pagina dada de baja %s" % (rel2, rel))
 check("nosotros.html" not in io.open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read(),
       "sitemap sin paginas dadas de baja")

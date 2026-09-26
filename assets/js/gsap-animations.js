@@ -1,5 +1,5 @@
 /*
-  GJ Constructora — GSAP Animations (todas las páginas)
+  Mauri Jocou Constructora — GSAP Animations (todas las páginas)
   Requiere: gsap.min.js + ScrollTrigger.min.js
 */
 

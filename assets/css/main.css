@@ -1,10 +1,4 @@
-/* Fuentes de la plantilla (Lato, Oswald) servidas desde el sitio, sin pasar por Google Fonts */
-@font-face { font-family: 'Lato'; font-weight: 300; font-style: normal; font-display: swap; src: url('../webfonts/gj/lato-latin-300-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Lato'; font-weight: 400; font-style: normal; font-display: swap; src: url('../webfonts/gj/lato-latin-400-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Lato'; font-weight: 700; font-style: normal; font-display: swap; src: url('../webfonts/gj/lato-latin-700-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Oswald'; font-weight: 300; font-style: normal; font-display: swap; src: url('../webfonts/gj/oswald-latin-300-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Oswald'; font-weight: 400; font-style: normal; font-display: swap; src: url('../webfonts/gj/oswald-latin-400-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Oswald'; font-weight: 700; font-style: normal; font-display: swap; src: url('../webfonts/gj/oswald-latin-700-normal.woff2') format('woff2'); }
+/* Tipografías de marca (General Sans, Supreme): se cargan desde Fontshare en el <head> */
 /* Íconos: solo los 18 de Font Awesome 6.5 Free (solid) que usa el sitio, en un archivo de 3 KB.
    Font Awesome Free: íconos CC BY 4.0, fuente SIL OFL 1.1. Para sumar un ícono hay que regenerar
    fa-solid-900-gj.woff2 con pyftsubset e incluir su código acá. */
@@ -79,7 +73,7 @@ html {
 body {
   background: transparent;
   line-height: 1.6;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Supreme', sans-serif;
   color: var(--text-body);
   font-size: 16px;
   min-height: 100vh;
@@ -87,7 +81,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Sk-Modernist-Regular', 'Oswald', sans-serif;
+  font-family: 'General Sans', sans-serif;
   color: var(--navy);
   line-height: 1.2;
   font-weight: 700;
@@ -163,7 +157,7 @@ body, body.is-preload {
 }
 #header .logo .title {
   color: var(--white-warm);
-  font-family: 'Oswald', sans-serif;
+  font-family: 'General Sans', sans-serif;
   font-weight: 400;
   font-size: 1.1rem;
   letter-spacing: 0.08rem;
@@ -187,7 +181,7 @@ body, body.is-preload {
 #header .top-nav ul li a {
   color: rgba(255,255,255,0.95);
   text-decoration: none;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Supreme', sans-serif;
   text-transform: uppercase;
   font-size: 0.78rem;
   letter-spacing: 1.5px;
@@ -252,7 +246,7 @@ body, body.is-preload {
   padding: 3rem 1.5rem;
 }
 #menu h2 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'General Sans', sans-serif;
   color: var(--white);
   font-size: 1.5rem;
   margin-bottom: 2rem;
@@ -260,7 +254,7 @@ body, body.is-preload {
   text-transform: uppercase;
 }
 #menu ul li a {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Supreme', sans-serif;
   color: rgba(255,255,255,0.75);
   font-size: 1rem;
   text-decoration: none;
@@ -323,7 +317,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
   letter-spacing: 1px;
 }
 .hero-section .hero-subtitle {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Supreme', sans-serif;
   font-size: 1.05rem;
   color: var(--gray-dark);
   font-weight: 400;
@@ -345,7 +339,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
   padding: 0.85rem 2.2rem;
   background: linear-gradient(135deg, var(--copper), var(--copper-dark));
   color: #fff;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Supreme', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -387,7 +381,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
   box-shadow: var(--shadow-md);
 }
 .stat-number {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'General Sans', sans-serif;
   font-size: 2.8rem;
   font-weight: 700;
   color: var(--navy);
@@ -395,7 +389,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
 }
 .stat-number .copper { color: var(--copper); }
 .stat-label {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Supreme', sans-serif;
   font-size: 0.85rem;
   color: var(--text-body);
   text-transform: uppercase;
@@ -799,7 +793,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
   font-size: 1.1rem;
   color: var(--navy);
   margin-bottom: 0.7rem;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'General Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -927,7 +921,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
   text-align: center;
   margin-bottom: 1.5rem;
   color: var(--navy);
-  font-family: 'Oswald', sans-serif;
+  font-family: 'General Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
@@ -994,7 +988,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Supreme', sans-serif;
   transition: background-color var(--transition), transform var(--transition);
 }
 .gallery-nav a:hover {
@@ -1127,7 +1121,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
   background: var(--white);
   color: var(--text-dark);
   border-radius: 6px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Supreme', sans-serif;
 }
 #footer form textarea { resize: vertical; height: 100px; }
 #footer .actions { display: flex; justify-content: center; margin-top: 1rem; }
@@ -1140,7 +1134,7 @@ body.is-menu-visible #menu { transform: translateX(0); }
   cursor: pointer;
   transition: background-color var(--transition);
   font-weight: 700;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Supreme', sans-serif;
 }
 #footer .actions input[type="submit"]:hover { background-color: var(--copper); }
 
