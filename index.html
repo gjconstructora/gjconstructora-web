@@ -208,6 +208,18 @@
             .stats-bar { margin-bottom: 2rem; }
             .stat-item { padding: 0.75rem 0.3rem; }
             .stat-number { font-size: 1.6rem; }
+            /* la primera pantalla termina justo en la banda de cifras: el hero se estira hasta dejarla al pie
+               (≈ 90 px de cifras + 1rem de margen + 10 px de aire) y título y botones se centran en el espacio libre */
+            .hero-video { display: flex; flex-direction: column;
+                min-height: calc(100vh - 90px - 1rem - 10px); min-height: calc(100svh - 90px - 1rem - 10px); }
+            .hero-video .hero-contenido { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center;
+                padding-bottom: 0.6rem; }
+            .hero-video h1 { margin-bottom: 1.5rem; }
+            .hero-video .hero-acciones { gap: 0.75rem; }
+            .hero-video .hero-acciones .hero-cta { padding: 0.9rem 1rem; }
+            /* en la primera pantalla ya está el botón de WhatsApp: el flotante aparece recién al bajar (no tapa las cifras) */
+            .whatsapp-float { transition: opacity 0.25s ease, transform 0.25s ease; }
+            .whatsapp-float.oculto { opacity: 0; transform: translateY(16px); pointer-events: none; }
         }
 </style>
         <script defer src="assets/js/tracking.js"></script>
@@ -679,6 +691,16 @@
     <a href="https://wa.me/5492995958293?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20Mauri%20Jocou%20Constructora%20y%20quiero%20hacer%20una%20consulta." target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <img loading="lazy" src="images/whatsapp.png" alt="WhatsApp" />
     </a>
+    <script>
+        (function () {
+            var f = document.querySelector('.whatsapp-float');
+            if (!f) return;
+            function actualizar() { f.classList.toggle('oculto', window.innerWidth <= 736 && window.scrollY < 120); }
+            actualizar();
+            window.addEventListener('scroll', actualizar, { passive: true });
+            window.addEventListener('resize', actualizar);
+        })();
+    </script>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
