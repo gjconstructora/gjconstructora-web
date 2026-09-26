@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;display=swap" />
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=supreme@300,400,500,700&amp;display=swap" />
     <link rel="stylesheet" href="assets/css/main.css?v=20" />
-    <link rel="stylesheet" href="assets/css/gj-marca.css?v=17" />
+    <link rel="stylesheet" href="assets/css/gj-marca.css?v=18" />
     <style>
 .story-block-text p { margin-bottom: 1.7rem; line-height: 1.72; }
         .story-block-text p:last-child { margin-bottom: 0; }
@@ -43,9 +43,9 @@
 
         /* ── Hero: el rótulo «Constructora · …» va bien arriba, lejos del título ── */
         #main .hero-video .hero-kicker { margin-bottom: 3rem; max-width: none; text-align: center; }
-        /* el hero termina más arriba para que la banda de cifras entre completa en pantalla */
+        /* el hero (video) ocupa toda la primera pantalla; la banda de cifras queda debajo, al hacer scroll */
         @media screen and (min-width: 737px) {
-            .hero-video { min-height: 74vh; margin-bottom: 2rem; }
+            .hero-video { min-height: 100vh; min-height: 100svh; margin-bottom: 2.5rem; }
             .hero-video .hero-contenido { padding-top: 6rem; padding-bottom: 3rem; }
             .stats-bar { margin-bottom: 2.5rem; }
         }
@@ -84,6 +84,12 @@
             object-fit: cover; display: block; z-index: 1; transition: transform 0.6s ease; }
         .featured-ventas-container.solo article:hover .image video { transform: scale(1.04); }
         .featured-ventas-container.solo article::after { display: none; }
+        /* la tarjeta del dúplex va de borde a borde de la pantalla; el contenido queda alineado con el resto (máx. 1300 px) */
+        .featured-ventas-container.solo { max-width: none; width: 100vw; margin-left: calc(50% - 50vw); margin-right: 0; }
+        .featured-ventas-container.solo article { border-radius: 0; border-left: 0; border-right: 0; box-shadow: none; }
+        .featured-ventas-container.solo article > a { padding: 0 max(4%, calc((100vw - 1300px) / 2)); }
+        .featured-ventas-container.solo article .content { padding-left: 0; }
+        .featured-ventas-container.solo article .image { flex-basis: 320px; width: 320px; margin-right: 0; }
         /* el «Ver video, planos y ficha completa» con aspecto de botón */
         .featured-ventas-container.solo .destacado-duplex .pseudo-cta { display: inline-block; margin-top: 1.3rem; padding: 0.85rem 1.5rem;
             border-radius: 6px; background: var(--gj-oliva); color: var(--gj-fondo); font-size: 0.92rem; letter-spacing: 0.02em;
@@ -109,6 +115,14 @@
 
         /* ── Gemelo digital: título arriba, fotos al centro, cierre abajo ── */
         .gemelo-section.gemelo-apilado { display: block; }
+        /* el panel claro del gemelo va de borde a borde; las fotos mantienen su tamaño */
+        .gemelo-section.gemelo-apilado { width: 100vw; max-width: none; margin-left: calc(50% - 50vw); margin-right: 0;
+            border-radius: 0; border-left: 0; border-right: 0; box-shadow: none; }
+        /* y las fotos del comparador también, de borde a borde (en celular ya lo hacían) */
+        @media screen and (min-width: 737px) {
+            .gemelo-apilado .comparador { width: calc(100% + 5rem); max-width: none; margin: 0 -2.5rem;
+                border-radius: 0; border-left: 0; border-right: 0; }
+        }
         .gemelo-apilado .gemelo-text { text-align: center; }
         .gemelo-apilado .gemelo-text h2 { margin-bottom: 1.8rem; font-size: 1.6rem; font-weight: 600; letter-spacing: 0; }
         .gemelo-apilado .gemelo-images { flex-direction: column; gap: 2.6rem; max-width: none; margin: 0 auto; }
@@ -599,7 +613,7 @@
                 <!-- CONTACTO (antes en contacto.html) -->
                 <section id="contacto" class="contacto-home">
                     <h2>Contacto</h2>
-                    <p class="contacto-zona">Cipolletti, Fernández Oro y el Alto Valle</p>
+                    <p class="contacto-zona">Alto Valle | Patagonia, Argentina</p>
                     <div class="contacto-botones">
                         <a class="hero-cta" href="https://wa.me/5492995958293?text=Hola%2C%20entr%C3%A9%20a%20la%20web%20de%20Mauri%20Jocou%20Constructora%20y%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener"><img src="images/whatsapp.png" alt="" width="20" height="20" />WhatsApp · 299 595-8293</a>
                         <a class="hero-cta secundario" href="tel:+542995958293"><img src="images/telefono.png" alt="" width="20" height="20" />Llamar</a>

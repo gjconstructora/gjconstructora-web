@@ -520,3 +520,8 @@ select:focus-visible, textarea:focus-visible {
 .featured-ventas-container.solo article .content p { color: var(--gj-texto) !important; }
 .featured-ventas-container.solo article .content h2,
 .featured-ventas-container.solo article .content p { text-shadow: none !important; }
+
+/* Sin barra de desplazamiento visible (pedido de Arian 25/09): se sigue pudiendo
+   desplazar con la rueda, el touchpad, el teclado y el dedo. */
+html { scrollbar-width: none; -ms-overflow-style: none; }
+::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; background: transparent !important; }
