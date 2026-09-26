@@ -531,3 +531,17 @@ html { scrollbar-width: none; -ms-overflow-style: none; }
   .whatsapp-float { width: 54px !important; height: 54px !important; right: 14px !important; bottom: 14px !important; }
   .whatsapp-float img { width: 28px !important; height: 28px !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Letra más grande para lectura cómoda (el público es adulto):
+   textos corridos a ~18 px, tarjetas y listas a ~17 px.
+   Se dejan chicos a propósito: rótulos, notas y leyendas legales.
+   ═══════════════════════════════════════════════════════════ */
+#main .story-block-text p { font-size: 1.125rem; line-height: 1.7; }
+#main .story-block-text h3 { font-size: 1.1rem; }
+#main .valor-card p { font-size: 1.0625rem; line-height: 1.6; }
+#main .featured-ventas-container.solo article .content p { font-size: 1.0625rem !important; line-height: 1.6; }
+#main .tarjeta-texto p.detalle { font-size: 1.0625rem; }
+#main .ec-datos li { font-size: 1.0625rem; }
+#main .ec-price-note { font-size: 0.97rem; }
+#main .tiles article .content p { font-size: 0.95rem; }
