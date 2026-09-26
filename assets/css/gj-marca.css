@@ -525,3 +525,9 @@ select:focus-visible, textarea:focus-visible {
    desplazar con la rueda, el touchpad, el teclado y el dedo. */
 html { scrollbar-width: none; -ms-overflow-style: none; }
 ::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; background: transparent !important; }
+
+/* Celular: botón flotante de WhatsApp un poco más chico y más abajo, para no tapar la banda de cifras */
+@media screen and (max-width: 736px) {
+  .whatsapp-float { width: 54px !important; height: 54px !important; right: 14px !important; bottom: 14px !important; }
+  .whatsapp-float img { width: 28px !important; height: 28px !important; }
+}

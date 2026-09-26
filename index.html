@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&amp;display=swap" />
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=supreme@300,400,500,700&amp;display=swap" />
     <link rel="stylesheet" href="assets/css/main.css?v=20" />
-    <link rel="stylesheet" href="assets/css/gj-marca.css?v=18" />
+    <link rel="stylesheet" href="assets/css/gj-marca.css?v=19" />
     <style>
 .story-block-text p { margin-bottom: 1.7rem; line-height: 1.72; }
         .story-block-text p:last-child { margin-bottom: 0; }
@@ -180,6 +180,19 @@
             .cocina-3d-contenido { padding: 0 6% 2.2rem; }
             .cocina-3d-kicker { font-size: 0.68rem; letter-spacing: 0.18em; }
             .cocina-3d-nota { font-size: 0.64rem; margin-top: 0.9rem; }
+        }
+
+        /* celular: video, título, los dos botones y la banda de cifras (con su texto) entran juntos en la primera pantalla */
+        @media screen and (max-width: 736px) {
+            .hero-video video, .hero-video .hero-poster, .hero-video .hero-velo { height: 70vw; }
+            .hero-video .hero-contenido { padding-top: calc(70vw + 0.9rem); }
+            .hero-video h1 { font-size: 1.75rem; line-height: 1.12; margin: 0 auto 0.9rem; }
+            .hero-video .hero-acciones { gap: 0.5rem; }
+            .hero-video .hero-acciones .hero-cta { padding: 0.7rem 1rem; }
+            .hero-video { margin-bottom: 1rem; }
+            .stats-bar { margin-bottom: 2rem; }
+            .stat-item { padding: 0.75rem 0.3rem; }
+            .stat-number { font-size: 1.6rem; }
         }
 </style>
         <script defer src="assets/js/tracking.js"></script>
