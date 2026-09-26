@@ -22,7 +22,7 @@
   --gj-texto-tenue: #49644D;   /* verde medio (paleta) */
   --gj-oliva:       #184429;   /* acento / botones: verde */
   --gj-oliva-claro: #49644D;   /* acento secundario: verde medio */
-  --gj-crema:       #EFEDE2;   /* texto sobre fotos y sobre botones verdes */
+  --gj-crema:       #FFFFFF;   /* blanco del logo: texto sobre fotos y sobre botones verdes */
   --gj-whatsapp:    #25D366;
 
   /* Reasignación de las variables del template para que arrastren todo el sitio */
@@ -175,9 +175,9 @@ body:has(.hero-video) #main { padding-top: 0; }
 .hero-cta.secundario {
   background: transparent !important;
   color: var(--gj-texto);
-  border: 1px solid rgba(239,237,226,0.45);
+  border: 1px solid rgba(255,255,255,0.45);
 }
-.hero-cta.secundario:hover { border-color: var(--gj-texto); background: rgba(239,237,226,0.06) !important; }
+.hero-cta.secundario:hover { border-color: var(--gj-texto); background: rgba(255,255,255,0.06) !important; }
 .hero-video .hero-nota {
   font-family: 'Supreme', sans-serif;
   font-size: 0.72rem;
@@ -489,10 +489,10 @@ select:focus-visible, textarea:focus-visible {
 /* hero: en escritorio el texto va sobre la imagen */
 @media screen and (min-width: 737px) {
   .hero-video h1, .hero-video .hero-subtitle, .hero-video .hero-nota { color: var(--gj-crema); }
-  .hero-video .hero-kicker { color: #E3DBC5; }
+  .hero-video .hero-kicker { color: rgba(255,255,255,0.85); }
   .hero-video .hero-divider { background: var(--gj-crema); }
-  .hero-video .hero-cta.secundario { color: var(--gj-crema) !important; border-color: rgba(239,237,226,0.6); }
-  .hero-video .hero-cta.secundario:hover { background: rgba(239,237,226,0.10) !important; border-color: var(--gj-crema); }
+  .hero-video .hero-cta.secundario { color: var(--gj-crema) !important; border-color: rgba(255,255,255,0.6); }
+  .hero-video .hero-cta.secundario:hover { background: rgba(255,255,255,0.10) !important; border-color: var(--gj-crema); }
   .hero-video .hero-cta:not(.secundario) { background: var(--gj-crema); color: var(--gj-texto) !important; }
   .hero-video .hero-cta:not(.secundario):hover { background: #E3DBC5; }
 }
