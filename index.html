@@ -46,6 +46,10 @@
         /* el hero (video) ocupa toda la primera pantalla; la banda de cifras queda debajo, al hacer scroll */
         @media screen and (min-width: 737px) {
             .hero-video { min-height: 100vh; min-height: 100svh; margin-bottom: 2.5rem; }
+            /* el rótulo «Constructora · …» queda arriba, bajo el menú; título y botones siguen abajo */
+            .hero-video { align-items: stretch; }
+            .hero-video .hero-contenido { display: flex; flex-direction: column; justify-content: flex-end; }
+            #main .hero-video .hero-kicker { margin: 0 0 auto; padding-bottom: 2rem; }
             .hero-video .hero-contenido { padding-top: 6rem; padding-bottom: 3rem; }
             .stats-bar { margin-bottom: 2.5rem; }
         }
