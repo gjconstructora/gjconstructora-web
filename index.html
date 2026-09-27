@@ -715,30 +715,21 @@
     <script src="assets/js/gj-motion.js?v=2"></script>
 
     <script>
-    // Comparador modelo 3D / obra terminada: va y viene solo mientras está en pantalla.
+    // Comparador modelo 3D / obra terminada: va y viene solo mientras hay alguno en pantalla.
+    // Todos comparten el mismo reloj, así se mueven a la vez y en la misma posición.
     // Con el mouse se toma al hacer clic; en celular, al arrastrar de costado (el desplazamiento vertical sigue funcionando).
-    // Una vez que la persona lo usa, deja de moverse solo. Sin animación si el sistema pide reducir movimiento.
+    // El que la persona usa deja de moverse solo; los demás siguen sincronizados. Sin animación si el sistema pide reducir movimiento.
     (function () {
         var cs = document.querySelectorAll('.comparador');
         if (!cs.length) return;
         var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var items = [], visibles = 0, raf = null, previo = null, fase = 0, PERIODO = 8000;
         Array.prototype.forEach.call(cs, function (c) {
             var input = c.querySelector('.comparador-control');
-            var manual = false, visible = false, raf = null, previo = null, fase = 0, PERIODO = 8000;
-            function fijar(p) {
-                p = Math.max(0, Math.min(100, p));
-                c.style.setProperty('--pos', p + '%');
-                input.value = Math.round(p);
-            }
-            function cuadro(t) {
-                if (manual || !visible) { raf = null; previo = null; return; }
-                if (previo !== null) { fase += (t - previo) / PERIODO * 2 * Math.PI; }
-                previo = t;
-                fijar(50 + 45 * Math.sin(fase));
-                raf = requestAnimationFrame(cuadro);
-            }
-            function tomar() { manual = true; }
-            function desde(e) { var r = c.getBoundingClientRect(); fijar((e.clientX - r.left) / r.width * 100); }
+            var it = { c: c, input: input, manual: false, visible: false };
+            items.push(it);
+            function tomar() { it.manual = true; }
+            function desde(e) { var r = c.getBoundingClientRect(); fijar(it, (e.clientX - r.left) / r.width * 100); }
             var inicio = null, arrastrando = false;
             c.addEventListener('pointerdown', function (e) {
                 inicio = { x: e.clientX, y: e.clientY };
@@ -754,15 +745,32 @@
             ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
                 c.addEventListener(ev, function () { inicio = null; arrastrando = false; });
             });
-            input.addEventListener('input', function () { tomar(); fijar(parseFloat(input.value)); });
+            input.addEventListener('input', function () { tomar(); fijar(it, parseFloat(input.value)); });
             input.addEventListener('keydown', tomar);
             c.addEventListener('click', function () { input.focus({ preventScroll: true }); });
-            if (reducido || !('IntersectionObserver' in window)) return;
-            new IntersectionObserver(function (es) {
-                visible = es[0].isIntersecting;
-                if (visible && !manual && !raf) { raf = requestAnimationFrame(cuadro); }
-            }, { threshold: 0.3 }).observe(c);
         });
+        function fijar(it, p) {
+            p = Math.max(0, Math.min(100, p));
+            it.c.style.setProperty('--pos', p + '%');
+            it.input.value = Math.round(p);
+        }
+        function cuadro(t) {
+            if (!visibles) { raf = null; previo = null; return; }
+            if (previo !== null) { fase += (t - previo) / PERIODO * 2 * Math.PI; }
+            previo = t;
+            var p = 50 + 45 * Math.sin(fase);
+            items.forEach(function (it) { if (!it.manual) { fijar(it, p); } });
+            raf = requestAnimationFrame(cuadro);
+        }
+        if (reducido || !('IntersectionObserver' in window)) return;
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) {
+                var it = items.filter(function (x) { return x.c === e.target; })[0];
+                if (it.visible !== e.isIntersecting) { visibles += e.isIntersecting ? 1 : -1; it.visible = e.isIntersecting; }
+            });
+            if (visibles && !raf) { raf = requestAnimationFrame(cuadro); }
+        }, { threshold: 0.3 });
+        items.forEach(function (it) { io.observe(it.c); });
     })();
     // El video del hero arranca cuando la página terminó de cargar: primero se ve la foto (misma imagen que el póster).
     (function () {
