@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=supreme@300,400,500,700&amp;display=swap" />
     <link rel="stylesheet" href="assets/css/main.css?v=20" />
     <link rel="stylesheet" href="assets/css/gj-marca.css?v=22" />
-    <link rel="stylesheet" href="assets/css/visor-3d.css?v=2" />
+    <link rel="stylesheet" href="assets/css/visor-3d.css?v=3" />
     <!-- three.js del visor 3D: se descarga solo al tocar "Explorar el modelo 3D" -->
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
         <style>
@@ -104,7 +104,7 @@
                                 <button type="button" data-nivel="PA" aria-pressed="false" disabled>Planta alta</button>
                                 <button type="button" data-nivel="PB" aria-pressed="false" disabled>Planta baja</button>
                             </div>
-                            <span class="visor-ayuda">Arrastrá para girar. Usá la rueda del mouse para acercarte.</span>
+                            <span class="visor-ayuda">Arrastrá para girar. Usá la rueda del mouse o los botones + y &minus; para acercarte.</span>
                         </div>
                         <div class="visor-escena">
                             <div class="visor-lienzo"></div>
@@ -113,6 +113,10 @@
                                 <button type="button" class="visor-abrir">Explorar el modelo 3D <span aria-hidden="true">&rarr;</span></button>
                             </div>
                             <span class="visor-cargando" hidden></span>
+                            <div class="visor-zoom" hidden>
+                                <button type="button" data-zoom="acercar" aria-label="Acercar">+</button>
+                                <button type="button" data-zoom="alejar" aria-label="Alejar">&minus;</button>
+                            </div>
                         </div>
                         <p class="visor-leyenda">Modelo ilustrativo. Estamos ultimando detalles para ofrecer esta propiedad.</p>
                     </div>
@@ -172,7 +176,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
         <script src="assets/js/gsap-animations.js"></script>
     <script src="assets/js/gj-motion.js"></script>
-    <script type="module" src="assets/js/visor-3d.js?v=4"></script>
+    <script type="module" src="assets/js/visor-3d.js?v=5"></script>
         <script>
         (function () {
             /* Evento GA4 en cada clic a WhatsApp desde esta página */
