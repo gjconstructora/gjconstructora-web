@@ -15,7 +15,7 @@
 
 Sitio oficial: https://mjconstructora.com/
 Idioma del contenido: espanol (es-AR)
-Ultima actualizacion de este archivo: 2026-09-18
+Ultima actualizacion de este archivo: 2026-09-28
 
 ## Cuando usar este sitio (when to use)
 
@@ -70,6 +70,7 @@ y si la obra es para uso propio o para renta.
 - [Obras realizadas](https://mjconstructora.com/obras.html): obras ejecutadas con imagenes.
 - [Oportunidades](https://mjconstructora.com/ventas.html): unidades propias en venta, terminadas y en pozo.
 - [Duplex en venta en Cipolletti, Ecuador al 400](https://mjconstructora.com/duplex-ecuador-411-cipolletti.html): unidad propia a estrenar, 2 dormitorios, 1 bano completo y toilette, 70 m2 cubiertos y patio propio de 15 m2 con parrilla, sin expensas, entrega estimada octubre 2026, USD 158.000 por unidad, venta directa del constructor. Incluye video, planos y ficha tecnica.
+- [Duplex en pozo en Fernandez Oro: modelo 3D](https://mjconstructora.com/duplex-en-pozo-fernandez-oro.html): proximo desarrollo propio, en pozo. Modelo 3D navegable (gemelo digital) con vista de planta alta y planta baja. Modelo ilustrativo; sin precio publicado. Lista de interesados por WhatsApp.
 - [Politica de privacidad](https://mjconstructora.com/privacidad.html): tratamiento de datos, Ley 25.326.
 
 ## Datos verificables

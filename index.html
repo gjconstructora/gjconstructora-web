@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=supreme@300,400,500,700&amp;display=swap" />
     <link rel="stylesheet" href="assets/css/main.css?v=20" />
     <link rel="stylesheet" href="assets/css/gj-marca.css?v=22" />
+    <link rel="stylesheet" href="assets/css/visor-3d.css?v=1" />
+    <!-- three.js del visor 3D: se descarga solo al tocar "Explorar el modelo 3D" -->
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
     <style>
 .story-block-text p { margin-bottom: 1.7rem; line-height: 1.72; }
         .story-block-text p:last-child { margin-bottom: 0; }
@@ -435,6 +438,34 @@
                 <!-- SECTION DIVIDER -->
 <div class="section-divider"></div>
 
+                <!-- GEMELO DIGITAL 3D: visor del dúplex en pozo de Fernández Oro (el modelo se descarga al tocar el botón) -->
+                <section class="visor-3d" id="modelo-3d" aria-label="Modelo 3D del dúplex en pozo de Fernández Oro" data-modelo="images/duplex-oro-3d.glb">
+                    <div class="visor-intro">
+                        <span class="visor-eyebrow">En pozo &middot; Fernández Oro</span>
+                        <h2>Recorré nuestro gemelo digital 3D.</h2>
+                        <p>Este modelo es el que utilizamos para resolver los proyectos en 3D. Podés girarlo, acercarte y ver cada planta por dentro.</p>
+                    </div>
+                    <div class="visor-caja">
+                        <div class="visor-herramientas">
+                            <div class="visor-niveles" role="group" aria-label="Qué parte ver">
+                                <button type="button" data-nivel="completa" aria-pressed="true" disabled>Casa completa</button>
+                                <button type="button" data-nivel="PA" aria-pressed="false" disabled>Planta alta</button>
+                                <button type="button" data-nivel="PB" aria-pressed="false" disabled>Planta baja</button>
+                            </div>
+                            <span class="visor-ayuda">Arrastrá para girar. Usá la rueda del mouse para acercarte.</span>
+                        </div>
+                        <div class="visor-escena">
+                            <div class="visor-lienzo"></div>
+                            <div class="visor-poster">
+                                <img src="images/duplex-oro-3d-poster.webp" alt="Vista del modelo 3D del dúplex en pozo de Fernández Oro" width="1118" height="699" loading="lazy" decoding="async" />
+                                <button type="button" class="visor-abrir">Explorar el modelo 3D <span aria-hidden="true">&rarr;</span></button>
+                            </div>
+                            <span class="visor-cargando" hidden></span>
+                        </div>
+                        <p class="visor-leyenda">Modelo ilustrativo. Estamos ultimando detalles para ofrecer esta propiedad.</p>
+                    </div>
+                </section>
+
                 <!-- COCINA 3D -->
                 <section class="cocina-3d">
                     <video class="cocina-3d-fondo" poster="images/cocina_duplex_cipolletti.jpg"
@@ -796,5 +827,6 @@
         Array.prototype.forEach.call(vs, function (v) { io.observe(v); });
     })();
     </script>
+    <script type="module" src="assets/js/visor-3d.js?v=1"></script>
 </body>
 </html>
