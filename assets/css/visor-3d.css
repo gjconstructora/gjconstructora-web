@@ -32,7 +32,7 @@
   background: var(--gj-texto); color: #fff; border: 0; border-radius: 8px; padding: 15px 22px; height: auto; line-height: 1;
   box-shadow: var(--shadow-md); cursor: pointer; }
 .visor-abrir:hover { background: var(--gj-oliva-claro); }
-.visor-cargando { position: absolute; left: 16px; bottom: 14px; font-size: 0.82rem; color: var(--gj-texto-tenue);
+.visor-cargando { position: absolute; left: 16px; top: 14px; z-index: 2; box-shadow: var(--shadow-md); font-size: 0.82rem; color: var(--gj-texto-tenue);
   background: var(--gj-panel); padding: 6px 10px; border-radius: 999px; border: 1px solid var(--gj-borde); }
 .visor-leyenda { font-size: 0.82rem; color: var(--gj-texto-tenue); padding: 12px 16px; border-top: 1px solid var(--gj-borde); margin: 0; }
 
