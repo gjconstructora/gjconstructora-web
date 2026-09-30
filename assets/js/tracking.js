@@ -45,6 +45,45 @@ gjDespuesDeCargar(function () {
 fbq('init', '1062947359713024');
 fbq('track', 'PageView');
 
+// === ORIGEN DE LA VISITA EN EL MENSAJE DE WHATSAPP ===
+// Al final del mensaje precargado se agrega una marca corta para anotar el origen en las
+// planillas: (G) anuncio de Google, (IG) Instagram, (FB) Facebook, (ZP) ZonaProp.
+// Sin marca: entró directo, por un buscador sin anuncio u otro sitio.
+// La marca se recuerda 30 días: si la persona vuelve escribiendo la dirección, conserva el canal
+// por el que llegó; si vuelve desde otro sitio, manda el nuevo.
+var gjOrigen = (function () {
+  var CLAVE = 'mj_origen', VIGENCIA = 30 * 864e5;
+  var p = new URLSearchParams(location.search);
+  var src = (p.get('utm_source') || '').toLowerCase(), med = (p.get('utm_medium') || '').toLowerCase();
+  var ref = '';
+  try { ref = document.referrer ? new URL(document.referrer).hostname.toLowerCase() : ''; } catch (e) {}
+  if (ref === location.hostname) ref = '';
+  var codigo = null;                                     // null = visita sin datos de origen
+  if (p.get('gclid') || p.get('gbraid') || p.get('wbraid') || (src === 'google' && /cpc|ppc|paid|ads/.test(med))) codigo = 'G';
+  else if (src === 'instagram' || /(^|\.)instagram\.com$/.test(ref)) codigo = 'IG';
+  else if (src === 'facebook' || /(^|\.)(facebook|fb)\.com$/.test(ref)) codigo = 'FB';
+  else if (src === 'zonaprop' || /(^|\.)zonaprop\.com(\.ar)?$/.test(ref)) codigo = 'ZP';
+  else if (src || ref) codigo = '';                      // otro canal identificado: reemplaza al guardado
+  try {
+    if (codigo !== null) localStorage.setItem(CLAVE, JSON.stringify({ c: codigo, t: Date.now() }));
+    else {
+      var g = JSON.parse(localStorage.getItem(CLAVE) || 'null');
+      codigo = g && Date.now() - g.t < VIGENCIA ? g.c : '';
+    }
+  } catch (e) { codigo = codigo || ''; }
+  if (codigo) {
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(function (a) {
+      var h = a.getAttribute('href'), marca = '(' + codigo + ')';
+      if (h.indexOf('text=') < 0) { a.setAttribute('href', h + (h.indexOf('?') < 0 ? '?' : '&') + 'text=' + encodeURIComponent(marca)); return; }
+      a.setAttribute('href', h.replace(/([?&]text=)([^&]*)/, function (m, k, v) {
+        var t = decodeURIComponent(v.replace(/\+/g, ' '));
+        return t.indexOf(marca) > -1 ? m : k + encodeURIComponent(t + ' ' + marca);
+      }));
+    });
+  }
+  return codigo || 'web';
+})();
+
 // === EVENTOS PROPIOS ===
 (function(){
   var ruta = location.pathname;
@@ -85,10 +124,10 @@ fbq('track', 'PageView');
     if (!canal) return;
 
     if (typeof fbq === 'function') {
-      fbq('track', 'Contact', { content_category: canal, content_name: ruta });
+      fbq('track', 'Contact', { content_category: canal, content_name: ruta, origen: gjOrigen });
     }
     if (typeof gtag === 'function') {
-      gtag('event', 'contacto', { metodo: canal, pagina: ruta });
+      gtag('event', 'contacto', { metodo: canal, pagina: ruta, origen: gjOrigen });
     }
   }, true);
 })();
