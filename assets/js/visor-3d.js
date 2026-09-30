@@ -7,6 +7,11 @@
 
   Plantas: los materiales del modelo llevan el sufijo __PA (planta alta) o __TECHO.
   "Planta alta" oculta el techo; "Planta baja" oculta techo y planta alta. Ambas vistas van desde arriba.
+
+  Corte de vista (pedido de Arian, 30/09/2026): en "Planta alta" y "Planta baja" las paredes de la casa
+  se ven cortadas a 2,40 m del piso de cada planta, que es la altura del placard de arriba y de las
+  alacenas de la cocina (quedan enteros). Es solo la vista: el modelo no se modifica y "Casa completa"
+  lo muestra entero. Lo que está fuera de la casa (pérgola, parrilla) no se corta.
 */
 const RAIZ = document.querySelector('.visor-3d');
 if (RAIZ) {
@@ -17,6 +22,11 @@ if (RAIZ) {
   const MODELO = RAIZ.dataset.modelo || 'images/duplex-oro-3d.glb';
   const THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.169.0/';
   const OCULTAR = { completa: [], PA: ['__TECHO'], PB: ['__PA', '__TECHO'] };
+  // Altura del corte en coordenadas del modelo (m): piso PB 0,34 y piso PA 3,54, más 2,40 m y 2 cm de margen.
+  const CORTE = { PB: 2.76, PA: 5.96 };
+  // Planta de la casa en el modelo (x, z): solo se corta lo que está adentro.
+  const CASA = { x0: 17.8, x1: 25.9, z0: -17.45, z1: -13.0 };
+  let planos = null, cortables = [];
   const reducir = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // En pantallas táctiles la ayuda habla de dedos; con mouse, de la rueda.
@@ -73,6 +83,24 @@ if (RAIZ) {
     const caja = new THREE.Box3().setFromObject(modelo), centro = caja.getCenter(new THREE.Vector3()), tam = caja.getSize(new THREE.Vector3());
     modelo.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
 
+    // Piezas que cruzan la altura de corte dentro de la casa: llevan materiales propios para
+    // recortarlas sin tocar otras piezas que compartan el mismo material.
+    renderer.localClippingEnabled = true;
+    planos = { PB: new THREE.Plane(new THREE.Vector3(0, -1, 0), CORTE.PB), PA: new THREE.Plane(new THREE.Vector3(0, -1, 0), CORTE.PA) };
+    const bb = new THREE.Box3();
+    modelo.traverse(o => {
+      if (!o.isMesh) return;
+      const nom = (Array.isArray(o.material) ? o.material[0] : o.material).name || '';
+      const nivel = nom.endsWith('__TECHO') ? null : nom.endsWith('__PA') ? 'PA' : 'PB';
+      if (!nivel) return;
+      bb.setFromObject(o);
+      const adentro = bb.min.x >= CASA.x0 && bb.max.x <= CASA.x1 && bb.min.z >= CASA.z0 && bb.max.z <= CASA.z1;
+      if (!adentro || bb.max.y <= CORTE[nivel]) return;
+      const propio = mt => { const c = mt.clone(); c.clipShadows = true; return c; };
+      o.material = Array.isArray(o.material) ? o.material.map(propio) : propio(o.material);
+      o.userData.nivelCorte = nivel; cortables.push(o);
+    });
+
     // Sol cálido para marcar volúmenes y dar sombra al suelo.
     const sol = new THREE.DirectionalLight(0xffe6c4, 3.4);
     sol.position.set(centro.x - tam.x, caja.max.y + tam.y * 2, centro.z + tam.z * 1.2);
@@ -109,6 +137,10 @@ if (RAIZ) {
       if (!o.isMesh) return;
       const mats = Array.isArray(o.material) ? o.material : [o.material];
       o.visible = !mats.some(mt => lista.some(s => (mt.name || '').endsWith(s)));
+    });
+    cortables.forEach(o => {
+      const pl = o.userData.nivelCorte === nivel ? [planos[nivel]] : [];
+      (Array.isArray(o.material) ? o.material : [o.material]).forEach(mt => { mt.clippingPlanes = pl; });
     });
     moverCamara(...VISTA[nivel]());
     botones.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.nivel === nivel)));
