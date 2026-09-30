@@ -42,6 +42,13 @@
 .visor-zoom button:focus-visible { outline: 2px solid var(--gj-texto); outline-offset: 3px; }
 .visor-leyenda { font-size: 0.82rem; color: var(--gj-texto-tenue); padding: 12px 16px; border-top: 1px solid var(--gj-borde); margin: 0; }
 
+/* Computadora: la tarjeta entra entera en la pantalla debajo del encabezado fijo (67 px), con la barra
+   de botones incluida. Se achica manteniendo la proporción 16:10 y queda centrada. */
+@media screen and (min-width: 737px) {
+  .visor-caja { justify-self: center; width: min(100%, max(600px, calc((100vh - 190px) * 1.6)));
+    width: min(100%, max(600px, calc((100svh - 190px) * 1.6))); }
+}
+
 @media screen and (max-width: 736px) {
   .visor-escena { aspect-ratio: 4 / 5; }
   .visor-niveles button { padding: 10px 13px; }
