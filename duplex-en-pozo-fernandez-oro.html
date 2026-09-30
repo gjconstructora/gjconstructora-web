@@ -35,7 +35,7 @@
     <!-- three.js del visor 3D: se descarga solo al tocar "Explorar el modelo 3D" -->
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
         <style>
-            .oro-contacto { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.6rem; margin: 0 0 1rem; }
+            .oro-contacto { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; text-align: center; gap: 1rem 1.6rem; margin: 0 0 1rem; }
             .oro-contacto .oro-num { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--gj-texto); user-select: all; }
             .oro-contacto span { color: var(--gj-texto-tenue); }
             /* ---- Imágenes del proyecto: 3 columnas, recorte 4:5 (mismo esquema que la ficha de Cipolletti) ---- */
@@ -46,6 +46,8 @@
             @media screen and (max-width: 768px) {
                 .gallery.oro-fotos .project-section .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
                 .oro-fotos .project-section { padding: 0.9rem; }
+                /* 9 imágenes en 2 columnas: la última queda sola, centrada y del mismo tamaño */
+                .oro-fotos .gallery-grid .img-wrapper:last-child:nth-child(odd) { grid-column: 1 / -1; width: 100%; max-width: calc(50% - 0.35rem); margin: 0 auto; }
             }
         </style>
         <script defer src="assets/js/tracking.js"></script>
@@ -140,7 +142,6 @@
                     <div class="project-section">
                         <div class="gallery-grid">
                                 <div class="img-wrapper"><picture><source srcset="images/oro_foto_fachada_dia.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_fachada_dia.jpg" alt="Fachada de los dúplex en Fernández Oro de día" /></picture></div>
-                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_aerea.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_aerea.jpg" alt="Vista aérea del conjunto de dúplex" /></picture></div>
                                 <div class="img-wrapper"><picture><source srcset="images/oro_foto_living.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_living.jpg" alt="Living con sillón, mesa ratona y comedor al fondo" /></picture></div>
                                 <div class="img-wrapper"><picture><source srcset="images/oro_foto_cocina.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_cocina.jpg" alt="Cocina con mesada, alacenas y mesa redonda" /></picture></div>
                                 <div class="img-wrapper"><picture><source srcset="images/oro_foto_estar.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_estar.jpg" alt="Estar con sillón y mesa ratona" /></picture></div>
