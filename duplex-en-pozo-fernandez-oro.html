@@ -38,6 +38,15 @@
             .oro-contacto { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.6rem; margin: 0 0 1rem; }
             .oro-contacto .oro-num { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--gj-texto); user-select: all; }
             .oro-contacto span { color: var(--gj-texto-tenue); }
+            /* ---- Imágenes del proyecto: 3 columnas, recorte 4:5 (mismo esquema que la ficha de Cipolletti) ---- */
+            .oro-fotos .project-section { padding: 1.6rem; }
+            .gallery.oro-fotos .project-section .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+            .oro-fotos .img-wrapper { height: auto; aspect-ratio: 4 / 5; }
+            .oro-fotos .gallery-grid .img-wrapper:last-child:nth-child(odd) { grid-column: auto; max-width: none; margin: 0; }
+            @media screen and (max-width: 768px) {
+                .gallery.oro-fotos .project-section .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+                .oro-fotos .project-section { padding: 0.9rem; }
+            }
         </style>
         <script defer src="assets/js/tracking.js"></script>
         <script type="application/ld+json">
@@ -121,6 +130,29 @@
                     </div>
                 </section>
 
+                <!-- IMÁGENES DEL PROYECTO -->
+                <div class="hero-section" style="margin-top: 1rem;">
+                    <h2 style="font-size: 2.4rem; margin-bottom: 0;">Imágenes del proyecto</h2>
+                    <div class="hero-divider"></div>
+                    <p class="hero-subtitle">Tocá una imagen para ampliarla</p>
+                </div>
+                <div class="gallery oro-fotos">
+                    <div class="project-section">
+                        <div class="gallery-grid">
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_fachada_dia.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_fachada_dia.jpg" alt="Fachada de los dúplex en Fernández Oro de día" /></picture></div>
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_aerea.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_aerea.jpg" alt="Vista aérea del conjunto de dúplex" /></picture></div>
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_living.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_living.jpg" alt="Living con sillón, mesa ratona y comedor al fondo" /></picture></div>
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_cocina.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_cocina.jpg" alt="Cocina con mesada, alacenas y mesa redonda" /></picture></div>
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_estar.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_estar.jpg" alt="Estar con sillón y mesa ratona" /></picture></div>
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_parrilla.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_parrilla.jpg" alt="Patio con parrilla, pasto y fogonero" /></picture></div>
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_dormitorio_principal.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_dormitorio_principal.jpg" alt="Dormitorio principal con ventana y cortinas" /></picture></div>
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_dormitorio2.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_dormitorio2.jpg" alt="Segundo dormitorio con cama y respaldo de madera" /></picture></div>
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_bano.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_bano.jpg" alt="Baño con ducha, vanitory y ventana alta" /></picture></div>
+                                <div class="img-wrapper"><picture><source srcset="images/oro_foto_fachada_noche.webp" type="image/webp" /><img loading="lazy" decoding="async" width="900" height="1125" src="images/oro_foto_fachada_noche.jpg" alt="Fachada de los dúplex de noche con iluminación exterior" /></picture></div>
+                        </div>
+                    </div>
+                </div>
+
                     <div class="oro-contacto">
                         <a href="https://wa.me/5492995958293?text=Hola%2C%20quiero%20inscribirme%20en%20la%20lista%20de%20interesados%20del%20d%C3%BAplex%20en%20Fern%C3%A1ndez%20Oro." target="_blank" rel="noopener" class="hero-cta oro-wa">Inscribirme en la lista de interesados</a>
                         <span>WhatsApp y teléfono: <span class="oro-num">+54 9 299 595-8293</span></span>
@@ -169,6 +201,9 @@
         <script src="assets/js/breakpoints.min.js"></script>
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
+
+        <!-- Lightbox para las imágenes -->
+        <script src="assets/js/lightbox.js"></script>
 
         <!-- GSAP -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
