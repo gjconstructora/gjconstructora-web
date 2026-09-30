@@ -60,6 +60,17 @@ fbq('track', 'PageView');
     gtag('event', 'ver_unidad', { unidad: 'duplex_ecuador_411' });
   }
 
+  // Dúplex en pozo de Fernández Oro (modelo 3D e imágenes). Es la página a la que
+  // lleva el botón "Quiero ver el proyecto en 3D" de los anuncios de WhatsApp.
+  if (ruta.indexOf('duplex-en-pozo-fernandez-oro') > -1) {
+    fbq('track', 'ViewContent', {
+      content_name: 'Duplex en pozo - Fernandez Oro',
+      content_category: 'Proyecto en pozo',
+      content_type: 'product'
+    });
+    gtag('event', 'ver_unidad', { unidad: 'duplex_oro_pozo' });
+  }
+
   // Clic en WhatsApp o en el teléfono: es la conversión real del sitio.
   // Va en captura para que se registre aunque el enlace abra otra pestaña.
   document.addEventListener('click', function (ev) {
