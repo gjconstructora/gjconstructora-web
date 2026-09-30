@@ -114,41 +114,6 @@
                 margin-bottom: 0.8rem;
             }
 
-            /* ---- Planos ---- */
-            .ec-planos .img-wrapper {
-                height: auto;
-                background: var(--white);
-                animation: none;
-            }
-            .ec-planos .img-wrapper img {
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-                background: var(--white);
-            }
-            .ec-planos .img-wrapper { min-height: 120px; }
-            .ec-planos .img-wrapper:hover img { transform: none; }
-            /* Las dos plantas tienen relacion de aspecto distinta (1600x1064 y
-               1600x902). Se les da una caja identica y cada plano se contiene
-               adentro, para que los dos se vean del mismo tamano. */
-            .ec-planos .img-wrapper {
-                aspect-ratio: 16 / 10;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .ec-planos .img-wrapper img { height: 100%; }
-            .ec-planos .gallery-grid { align-items: stretch; }
-            .ec-planos figcaption {
-                text-align: center;
-                font-family: 'General Sans', system-ui, sans-serif;
-                text-transform: uppercase;
-                letter-spacing: 1.5px;
-                font-size: 0.95rem;
-                color: var(--navy);
-                margin-top: 0.7rem;
-            }
-            .ec-planos figure { margin: 0; }
             /* ---- Fotos reales: 3 columnas, recorte 4:5 ---- */
             .ec-fotos .project-section { padding: 1.6rem; }
             .gallery.ec-fotos .project-section .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
@@ -158,7 +123,6 @@
                 .gallery.ec-fotos .project-section .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
                 .ec-fotos .project-section { padding: 0.9rem; }
             }
-            .ec-planos .gallery-grid { align-items: start; }
 
             /* ---- Ubicación ---- */
             .ec-mapa {
@@ -354,7 +318,7 @@
                         </div>
                         <div class="ec-ficha">
                             <div class="ec-price">USD 158.000</div>
-                            <p class="ec-price-note">Por unidad · amueblado · venta directa, sin comisión inmobiliaria. Últimas dos unidades.</p>
+                            <p class="ec-price-note">Amueblado · venta directa, sin comisión inmobiliaria. Últimas dos unidades.</p>
                             <ul class="ec-datos">
                                 <li><i class="fas fa-bed"></i><span><strong>2 dormitorios</strong> con placard, en planta alta</span></li>
                                 <li><i class="fas fa-bath"></i><span><strong>1 baño completo</strong> y toilette</span></li>
@@ -433,35 +397,6 @@
 
                     <div class="section-divider"></div>
 
-                    <!-- Planos -->
-                    <div class="hero-section" style="margin-top: 1rem;">
-                        <h2 style="font-size: 2.4rem; margin-bottom: 0;">Planos</h2>
-                        <div class="hero-divider"></div>
-                        <p class="hero-subtitle">Tocá un plano para ampliarlo</p>
-                        <p style="margin-top: 0.8rem; font-size: 1rem; color: var(--text-body);">Los planos muestran <strong>las dos unidades apareadas</strong>, una a cada lado de la medianera. Cada unidad se vende por separado y es la mitad del plano.</p>
-                    </div>
-
-                    <div class="gallery ec-planos">
-                        <div class="project-section">
-                            <div class="gallery-grid">
-                                <figure>
-                                    <div class="img-wrapper">
-                                        <picture><source srcset="images/ecuador411_planta_baja.webp" type="image/webp" /><img loading="eager" width="1600" height="1064" src="images/ecuador411_planta_baja.jpg" alt="Plano de planta baja de las dos unidades del dúplex: estar, comedor, cocina integrada, toilette y patio de cada una" /></picture>
-                                    </div>
-                                    <figcaption>Planta baja &middot; las dos unidades</figcaption>
-                                </figure>
-                                <figure>
-                                    <div class="img-wrapper">
-                                        <picture><source srcset="images/ecuador411_planta_alta.webp" type="image/webp" /><img loading="eager" width="1600" height="902" src="images/ecuador411_planta_alta.jpg" alt="Plano de planta alta de las dos unidades del dúplex: dos dormitorios con placard y baño completo en cada una" /></picture>
-                                    </div>
-                                    <figcaption>Planta alta &middot; las dos unidades</figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section-divider"></div>
-
                     <!-- Ubicación -->
                     <div class="story-block-text" style="max-width: 60rem; margin: 0 auto 2.5rem;">
                         <h2>Ubicación</h2>
@@ -512,7 +447,7 @@
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
 
-        <!-- Lightbox para los planos -->
+        <!-- Lightbox para las fotos -->
         <script src="assets/js/lightbox.js"></script>
 
         <!-- GSAP -->
