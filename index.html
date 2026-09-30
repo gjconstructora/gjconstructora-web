@@ -36,6 +36,10 @@
     <!-- three.js del visor 3D: se descarga solo al tocar "Explorar el modelo 3D" -->
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
     <style>
+        /* visor 3D de Oro en la portada: etiqueta de proyecto grande y más aire respecto de la tarjeta de Cipolletti */
+        #modelo-3d { margin-top: 3.5rem; }
+        #modelo-3d .visor-proyecto { justify-self: start; font-size: 0.95rem; letter-spacing: 0.12em; padding: 0.5rem 1rem; margin: 0 0 0.6rem; }
+        @media screen and (max-width: 736px) { #modelo-3d { margin-top: 2.4rem; } #modelo-3d .visor-proyecto { font-size: 0.78rem; padding: 0.4rem 0.75rem; } }
 .story-block-text p { margin-bottom: 1.7rem; line-height: 1.72; }
         .story-block-text p:last-child { margin-bottom: 0; }
         .story-block-text h2 { margin-bottom: 1.2rem; }
@@ -413,7 +417,7 @@
                 <!-- GEMELO DIGITAL 3D: visor del dúplex en pozo de Fernández Oro (el modelo se descarga al tocar el botón) -->
                 <section class="visor-3d" id="modelo-3d" aria-label="Modelo 3D del dúplex en pozo de Fernández Oro" data-modelo="images/duplex-oro-3d.glb">
                     <div class="visor-intro">
-                        <span class="visor-eyebrow">En pozo &middot; Fernández Oro</span>
+                        <span class="etiqueta-venta visor-proyecto">Proyecto en pozo &middot; Gral. Fernández Oro</span>
                         <h2>Recorré nuestro gemelo digital 3D.</h2>
                         <p>Este modelo es el que utilizamos para resolver los proyectos en 3D. Podés girarlo, acercarte y ver cada planta por dentro.</p>
                     </div>
@@ -438,7 +442,6 @@
                                 <button type="button" data-zoom="alejar" aria-label="Alejar">&minus;</button>
                             </div>
                         </div>
-                        <p class="visor-leyenda">Modelo ilustrativo. Estamos ultimando detalles para ofrecer esta propiedad.</p>
                     </div>
                 </section>
 
